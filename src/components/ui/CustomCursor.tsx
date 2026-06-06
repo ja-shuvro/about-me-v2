@@ -12,13 +12,13 @@ const PHASE_COLORS: Record<string, string> = {
   convergence: '#00f5ff',
 }
 
-export default function CustomCursor() {
+export default function CustomCursor({ colorOverride }: { colorOverride?: string }) {
   const cursorRef = useRef<HTMLDivElement>(null)
   const trailRef = useRef<HTMLDivElement>(null)
   const phase = useScrollStore((s) => s.phase)
 
   useEffect(() => {
-    const color = PHASE_COLORS[phase] || '#00f5ff'
+    const color = colorOverride || PHASE_COLORS[phase] || '#00f5ff'
     if (cursorRef.current) {
       cursorRef.current.style.borderColor = color
       cursorRef.current.style.boxShadow = `0 0 12px ${color}40`
@@ -26,7 +26,7 @@ export default function CustomCursor() {
     if (trailRef.current) {
       trailRef.current.style.background = color
     }
-  }, [phase])
+  }, [phase, colorOverride])
 
   useEffect(() => {
     let x = 0, y = 0

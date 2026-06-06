@@ -112,9 +112,9 @@ export default function ContactSection() {
               <motion.circle
                 cx="75%"
                 cy="80%"
-                r="5"
+                r={5}
                 fill="#ff3366"
-                animate={{ r: [4, 7, 4], opacity: [0.6, 1, 0.6] }}
+                animate={{ scale: [0.8, 1.4, 0.8], opacity: [0.6, 1, 0.6] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               />
               <motion.line
@@ -211,6 +211,14 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.5 }}
+            style={{
+              background: 'rgba(2, 4, 8, 0.65)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '4px',
+              padding: '2.5rem',
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            }}
           >
             {!sent ? (
               <form onSubmit={handleSubmit}>

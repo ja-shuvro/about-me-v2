@@ -14,6 +14,7 @@ export function useSmoothScroll() {
       smoothWheel: true,
     })
     lenisRef.current = lenis
+    ;(window as any).lenis = lenis
 
     lenis.on('scroll', ({ progress }: { progress: number }) => {
       setScroll(progress)
@@ -29,6 +30,9 @@ export function useSmoothScroll() {
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
+      if ((window as any).lenis === lenis) {
+        delete (window as any).lenis
+      }
     }
   }, [setScroll])
 

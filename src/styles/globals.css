@@ -96,3 +96,19 @@ input, textarea {
 input::placeholder, textarea::placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
+
+/* Responsive Project Grid in Cinematic Template */
+.project-expanded-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .project-expanded-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

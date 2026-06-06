@@ -16,12 +16,29 @@ export default function Navigation() {
   const { phase } = useScrollStore()
 
   const scrollToSection = (index: number) => {
-    const totalHeight = document.body.scrollHeight - window.innerHeight
-    const sectionHeight = totalHeight / 7
-    window.scrollTo({
-      top: index * sectionHeight + sectionHeight * 0.1,
-      behavior: 'smooth',
-    })
+    const mainElement = document.querySelector('main')
+    const targetElement = mainElement?.children[index] as HTMLElement | undefined
+
+    if (typeof window !== 'undefined' && (window as any).lenis) {
+      if (targetElement) {
+        ;(window as any).lenis.scrollTo(targetElement, { duration: 1.2 })
+      } else {
+        const totalHeight = document.body.scrollHeight - window.innerHeight
+        const sectionHeight = totalHeight / 7
+        ;(window as any).lenis.scrollTo(index * sectionHeight + sectionHeight * 0.1, { duration: 1.2 })
+      }
+    } else {
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        const totalHeight = document.body.scrollHeight - window.innerHeight
+        const sectionHeight = totalHeight / 7
+        window.scrollTo({
+          top: index * sectionHeight + sectionHeight * 0.1,
+          behavior: 'smooth',
+        })
+      }
+    }
   }
 
   return (
@@ -50,7 +67,7 @@ export default function Navigation() {
         textTransform: 'uppercase',
         opacity: 0.9,
       }}>
-        Portfolio
+        JA. Suvro
       </div>
 
       <div style={{

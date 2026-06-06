@@ -1,55 +1,105 @@
 'use client'
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Link from 'next/link'
 
-const CASE_STUDY = {
-  client: 'DATING PLATFORM',
-  challenge: 'A growing cross-platform mobile dating application, Flirtmetrics, was experiencing matchmaking screens freezing and real-time chat delays up to 8 seconds, directly causing user churn.',
-  phases: [
-    {
-      phase: 'PROBLEM',
-      icon: '◈',
-      color: '#ff3366',
-      content: 'Diagnostics revealed that heavy API polling clogged the network thread. Concurrently, unoptimized state rebuilding lockups on matching pages froze the UI thread.',
-      metric: '8s chat latency',
-    },
-    {
-      phase: 'RESEARCH',
-      icon: '◉',
-      color: '#00ff88',
-      content: 'Profiled Flutter thread allocation using Dart DevTools. Identified multiple redundant widget rebuilds under Riverpod and constant high-frequency HTTP requests.',
-      metric: 'Thread profiling',
-    },
-    {
-      phase: 'STRATEGY',
-      icon: '◬',
-      color: '#7c3aed',
-      content: 'Migrated from polling to WebSockets for instant message synchronization. Redesigned matching page state management to rebuild only the cards being swiped.',
-      metric: 'Event-driven flow',
-    },
-    {
-      phase: 'SOLUTION',
-      icon: '◆',
-      color: '#ff6b35',
-      content: 'Built a lightweight custom WebSocket-based state synced service in Flutter. Integrated local caching via SQLite to decouple chat histories from remote fetches.',
-      metric: 'WebSocket integration',
-    },
-    {
-      phase: 'OUTCOME',
-      icon: '◎',
-      color: '#00d4ff',
-      content: 'Chat latency plummeted from 8s to under 200ms. Swiping pages achieved stable 60 FPS performance, driving app store rating to 4.8 and boosting retention.',
-      metric: '<200ms latency',
-    },
-  ],
-}
+const CASE_STUDIES = [
+  {
+    id: 'flirtmetrics',
+    name: 'Flirtmetrics',
+    client: 'DATING PLATFORM',
+    challenge: 'A growing cross-platform mobile dating application, Flirtmetrics, was experiencing matchmaking screens freezing and real-time chat delays up to 8 seconds, directly causing user churn.',
+    phases: [
+      {
+        phase: 'PROBLEM',
+        icon: '◈',
+        color: '#ff3366',
+        content: 'Diagnostics revealed that heavy API polling clogged the network thread. Concurrently, unoptimized state rebuilding lockups on matching pages froze the UI thread.',
+        metric: '8s chat latency',
+      },
+      {
+        phase: 'RESEARCH',
+        icon: '◉',
+        color: '#00ff88',
+        content: 'Profiled Flutter thread allocation using Dart DevTools. Identified multiple redundant widget rebuilds under Riverpod and constant high-frequency HTTP requests.',
+        metric: 'Thread profiling',
+      },
+      {
+        phase: 'STRATEGY',
+        icon: '◬',
+        color: '#7c3aed',
+        content: 'Migrated from polling to WebSockets for instant message synchronization. Redesigned matching page state management to rebuild only the cards being swiped.',
+        metric: 'Event-driven flow',
+      },
+      {
+        phase: 'SOLUTION',
+        icon: '◆',
+        color: '#ff6b35',
+        content: 'Built a lightweight custom WebSocket-based state synced service in Flutter. Integrated local caching via SQLite to decouple chat histories from remote fetches.',
+        metric: 'WebSocket integration',
+      },
+      {
+        phase: 'OUTCOME',
+        icon: '◎',
+        color: '#00d4ff',
+        content: 'Chat latency plummeted from 8s to under 200ms. Swiping pages achieved stable 60 FPS performance, driving app store rating to 4.8 and boosting retention.',
+        metric: '<200ms latency',
+      },
+    ],
+  },
+  {
+    id: 'erp',
+    name: 'ERP System',
+    client: 'AGRO-INDUSTRIAL CORP',
+    challenge: 'A large agro-industrial corporation was relying on manual Excel ledgers and paper signature systems. This caused 24% stock discrepancies and 4-day delays in processing orders.',
+    phases: [
+      {
+        phase: 'PROBLEM',
+        icon: '◈',
+        color: '#ff3366',
+        content: 'Manual workflows caused sequential signature blocks. Unindexed database queries resulted in laggy ledger generators scanning millions of records.',
+        metric: '24% stock errors',
+      },
+      {
+        phase: 'RESEARCH',
+        icon: '◉',
+        color: '#00ff88',
+        content: 'Mapped operational workflow bottlenecks; analyzed PostgreSQL ledger queries. Identified lock contentions and lack of composite indexes.',
+        metric: '4-day order delay',
+      },
+      {
+        phase: 'STRATEGY',
+        icon: '◬',
+        color: '#7c3aed',
+        content: 'Redesigned approval system with parallel state routing machine. Added compound B-tree indexing and quarter-based table partitioning on PostgreSQL.',
+        metric: 'Parallel workflows',
+      },
+      {
+        phase: 'SOLUTION',
+        icon: '◆',
+        color: '#ff6b35',
+        content: 'Implemented Next.js portal with real-time WebSocket notifications. Optimized DB schemas and partitioned tables. Enabled offline synchronization.',
+        metric: 'Instant ledger sync',
+      },
+      {
+        phase: 'OUTCOME',
+        icon: '◎',
+        color: '#00d4ff',
+        content: 'Stock discrepancies reduced to <1%. Order processing latency plummeted from 4 days to under 30 minutes. Sales velocity improved by 18%.',
+        metric: 'Order time <30m',
+      },
+    ],
+  }
+]
 
 export default function CaseStudiesSection() {
+  const [activeStudyIdx, setActiveStudyIdx] = useState(0)
   const [activePhase, setActivePhase] = useState(0)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
-  const active = CASE_STUDY.phases[activePhase]
+  const study = CASE_STUDIES[activeStudyIdx]
+  const active = study.phases[activePhase]
 
   return (
     <section style={{ minHeight: '100vh', padding: '8rem 3rem' }}>
@@ -96,6 +146,50 @@ export default function CaseStudiesSection() {
             overflow: 'hidden',
           }}
         >
+          {/* Case study selectors */}
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            padding: '1.2rem 2rem',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(255,255,255,0.01)',
+          }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.65rem',
+              color: 'rgba(255,255,255,0.25)',
+              alignSelf: 'center',
+              letterSpacing: '0.15em',
+              marginRight: 'auto',
+            }}>
+              SELECT_SYSTEM //
+            </span>
+            {CASE_STUDIES.map((cs, idx) => (
+              <button
+                key={cs.id}
+                onClick={() => {
+                  setActiveStudyIdx(idx);
+                  setActivePhase(0); // reset phase
+                }}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: activeStudyIdx === idx ? study.phases[0].color : 'rgba(255,255,255,0.3)',
+                  borderBottom: activeStudyIdx === idx ? `1px solid ${study.phases[0].color}` : '1px solid transparent',
+                  padding: '0.4rem 0.8rem',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                {cs.name}
+              </button>
+            ))}
+          </div>
+
           {/* Header */}
           <div style={{
             padding: '2rem',
@@ -109,7 +203,7 @@ export default function CaseStudiesSection() {
               letterSpacing: '0.2em',
               marginBottom: '0.8rem',
             }}>
-              CASE_STUDY_001 // {CASE_STUDY.client}
+              CASE_STUDY_00{activeStudyIdx + 1} {"//"} {study.client}
             </div>
             <p style={{
               fontFamily: 'var(--font-body)',
@@ -118,7 +212,7 @@ export default function CaseStudiesSection() {
               lineHeight: 1.7,
               maxWidth: '700px',
             }}>
-              {CASE_STUDY.challenge}
+              {study.challenge}
             </p>
           </div>
 
@@ -127,7 +221,7 @@ export default function CaseStudiesSection() {
             display: 'flex',
             borderBottom: '1px solid rgba(255,255,255,0.06)',
           }}>
-            {CASE_STUDY.phases.map((p, i) => (
+            {study.phases.map((p, i) => (
               <button
                 key={p.phase}
                 onClick={() => setActivePhase(i)}
@@ -176,9 +270,10 @@ export default function CaseStudiesSection() {
               display: 'flex',
               alignItems: 'flex-start',
               gap: '3rem',
+              flexWrap: 'wrap',
             }}
           >
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, minWidth: '280px' }}>
               <p style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '1.05rem',
@@ -188,33 +283,74 @@ export default function CaseStudiesSection() {
                 {active.content}
               </p>
             </div>
+            
             <div style={{
               flexShrink: 0,
-              textAlign: 'center',
-              padding: '1.5rem',
-              border: `1px solid ${active.color}50`,
-              background: `rgba(${hexToRgb(active.color)}, 0.1)`,
-              backdropFilter: 'blur(8px)',
-              borderRadius: '2px',
-              minWidth: '140px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+              alignItems: 'center',
+              minWidth: '180px',
             }}>
+              {/* Metric Box */}
               <div style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '1.4rem',
-                color: active.color,
-                fontWeight: 300,
-                marginBottom: '0.3rem',
+                textAlign: 'center',
+                padding: '1.2rem',
+                border: `1px solid ${active.color}50`,
+                background: `rgba(${hexToRgb(active.color)}, 0.1)`,
+                backdropFilter: 'blur(8px)',
+                borderRadius: '2px',
+                width: '100%',
               }}>
-                {active.metric}
+                <div style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.4rem',
+                  color: active.color,
+                  fontWeight: 300,
+                  marginBottom: '0.3rem',
+                }}>
+                  {active.metric}
+                </div>
+                <div style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.55rem',
+                  color: 'rgba(255,255,255,0.3)',
+                  letterSpacing: '0.1em',
+                }}>
+                  KEY RESULT
+                </div>
               </div>
-              <div style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.55rem',
-                color: 'rgba(255,255,255,0.3)',
-                letterSpacing: '0.1em',
-              }}>
-                KEY RESULT
-              </div>
+
+              {/* View Report Button */}
+              <Link
+                href={`/case-studies/${study.id}`}
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.65rem',
+                  color: active.color,
+                  padding: '0.6rem 1rem',
+                  border: `1px solid ${active.color}45`,
+                  background: `${active.color}08`,
+                  textDecoration: 'none',
+                  letterSpacing: '0.15em',
+                  borderRadius: '1px',
+                  width: '100%',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = active.color
+                  e.currentTarget.style.color = '#020408'
+                  e.currentTarget.style.boxShadow = `0 0 15px ${active.color}60`
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = `${active.color}08`
+                  e.currentTarget.style.color = active.color
+                  e.currentTarget.style.boxShadow = 'none'
+                }}
+              >
+                VIEW_SYSTEM_REPORT →
+              </Link>
             </div>
           </motion.div>
 
@@ -226,11 +362,11 @@ export default function CaseStudiesSection() {
             alignItems: 'center',
             gap: '0.5rem',
           }}>
-            {CASE_STUDY.phases.map((p, i) => (
+            {study.phases.map((p, i) => (
               <div
                 key={i}
                 style={{
-                  flex: i < CASE_STUDY.phases.length - 1 ? 1 : 0,
+                  flex: i < study.phases.length - 1 ? 1 : 0,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',
@@ -245,7 +381,7 @@ export default function CaseStudiesSection() {
                   flexShrink: 0,
                   transition: 'all 0.4s ease',
                 }} />
-                {i < CASE_STUDY.phases.length - 1 && (
+                {i < study.phases.length - 1 && (
                   <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.08)' }}>
                     <motion.div
                       animate={{ width: i < activePhase ? '100%' : '0%' }}

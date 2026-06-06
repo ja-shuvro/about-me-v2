@@ -13,6 +13,8 @@ import CaseStudiesSection from '@/components/sections/CaseStudiesSection'
 import JourneySection from '@/components/sections/JourneySection'
 import ContactSection from '@/components/sections/ContactSection'
 
+import { useScrollStore } from '@/lib/scrollStore'
+
 // Dynamically import Three.js canvas to avoid SSR issues
 const SceneCanvas = dynamic(() => import('@/components/three/SceneCanvas'), {
   ssr: false,
@@ -20,6 +22,8 @@ const SceneCanvas = dynamic(() => import('@/components/three/SceneCanvas'), {
 
 export default function Portfolio() {
   useSmoothScroll()
+  const { phase } = useScrollStore()
+  const isLatePhase = phase === 'evolution' || phase === 'convergence'
 
   return (
     <>
@@ -32,7 +36,11 @@ export default function Portfolio() {
           position: 'fixed',
           inset: 0,
           zIndex: 1,
-          background: 'radial-gradient(circle at center, transparent 20%, rgba(2, 4, 8, 0.85) 100%), rgba(2, 4, 8, 0.45)',
+          background: isLatePhase
+            ? 'radial-gradient(circle at center, rgba(2, 4, 8, 0.25) 0%, rgba(2, 4, 8, 0.95) 90%), rgba(2, 4, 8, 0.7)'
+            : 'radial-gradient(circle at center, transparent 20%, rgba(2, 4, 8, 0.85) 100%), rgba(2, 4, 8, 0.45)',
+          backdropFilter: isLatePhase ? 'blur(4px)' : 'none',
+          transition: 'background 0.8s ease, backdrop-filter 0.8s ease',
           pointerEvents: 'none',
         }}
       />

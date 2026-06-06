@@ -165,7 +165,16 @@ export default function JourneySection() {
               </div>
 
               {/* Content */}
-              <div style={{ flex: 1 }}>
+              <div style={{
+                flex: 1,
+                background: 'rgba(2, 4, 8, 0.75)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                padding: '1.5rem 2rem',
+                borderRadius: '4px',
+                position: 'relative',
+                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+              }}>
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -204,7 +213,7 @@ export default function JourneySection() {
                 <p style={{
                   fontFamily: 'var(--font-body)',
                   fontSize: '0.9rem',
-                  color: 'rgba(255,255,255,0.5)',
+                  color: 'rgba(255,255,255,0.7)',
                   lineHeight: 1.7,
                   marginBottom: '0.8rem',
                 }}>
