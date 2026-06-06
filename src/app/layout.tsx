@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import '../styles/globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jashuvro.com'),
   title: 'J.A. Shuvro — Flutter & Full-Stack Developer',
-  description: 'Portfolio of J.A. Shuvro (JA. Shuvro), a professional Flutter & Full-Stack Developer. Specialized in building mobile apps (Android/iOS) and robust web architectures with Laravel, React, Next.js, and Express.',
+  description: 'Portfolio of J.A. Shuvro (Md. Jonaed Ali Shuvro), a professional Flutter & Full-Stack Developer. Specialized in building mobile apps (Android/iOS) and robust web architectures with Laravel, React, Next.js, and Express.',
   keywords: [
     'J.A. Shuvro',
     'J.A. Suvro',
@@ -11,6 +12,15 @@ export const metadata: Metadata = {
     'JA. Suvro',
     'Shuvro',
     'Suvro',
+    'Jonaed Ali',
+    'Md. Jonaed ali',
+    'Md Jonaed ali shuvro',
+    'Md. Jonaed Ali Shuvro',
+    'Jonaed',
+    'Ali',
+    'Jonaed Ali Shuvro',
+    'Md. Jonaed Ali',
+    'Md Jonaed Ali',
     'Flutter Developer',
     'Full-Stack Developer',
     'Mobile App Specialist',
@@ -26,6 +36,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'J.A. Shuvro', url: 'https://github.com/ja-shuvro' }],
   creator: 'J.A. Shuvro',
+  icons: {
+    icon: '/logo-round.png',
+    shortcut: '/logo-round.png',
+    apple: '/logo-round.png',
+  },
   robots: {
     index: true,
     follow: true,
@@ -46,12 +61,21 @@ export const metadata: Metadata = {
     type: 'profile',
     username: 'ja-shuvro',
     gender: 'male',
+    images: [
+      {
+        url: '/logo-landscape.png',
+        width: 1200,
+        height: 630,
+        alt: 'J.A. Shuvro — Flutter & Full-Stack Developer Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'J.A. Shuvro — Flutter & Full-Stack Developer',
     description: 'Bespoke Flutter mobile applications and high-performance Full-Stack web systems.',
     creator: '@shuvro_a',
+    images: ['/logo-landscape.png'],
   },
 }
 
@@ -59,7 +83,15 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'J.A. Shuvro',
-  alternateName: ['JA. Shuvro', 'Shuvro', 'J.A. Shuvro — Flutter & Full-Stack Developer'],
+  alternateName: [
+    'JA. Shuvro',
+    'Shuvro',
+    'Jonaed Ali',
+    'Md. Jonaed Ali',
+    'Md. Jonaed Ali Shuvro',
+    'Jonaed Ali Shuvro',
+    'J.A. Shuvro — Flutter & Full-Stack Developer'
+  ],
   url: 'https://jashuvro.com',
   image: 'https://avatars.githubusercontent.com/u/89667794?v=4',
   jobTitle: 'Flutter & Full-Stack Developer',
