@@ -64,17 +64,8 @@ export default function Portfolio() {
         <ContactSection />
 
         {/* Footer */}
-        <footer style={{
-          textAlign: 'center',
-          padding: '4rem 3rem',
-          borderTop: '1px solid rgba(255,255,255,0.04)',
-        }}>
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.6rem',
-            color: 'rgba(255,255,255,0.15)',
-            letterSpacing: '0.2em',
-          }}>
+        <footer className="site-footer">
+          <p className="footer-text">
             © 2026 J.A. SHUVRO — BUILT WITH NEXT.JS · THREE.JS · FRAMER MOTION · GSAP
           </p>
         </footer>

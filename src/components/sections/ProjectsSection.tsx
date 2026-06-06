@@ -234,13 +234,15 @@ function ProjectCard({ project, delay, isMobile }: { project: typeof PROJECTS[0]
         marginBottom: '1.5rem',
         gap: '0.5rem',
       }}>
-        <div>
+        <div style={{ minWidth: 0, flex: 1 }}>
           <div style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '0.6rem',
             color: project.color,
             letterSpacing: '0.2em',
             marginBottom: '0.5rem',
+            whiteSpace: 'normal',
+            wordBreak: 'break-word',
           }}>
             PROJECT_{project.id} — {project.status}
           </div>
@@ -251,6 +253,8 @@ function ProjectCard({ project, delay, isMobile }: { project: typeof PROJECTS[0]
             fontWeight: 300,
             letterSpacing: '-0.02em',
             marginBottom: '0.3rem',
+            whiteSpace: 'normal',
+            wordBreak: 'break-word',
           }}>
             {project.name}
           </h3>
@@ -258,6 +262,8 @@ function ProjectCard({ project, delay, isMobile }: { project: typeof PROJECTS[0]
             fontFamily: 'var(--font-body)',
             fontSize: '0.85rem',
             color: 'rgba(255,255,255,0.4)',
+            whiteSpace: 'normal',
+            wordBreak: 'break-word',
           }}>
             {project.tagline}
           </p>

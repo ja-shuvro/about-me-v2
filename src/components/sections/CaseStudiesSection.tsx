@@ -303,9 +303,9 @@ export default function CaseStudiesSection() {
             <div style={{
               flexShrink: 0,
               display: 'flex',
-              flexDirection: isMobile ? 'row' : 'column',
-              gap: '1rem',
-              alignItems: 'center',
+              flexDirection: 'column',
+              gap: '0.8rem',
+              alignItems: 'stretch',
               width: isMobile ? '100%' : 'auto',
               minWidth: isMobile ? '100%' : '180px',
             }}>

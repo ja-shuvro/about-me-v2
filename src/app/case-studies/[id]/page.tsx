@@ -86,14 +86,7 @@ export default function CaseStudyPage() {
   }
 
   return (
-    <main style={{
-      minHeight: '100vh',
-      background: '#020408',
-      color: '#fff',
-      fontFamily: 'var(--font-body)',
-      padding: '4rem 2rem',
-      position: 'relative'
-    }}>
+    <main className="case-study-page">
       {/* Custom cursor matching case study accent color */}
       <CustomCursor colorOverride={data.color} />
       {/* Background ambient light */}
