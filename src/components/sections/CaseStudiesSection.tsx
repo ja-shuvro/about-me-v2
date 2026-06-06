@@ -3,43 +3,43 @@ import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const CASE_STUDY = {
-  client: 'FINTECH PLATFORM',
-  challenge: 'A Series B fintech with 200k users was hemorrhaging 34% of signups during onboarding. The 23-step KYC flow took 18 minutes average and had a 67% abandonment rate.',
+  client: 'DATING PLATFORM',
+  challenge: 'A growing cross-platform mobile dating application, Flirtmetrics, was experiencing matchmaking screens freezing and real-time chat delays up to 8 seconds, directly causing user churn.',
   phases: [
     {
       phase: 'PROBLEM',
       icon: '◈',
       color: '#ff3366',
-      content: 'User research revealed: 12 redundant data points, 6 unsequenced steps, zero progress feedback. Users felt trapped in bureaucracy.',
-      metric: '67% abandonment',
+      content: 'Diagnostics revealed that heavy API polling clogged the network thread. Concurrently, unoptimized state rebuilding lockups on matching pages froze the UI thread.',
+      metric: '8s chat latency',
     },
     {
       phase: 'RESEARCH',
       icon: '◉',
       color: '#00ff88',
-      content: 'Heatmaps, session recordings, 40 user interviews. Identified 3 critical drop-off moments: document upload, address verification, identity selfie.',
-      metric: '40 interviews',
+      content: 'Profiled Flutter thread allocation using Dart DevTools. Identified multiple redundant widget rebuilds under Riverpod and constant high-frequency HTTP requests.',
+      metric: 'Thread profiling',
     },
     {
       phase: 'STRATEGY',
       icon: '◬',
       color: '#7c3aed',
-      content: 'Restructured as adaptive flow: front-load easy questions, defer friction points, add save-and-resume, introduce progress visualization and micro-celebrations.',
-      metric: '3 week sprint',
+      content: 'Migrated from polling to WebSockets for instant message synchronization. Redesigned matching page state management to rebuild only the cards being swiped.',
+      metric: 'Event-driven flow',
     },
     {
       phase: 'SOLUTION',
       icon: '◆',
       color: '#ff6b35',
-      content: 'Built adaptive KYC engine: AI document extraction, real-time field validation, OCR-assisted prefill, conditional logic reducing steps from 23→9 for 80% of users.',
-      metric: '9 steps vs 23',
+      content: 'Built a lightweight custom WebSocket-based state synced service in Flutter. Integrated local caching via SQLite to decouple chat histories from remote fetches.',
+      metric: 'WebSocket integration',
     },
     {
       phase: 'OUTCOME',
       icon: '◎',
       color: '#00d4ff',
-      content: 'Abandonment dropped from 67% to 11%. Average completion time: 18min→4.2min. $2.3M additional ARR in 6 months from recovered signups.',
-      metric: '$2.3M recovered',
+      content: 'Chat latency plummeted from 8s to under 200ms. Swiping pages achieved stable 60 FPS performance, driving app store rating to 4.8 and boosting retention.',
+      metric: '<200ms latency',
     },
   ],
 }
@@ -89,8 +89,9 @@ export default function CaseStudiesSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3 }}
           style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(2,4,8,0.55)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: '2px',
             overflow: 'hidden',
           }}
@@ -191,8 +192,9 @@ export default function CaseStudiesSection() {
               flexShrink: 0,
               textAlign: 'center',
               padding: '1.5rem',
-              border: `1px solid ${active.color}30`,
-              background: `rgba(${hexToRgb(active.color)}, 0.05)`,
+              border: `1px solid ${active.color}50`,
+              background: `rgba(${hexToRgb(active.color)}, 0.1)`,
+              backdropFilter: 'blur(8px)',
               borderRadius: '2px',
               minWidth: '140px',
             }}>

@@ -4,40 +4,40 @@ import { motion, useInView } from 'framer-motion'
 
 const SKILL_NODES = [
   {
-    category: 'CORE RUNTIME',
+    category: 'MOBILE RUNTIME',
     color: '#7c3aed',
-    skills: ['Next.js 14', 'React 18', 'TypeScript', 'Node.js', 'Python'],
-    level: 98,
+    skills: ['Flutter', 'Android SDK', 'Riverpod', 'GetX', 'State Management'],
+    level: 95,
   },
   {
-    category: 'VISUAL SYSTEMS',
+    category: 'FRONTEND SYSTEMS',
     color: '#00d4ff',
-    skills: ['Three.js', 'WebGL', 'GLSL', 'Framer Motion', 'GSAP'],
-    level: 92,
+    skills: ['React.js', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'],
+    level: 93,
   },
   {
-    category: 'DATA LAYER',
+    category: 'BACKEND ENGINE',
     color: '#ff6b35',
-    skills: ['PostgreSQL', 'Redis', 'GraphQL', 'Prisma', 'tRPC'],
+    skills: ['Laravel', 'Express.js', 'NestJS', 'REST API', 'PHP'],
     level: 94,
   },
   {
-    category: 'INFRASTRUCTURE',
+    category: 'DATA LAYER',
     color: '#00ff88',
-    skills: ['AWS', 'Docker', 'Kubernetes', 'Vercel', 'CI/CD'],
+    skills: ['MongoDB', 'MySQL', 'Prisma', 'Sequelize', 'Mongoose'],
+    level: 90,
+  },
+  {
+    category: 'CMS & INTEGRATION',
+    color: '#ffd700',
+    skills: ['WordPress', 'Plugin Customization', 'Bespoke Themes', 'APIs'],
     level: 88,
   },
   {
-    category: 'AI / ML',
-    color: '#ffd700',
-    skills: ['LangChain', 'OpenAI API', 'Vector DBs', 'RAG', 'Fine-tuning'],
-    level: 85,
-  },
-  {
-    category: 'DESIGN SYSTEMS',
+    category: 'DEV TOOLS',
     color: '#ff3366',
-    skills: ['Figma', 'Design Tokens', 'Component APIs', 'A11y', 'UX Research'],
-    level: 90,
+    skills: ['Git', 'GitHub', 'CI/CD (basic)', 'Vercel'],
+    level: 91,
   },
 ]
 
@@ -57,8 +57,9 @@ function SkillNode({ node, delay, index }: {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       style={{
-        background: hovered ? `rgba(${hexToRgb(node.color)}, 0.08)` : 'rgba(255,255,255,0.02)',
-        border: `1px solid ${hovered ? node.color : 'rgba(255,255,255,0.06)'}`,
+        background: hovered ? `rgba(${hexToRgb(node.color)}, 0.12)` : 'rgba(2,4,8,0.55)',
+        backdropFilter: 'blur(8px)',
+        border: `1px solid ${hovered ? node.color : 'rgba(255,255,255,0.1)'}`,
         borderRadius: '2px',
         padding: '1.5rem',
         cursor: 'default',
@@ -258,8 +259,8 @@ export default function ExpertiseSection() {
             lineHeight: 1.6,
             fontWeight: 300,
           }}>
-            "The best technology is <span style={{ color: '#7c3aed' }}>invisible</span>. 
-            It solves problems so elegantly that users never notice the engineering beneath."
+            &ldquo;The best technology is <span style={{ color: '#7c3aed' }}>invisible</span>. 
+            It solves problems so elegantly that users never notice the engineering beneath.&rdquo;
           </p>
         </motion.div>
       </div>

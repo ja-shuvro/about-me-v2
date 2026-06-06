@@ -170,14 +170,15 @@ export default function HeroSection() {
             fontFamily: 'var(--font-body)',
             fontSize: '1.1rem',
             color: 'rgba(255,255,255,0.45)',
-            maxWidth: '520px',
+            maxWidth: '580px',
             margin: '0 auto 3rem',
             lineHeight: 1.7,
             letterSpacing: '0.01em',
           }}
         >
-          I don't build websites. I architect digital intelligence 
-          that transforms complexity into clarity.
+          I am a Flutter & Full-Stack Developer specializing in building mobile 
+          and web applications using Flutter, Laravel, React, and Next.js, bridging 
+          the gap between complex requirements and elegant solutions.
         </motion.p>
 
         {/* Scroll prompt */}

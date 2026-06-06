@@ -26,6 +26,17 @@ export default function Portfolio() {
       {/* Fixed 3D background */}
       <SceneCanvas />
 
+      {/* Ambient overlay to improve text readability */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 1,
+          background: 'radial-gradient(circle at center, transparent 20%, rgba(2, 4, 8, 0.85) 100%), rgba(2, 4, 8, 0.45)',
+          pointerEvents: 'none',
+        }}
+      />
+
       {/* Custom cursor */}
       <CustomCursor />
 
@@ -56,7 +67,7 @@ export default function Portfolio() {
             color: 'rgba(255,255,255,0.15)',
             letterSpacing: '0.2em',
           }}>
-            © 2024 ALEX CHEN — BUILT WITH NEXT.JS · THREE.JS · FRAMER MOTION · GSAP
+            © 2026 J.A. SHUVRO — BUILT WITH NEXT.JS · THREE.JS · FRAMER MOTION · GSAP
           </p>
         </footer>
       </main>

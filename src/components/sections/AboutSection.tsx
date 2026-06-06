@@ -3,19 +3,19 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const DATA_POINTS = [
-  { label: 'IDENTITY', value: 'Alex Chen', confidence: 99 },
-  { label: 'ROLE', value: 'Full-Stack Engineer', confidence: 97 },
-  { label: 'SPECIALIZATION', value: 'Digital Experience Architect', confidence: 94 },
-  { label: 'YEARS_ACTIVE', value: '6+ years', confidence: 100 },
-  { label: 'APPROACH', value: 'Problem-first thinking', confidence: 98 },
-  { label: 'PHILOSOPHY', value: 'Systems over features', confidence: 96 },
+  { label: 'IDENTITY', value: 'J.A. Shuvro', confidence: 99 },
+  { label: 'ROLE', value: 'Flutter & Full-Stack Developer', confidence: 98 },
+  { label: 'SPECIALIZATION', value: 'Mobile & Web Architect', confidence: 95 },
+  { label: 'YEARS_ACTIVE', value: '3.5+ years', confidence: 100 },
+  { label: 'APPROACH', value: 'Clean Code & Scalable Architecture', confidence: 97 },
+  { label: 'PHILOSOPHY', value: 'Elegant logic & Fluid UX', confidence: 96 },
 ]
 
 const CONNECTIONS = [
-  'USER_EMPATHY ←→ TECHNICAL_DEPTH',
-  'DESIGN_THINKING ←→ ENGINEERING',
-  'STRATEGY ←→ EXECUTION',
-  'VISION ←→ PRECISION',
+  'FLUTTER_FLUIDITY ←→ BACKEND_ROBUSTNESS',
+  'CLEAN_CODE ←→ EFFICIENT_OPTIMIZATION',
+  'CLIENT_VISION ←→ TECHNICAL_PRECISION',
+  'SELF_LEARNING ←→ REAL_WORLD_PRODUCTION',
 ]
 
 function ScanLine() {
@@ -152,8 +152,9 @@ export default function AboutSection() {
           {/* Left: Data analysis terminal */}
           <div>
             <div style={{
-              background: 'rgba(0,255,136,0.03)',
-              border: '1px solid rgba(0,255,136,0.12)',
+              background: 'rgba(2,4,8,0.55)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(0,255,136,0.18)',
               borderRadius: '2px',
               padding: '1.5rem',
               position: 'relative',
@@ -211,9 +212,10 @@ export default function AboutSection() {
                 lineHeight: 1.8,
                 marginBottom: '1.5rem',
               }}>
-                I exist at the intersection of <span style={{ color: '#00ff88' }}>engineering precision</span> and 
-                design intelligence. My work begins not with code, but with understanding — 
-                the systems people inhabit, the friction they endure, the outcomes they need.
+                I am a dedicated software engineer with a track record of delivering robust applications. 
+                From crafting pixel-perfect mobile interfaces with <span style={{ color: '#00ff88' }}>Flutter</span> to 
+                architecting scalable backend systems with Laravel and Node.js, I bridge the gap between 
+                complex requirements and elegant solutions.
               </p>
               <p style={{
                 fontFamily: 'var(--font-body)',
@@ -222,19 +224,18 @@ export default function AboutSection() {
                 lineHeight: 1.8,
                 marginBottom: '2rem',
               }}>
-                Six years of building production systems across fintech, healthcare, 
-                and SaaS has taught me one truth: <span style={{ color: 'rgba(255,255,255,0.8)' }}>
-                complexity is just clarity waiting to be designed.
-                </span>
+                My work prioritizes clean code, responsive design, and performance optimization. 
+                I focus on writing semantic, efficiently organized code to build fast-loading interfaces that function 
+                beautifully on any device.
               </p>
 
               {/* Stats */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                 {[
-                  { num: '47+', label: 'Systems Built' },
-                  { num: '12M+', label: 'Users Impacted' },
-                  { num: '3.2s→0.4s', label: 'Load Time Reduced' },
-                  { num: '99.97%', label: 'Uptime Maintained' },
+                  { num: '20+', label: 'Projects Built' },
+                  { num: '10+', label: 'Android Apps Deployed' },
+                  { num: '10+', label: 'Web Platforms Deployed' },
+                  { num: '3+', label: 'CMS Integrations' },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}
@@ -243,8 +244,9 @@ export default function AboutSection() {
                     transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
                     style={{
                       padding: '1rem',
-                      background: 'rgba(0,255,136,0.04)',
-                      border: '1px solid rgba(0,255,136,0.1)',
+                      background: 'rgba(2,4,8,0.5)',
+                      backdropFilter: 'blur(8px)',
+                      border: '1px solid rgba(0,255,136,0.15)',
                       borderRadius: '2px',
                     }}
                   >

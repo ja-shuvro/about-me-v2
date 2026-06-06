@@ -49,7 +49,7 @@ export default function ContactSection() {
             lineHeight: 1.05,
             marginBottom: '1.5rem',
           }}>
-            Let's build the
+            Let&apos;s build the
             <br />
             <span style={{
               background: 'linear-gradient(90deg, #00f5ff, #7c3aed)',
@@ -68,7 +68,7 @@ export default function ContactSection() {
             lineHeight: 1.7,
           }}>
             A new unresolved node has appeared in the network. 
-            That's your problem. Let's connect it to the solution.
+            That&apos;s your problem. Let&apos;s connect it to the solution.
           </p>
         </motion.div>
 
@@ -81,10 +81,11 @@ export default function ContactSection() {
             style={{
               position: 'relative',
               height: '350px',
-              border: '1px solid rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '2px',
               overflow: 'hidden',
-              background: 'rgba(255,255,255,0.01)',
+              background: 'rgba(2,4,8,0.45)',
+              backdropFilter: 'blur(8px)',
             }}
           >
             {/* Connection lines to center */}
@@ -239,8 +240,9 @@ export default function ContactSection() {
                           placeholder={field.placeholder}
                           style={{
                             width: '100%',
-                            background: focused === field.name ? 'rgba(0,245,255,0.04)' : 'rgba(255,255,255,0.02)',
-                            border: `1px solid ${focused === field.name ? 'rgba(0,245,255,0.4)' : 'rgba(255,255,255,0.08)'}`,
+                            background: focused === field.name ? 'rgba(0,245,255,0.04)' : 'rgba(2,4,8,0.55)',
+                            backdropFilter: 'blur(8px)',
+                            border: `1px solid ${focused === field.name ? 'rgba(0,245,255,0.4)' : 'rgba(255,255,255,0.12)'}`,
                             borderRadius: '2px',
                             padding: '0.8rem 1rem',
                             color: 'rgba(255,255,255,0.8)',
@@ -260,8 +262,9 @@ export default function ContactSection() {
                           placeholder={field.placeholder}
                           style={{
                             width: '100%',
-                            background: focused === field.name ? 'rgba(0,245,255,0.04)' : 'rgba(255,255,255,0.02)',
-                            border: `1px solid ${focused === field.name ? 'rgba(0,245,255,0.4)' : 'rgba(255,255,255,0.08)'}`,
+                            background: focused === field.name ? 'rgba(0,245,255,0.04)' : 'rgba(2,4,8,0.55)',
+                            backdropFilter: 'blur(8px)',
+                            border: `1px solid ${focused === field.name ? 'rgba(0,245,255,0.4)' : 'rgba(255,255,255,0.12)'}`,
                             borderRadius: '2px',
                             padding: '0.8rem 1rem',
                             color: 'rgba(255,255,255,0.8)',
@@ -307,11 +310,21 @@ export default function ContactSection() {
 
                   <div style={{
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.6rem',
-                    color: 'rgba(255,255,255,0.2)',
+                    fontSize: '0.65rem',
+                    color: 'rgba(255,255,255,0.3)',
                     textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.6rem',
+                    alignItems: 'center',
                   }}>
-                    OR REACH DIRECTLY: hello@alexchen.dev
+                    <div>DIRECT_COMM: <a href="mailto:dev.jsahuvro@gmail.com" style={{ color: '#00f5ff', textDecoration: 'none' }}>dev.jsahuvro@gmail.com</a> | <a href="tel:+8801516577736" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+880 1516-577736</a></div>
+                    <div style={{ display: 'flex', gap: '1rem', marginTop: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                      <a href="https://github.com/ja-shuvro" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff88', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[GITHUB]</a>
+                      <a href="https://www.linkedin.com/in/ja-shuvro-13733b37b" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[LINKEDIN]</a>
+                      <a href="https://wa.me/01728723881" target="_blank" rel="noopener noreferrer" style={{ color: '#ffd700', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[WHATSAPP]</a>
+                      <a href="https://x.com/shuvro_a" target="_blank" rel="noopener noreferrer" style={{ color: '#ff3366', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[TWITTER]</a>
+                    </div>
                   </div>
                 </div>
               </form>
