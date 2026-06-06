@@ -21,11 +21,11 @@ export default function Navigation() {
 
     if (typeof window !== 'undefined' && (window as any).lenis) {
       if (targetElement) {
-        ;(window as any).lenis.scrollTo(targetElement, { duration: 1.2 })
+        ; (window as any).lenis.scrollTo(targetElement, { duration: 1.2 })
       } else {
         const totalHeight = document.body.scrollHeight - window.innerHeight
         const sectionHeight = totalHeight / 7
-        ;(window as any).lenis.scrollTo(index * sectionHeight + sectionHeight * 0.1, { duration: 1.2 })
+          ; (window as any).lenis.scrollTo(index * sectionHeight + sectionHeight * 0.1, { duration: 1.2 })
       }
     } else {
       if (targetElement) {
@@ -67,7 +67,7 @@ export default function Navigation() {
         textTransform: 'uppercase',
         opacity: 0.9,
       }}>
-        JA. Suvro
+        JA. Shuvro
       </div>
 
       <div style={{

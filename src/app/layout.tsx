@@ -3,11 +3,14 @@ import '../styles/globals.css'
 
 export const metadata: Metadata = {
   title: 'J.A. Shuvro — Flutter & Full-Stack Developer',
-  description: 'Portfolio of J.A. Shuvro (JA. Suvro), a professional Flutter & Full-Stack Developer. Specialized in building mobile apps (Android/iOS) and robust web architectures with Laravel, React, Next.js, and Express.',
+  description: 'Portfolio of J.A. Shuvro (JA. Shuvro), a professional Flutter & Full-Stack Developer. Specialized in building mobile apps (Android/iOS) and robust web architectures with Laravel, React, Next.js, and Express.',
   keywords: [
     'J.A. Shuvro',
+    'J.A. Suvro',
+    'JA. Shuvro',
     'JA. Suvro',
     'Shuvro',
+    'Suvro',
     'Flutter Developer',
     'Full-Stack Developer',
     'Mobile App Specialist',
@@ -56,7 +59,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'J.A. Shuvro',
-  alternateName: ['JA. Suvro', 'Shuvro', 'J.A. Shuvro — Flutter & Full-Stack Developer'],
+  alternateName: ['JA. Shuvro', 'Shuvro', 'J.A. Shuvro — Flutter & Full-Stack Developer'],
   url: 'https://jashuvro.com',
   image: 'https://avatars.githubusercontent.com/u/89667794?v=4',
   jobTitle: 'Flutter & Full-Stack Developer',
