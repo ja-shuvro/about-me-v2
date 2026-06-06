@@ -8,6 +8,28 @@ export function useSmoothScroll() {
   const setScroll = useScrollStore((s) => s.setScroll)
 
   useEffect(() => {
+    // Detect mobile or touch capability
+    const isTouchDevice =
+      typeof window !== 'undefined' &&
+      ('ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia('(max-width: 768px)').matches)
+
+    if (isTouchDevice) {
+      const handleScroll = () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight
+        const progress = totalHeight > 0 ? window.scrollY / totalHeight : 0
+        setScroll(progress)
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      handleScroll()
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+
     const lenis = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -38,3 +60,4 @@ export function useSmoothScroll() {
 
   return lenisRef
 }
+

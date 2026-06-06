@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useScrollStore } from '@/lib/scrollStore'
 
 const PHASE_COLORS: Record<string, string> = {
@@ -16,8 +16,19 @@ export default function CustomCursor({ colorOverride }: { colorOverride?: string
   const cursorRef = useRef<HTMLDivElement>(null)
   const trailRef = useRef<HTMLDivElement>(null)
   const phase = useScrollStore((s) => s.phase)
+  const [isTouchDevice, setIsTouchDevice] = useState(true) // Default to true to avoid flash on mobile SSR
 
   useEffect(() => {
+    const isTouch =
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia('(max-width: 768px)').matches
+    
+    setIsTouchDevice(isTouch)
+  }, [])
+
+  useEffect(() => {
+    if (isTouchDevice) return
     const color = colorOverride || PHASE_COLORS[phase] || '#00f5ff'
     if (cursorRef.current) {
       cursorRef.current.style.borderColor = color
@@ -26,9 +37,10 @@ export default function CustomCursor({ colorOverride }: { colorOverride?: string
     if (trailRef.current) {
       trailRef.current.style.background = color
     }
-  }, [phase, colorOverride])
+  }, [phase, colorOverride, isTouchDevice])
 
   useEffect(() => {
+    if (isTouchDevice) return
     let x = 0, y = 0
     let tx = 0, ty = 0
 
@@ -58,7 +70,9 @@ export default function CustomCursor({ colorOverride }: { colorOverride?: string
       window.removeEventListener('mousemove', onMove)
       cancelAnimationFrame(rafId)
     }
-  }, [])
+  }, [isTouchDevice])
+
+  if (isTouchDevice) return null
 
   return (
     <>
@@ -92,3 +106,4 @@ export default function CustomCursor({ colorOverride }: { colorOverride?: string
     </>
   )
 }
+

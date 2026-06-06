@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const KNOWLEDGE_NODES = [
@@ -16,6 +16,14 @@ export default function ContactSection() {
   const [sent, setSent] = useState(false)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -23,12 +31,16 @@ export default function ContactSection() {
   }
 
   return (
-    <section style={{ minHeight: '100vh', padding: '8rem 3rem', display: 'flex', alignItems: 'center' }}>
+    <section className="responsive-section" style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center'
+    }}>
       <div ref={ref} style={{ maxWidth: '1100px', margin: '0 auto', width: '100%' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          style={{ marginBottom: '4rem', textAlign: 'center' }}
+          style={{ marginBottom: isMobile ? '2.5rem' : '4rem', textAlign: 'center' }}
         >
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -42,7 +54,7 @@ export default function ContactSection() {
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+            fontSize: 'clamp(2.3rem, 6vw, 5rem)',
             fontWeight: 300,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -67,12 +79,12 @@ export default function ContactSection() {
             margin: '0 auto',
             lineHeight: 1.7,
           }}>
-            A new unresolved node has appeared in the network. 
+            A new unresolved node has appeared in the network.
             That&apos;s your problem. Let&apos;s connect it to the solution.
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+        <div className="contact-grid">
           {/* Knowledge convergence visual */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -80,7 +92,7 @@ export default function ContactSection() {
             transition={{ delay: 0.4 }}
             style={{
               position: 'relative',
-              height: '350px',
+              height: isMobile ? '220px' : '350px',
               border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '2px',
               overflow: 'hidden',
@@ -216,7 +228,7 @@ export default function ContactSection() {
               backdropFilter: 'blur(12px)',
               border: '1px solid rgba(255, 255, 255, 0.08)',
               borderRadius: '4px',
-              padding: '2.5rem',
+              padding: isMobile ? '1.5rem' : '2.5rem',
               boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
             }}
           >
@@ -306,11 +318,11 @@ export default function ContactSection() {
                     }}
                     onMouseEnter={e => {
                       (e.target as HTMLElement).style.background = 'rgba(0,245,255,0.08)'
-                      ;(e.target as HTMLElement).style.boxShadow = '0 0 20px rgba(0,245,255,0.2)'
+                        ; (e.target as HTMLElement).style.boxShadow = '0 0 20px rgba(0,245,255,0.2)'
                     }}
                     onMouseLeave={e => {
                       (e.target as HTMLElement).style.background = 'transparent'
-                      ;(e.target as HTMLElement).style.boxShadow = 'none'
+                        ; (e.target as HTMLElement).style.boxShadow = 'none'
                     }}
                   >
                     INITIALIZE_CONNECTION →
@@ -326,8 +338,8 @@ export default function ContactSection() {
                     gap: '0.6rem',
                     alignItems: 'center',
                   }}>
-                    <div>DIRECT_COMM: <a href="mailto:dev.jsahuvro@gmail.com" style={{ color: '#00f5ff', textDecoration: 'none' }}>dev.jsahuvro@gmail.com</a> | <a href="tel:+8801516577736" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+880 1516-577736</a></div>
-                    <div style={{ display: 'flex', gap: '1rem', marginTop: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    <div style={{ wordBreak: 'break-all' }}>DIRECT_COMM: <a href="mailto:dev.jsahuvro@gmail.com" style={{ color: '#00f5ff', textDecoration: 'none' }}>dev.jsahuvro@gmail.com</a> <br /> <a href="tel:+8801516577736" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>+880 1516-577736</a></div>
+                    <div style={{ display: 'flex', gap: '0.8rem', marginTop: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                       <a href="https://github.com/ja-shuvro" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff88', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[GITHUB]</a>
                       <a href="https://www.linkedin.com/in/ja-shuvro-13733b37b" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[LINKEDIN]</a>
                       <a href="https://wa.me/01728723881" target="_blank" rel="noopener noreferrer" style={{ color: '#ffd700', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[WHATSAPP]</a>
@@ -372,3 +384,4 @@ export default function ContactSection() {
     </section>
   )
 }
+

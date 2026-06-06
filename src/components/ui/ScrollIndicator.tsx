@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 import { useScrollStore } from '@/lib/scrollStore'
 import { motion } from 'framer-motion'
 
@@ -17,6 +18,42 @@ const PHASE_KEYS = ['chaos', 'discovery', 'expertise', 'creation', 'transformati
 export default function ScrollIndicator() {
   const { phase, scrollProgress } = useScrollStore()
   const phaseIndex = PHASE_KEYS.indexOf(phase)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
+
+  const currentPhaseColor = PHASES[phaseIndex]?.color || '#00f5ff'
+
+  if (isMobile) {
+    return (
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '2.5px',
+        zIndex: 1000,
+        background: 'rgba(255,255,255,0.03)',
+        pointerEvents: 'none',
+      }}>
+        <motion.div
+          style={{
+            height: '100%',
+            background: currentPhaseColor,
+            boxShadow: `0 0 8px ${currentPhaseColor}`,
+            originX: 0,
+            width: `${scrollProgress * 100}%`,
+          }}
+          transition={{ duration: 0.1 }}
+        />
+      </div>
+    )
+  }
 
   return (
     <div style={{
@@ -102,3 +139,4 @@ export default function ScrollIndicator() {
     </div>
   )
 }
+

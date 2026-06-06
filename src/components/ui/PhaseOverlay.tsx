@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollStore } from '@/lib/scrollStore'
 
@@ -15,12 +16,20 @@ const PHASE_OVERLAYS: Record<string, { label: string; color: string }> = {
 export default function PhaseOverlay() {
   const { phase } = useScrollStore()
   const overlay = PHASE_OVERLAYS[phase]
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
 
   return (
     <div style={{
       position: 'fixed',
-      bottom: '2rem',
-      left: '3rem',
+      bottom: isMobile ? '1.5rem' : '2rem',
+      left: isMobile ? '1.5rem' : '3rem',
       zIndex: 100,
       display: 'flex',
       alignItems: 'center',
@@ -62,3 +71,4 @@ export default function PhaseOverlay() {
     </div>
   )
 }
+

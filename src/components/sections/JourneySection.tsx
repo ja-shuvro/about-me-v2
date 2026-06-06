@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const MILESTONES = [
@@ -58,14 +58,22 @@ const MILESTONES = [
 export default function JourneySection() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
 
   return (
-    <section style={{ minHeight: '100vh', padding: '8rem 3rem' }}>
+    <section className="responsive-section" style={{ minHeight: '100vh' }}>
       <div ref={ref} style={{ maxWidth: '900px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          style={{ marginBottom: '5rem' }}
+          style={{ marginBottom: isMobile ? '2.5rem' : '5rem' }}
         >
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -79,7 +87,7 @@ export default function JourneySection() {
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2.3rem, 5vw, 4.5rem)',
             fontWeight: 300,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -96,7 +104,7 @@ export default function JourneySection() {
           {/* Central line */}
           <div style={{
             position: 'absolute',
-            left: '120px',
+            left: isMobile ? '8px' : '120px',
             top: 0,
             bottom: 0,
             width: 1,
@@ -118,41 +126,46 @@ export default function JourneySection() {
               transition={{ duration: 0.7, delay: i * 0.15 + 0.3 }}
               style={{
                 display: 'flex',
-                gap: '3rem',
-                marginBottom: i < MILESTONES.length - 1 ? '4rem' : 0,
+                position: 'relative',
+                paddingLeft: isMobile ? '2.2rem' : 0,
+                gap: isMobile ? '0' : '3rem',
+                marginBottom: i < MILESTONES.length - 1 ? (isMobile ? '2.5rem' : '4rem') : 0,
                 alignItems: 'flex-start',
               }}
             >
-              {/* Year + level */}
-              <div style={{
-                width: '100px',
-                flexShrink: 0,
-                textAlign: 'right',
-                paddingTop: '0.2rem',
-              }}>
+              {/* Year + level (Desktop only) */}
+              {!isMobile && (
                 <div style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '1.2rem',
-                  color: m.color,
-                  fontWeight: 300,
+                  width: '100px',
+                  flexShrink: 0,
+                  textAlign: 'right',
+                  paddingTop: '0.2rem',
                 }}>
-                  {m.year}
+                  <div style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.2rem',
+                    color: m.color,
+                    fontWeight: 300,
+                  }}>
+                    {m.year}
+                  </div>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.55rem',
+                    color: 'rgba(255,255,255,0.25)',
+                    letterSpacing: '0.15em',
+                  }}>
+                    {m.level}
+                  </div>
                 </div>
-                <div style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.55rem',
-                  color: 'rgba(255,255,255,0.25)',
-                  letterSpacing: '0.15em',
-                }}>
-                  {m.level}
-                </div>
-              </div>
+              )}
 
-              {/* Dot */}
+              {/* Dot (Positioned absolutely over the line) */}
               <div style={{
-                flexShrink: 0,
-                position: 'relative',
-                marginTop: '0.3rem',
+                position: 'absolute',
+                left: isMobile ? '3px' : '115px',
+                top: isMobile ? '1.4rem' : '0.4rem',
+                zIndex: 2,
               }}>
                 <div style={{
                   width: 10,
@@ -160,42 +173,73 @@ export default function JourneySection() {
                   borderRadius: '50%',
                   background: m.color,
                   boxShadow: `0 0 12px ${m.color}, 0 0 24px ${m.color}40`,
-                  marginLeft: '-4.5px',
                 }} />
               </div>
 
-              {/* Content */}
+              {/* Content Card */}
               <div style={{
                 flex: 1,
                 background: 'rgba(2, 4, 8, 0.75)',
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
-                padding: '1.5rem 2rem',
+                padding: isMobile ? '1.2rem' : '1.5rem 2rem',
                 borderRadius: '4px',
                 position: 'relative',
                 boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
               }}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  marginBottom: '0.5rem',
-                }}>
-                  <span style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.55rem',
-                    color: m.color,
-                    letterSpacing: '0.2em',
-                    padding: '0.2rem 0.5rem',
-                    border: `1px solid ${m.color}30`,
-                    background: `${m.color}10`,
+                {/* Year + level + era header for mobile inside the card */}
+                {isMobile && (
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '0.8rem',
+                    flexWrap: 'wrap',
+                    gap: '0.4rem',
                   }}>
-                    {m.era}
-                  </span>
-                </div>
+                    <span style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '1.3rem',
+                      color: m.color,
+                      fontWeight: 300,
+                    }}>
+                      {m.year} — {m.era}
+                    </span>
+                    <span style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.6rem',
+                      color: 'rgba(255,255,255,0.4)',
+                      letterSpacing: '0.1em',
+                    }}>
+                      {m.level}
+                    </span>
+                  </div>
+                )}
+
+                {!isMobile && (
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    marginBottom: '0.5rem',
+                  }}>
+                    <span style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.55rem',
+                      color: m.color,
+                      letterSpacing: '0.2em',
+                      padding: '0.2rem 0.5rem',
+                      border: `1px solid ${m.color}30`,
+                      background: `${m.color}10`,
+                    }}>
+                      {m.era}
+                    </span>
+                  </div>
+                )}
+
                 <h3 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1.2rem',
+                  fontSize: isMobile ? '1.1rem' : '1.2rem',
                   color: '#ffffff',
                   fontWeight: 300,
                   marginBottom: '0.2rem',
@@ -224,6 +268,7 @@ export default function JourneySection() {
                   fontSize: '0.6rem',
                   color: m.color,
                   opacity: 0.7,
+                  wordBreak: 'break-word',
                 }}>
                   UNLOCKED: {m.unlock}
                 </div>
@@ -235,3 +280,4 @@ export default function JourneySection() {
     </section>
   )
 }
+

@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 
@@ -97,17 +97,25 @@ export default function CaseStudiesSection() {
   const [activePhase, setActivePhase] = useState(0)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
 
   const study = CASE_STUDIES[activeStudyIdx]
   const active = study.phases[activePhase]
 
   return (
-    <section style={{ minHeight: '100vh', padding: '8rem 3rem' }}>
+    <section className="responsive-section" style={{ minHeight: '100vh' }}>
       <div ref={ref} style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          style={{ marginBottom: '4rem' }}
+          style={{ marginBottom: isMobile ? '2.5rem' : '4rem' }}
         >
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -121,7 +129,7 @@ export default function CaseStudiesSection() {
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2.3rem, 5vw, 4.5rem)',
             fontWeight: 300,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -149,18 +157,20 @@ export default function CaseStudiesSection() {
           {/* Case study selectors */}
           <div style={{
             display: 'flex',
-            gap: '1rem',
-            padding: '1.2rem 2rem',
+            flexWrap: 'wrap',
+            gap: '0.8rem',
+            padding: isMobile ? '1rem' : '1.2rem 2rem',
             borderBottom: '1px solid rgba(255,255,255,0.06)',
             background: 'rgba(255,255,255,0.01)',
+            alignItems: 'center',
           }}>
             <span style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.65rem',
               color: 'rgba(255,255,255,0.25)',
-              alignSelf: 'center',
               letterSpacing: '0.15em',
-              marginRight: 'auto',
+              marginRight: isMobile ? '0' : 'auto',
+              width: isMobile ? '100%' : 'auto',
             }}>
               SELECT_SYSTEM //
             </span>
@@ -192,7 +202,7 @@ export default function CaseStudiesSection() {
 
           {/* Header */}
           <div style={{
-            padding: '2rem',
+            padding: isMobile ? '1.2rem' : '2rem',
             borderBottom: '1px solid rgba(255,255,255,0.06)',
             background: 'rgba(0,212,255,0.03)',
           }}>
@@ -227,7 +237,7 @@ export default function CaseStudiesSection() {
                 onClick={() => setActivePhase(i)}
                 style={{
                   flex: 1,
-                  padding: '1.2rem 0.5rem',
+                  padding: isMobile ? '1rem 0.2rem' : '1.2rem 0.5rem',
                   background: activePhase === i ? `rgba(${hexToRgb(p.color)}, 0.08)` : 'none',
                   border: 'none',
                   borderBottom: activePhase === i ? `2px solid ${p.color}` : '2px solid transparent',
@@ -252,6 +262,7 @@ export default function CaseStudiesSection() {
                   color: activePhase === i ? p.color : 'rgba(255,255,255,0.25)',
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
+                  display: isMobile ? 'none' : 'inline',
                 }}>
                   {p.phase}
                 </span>
@@ -265,15 +276,20 @@ export default function CaseStudiesSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            style={{
-              padding: '2.5rem',
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: '3rem',
-              flexWrap: 'wrap',
-            }}
+            className="case-study-content"
           >
-            <div style={{ flex: 1, minWidth: '280px' }}>
+            <div style={{ flex: 1, minWidth: isMobile ? '100%' : '280px' }}>
+              {isMobile && (
+                <div style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.6rem',
+                  color: active.color,
+                  letterSpacing: '0.15em',
+                  marginBottom: '0.6rem',
+                }}>
+                  ACTIVE_PHASE: {active.phase}
+                </div>
+              )}
               <p style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '1.05rem',
@@ -283,14 +299,15 @@ export default function CaseStudiesSection() {
                 {active.content}
               </p>
             </div>
-            
+
             <div style={{
               flexShrink: 0,
               display: 'flex',
-              flexDirection: 'column',
+              flexDirection: isMobile ? 'row' : 'column',
               gap: '1rem',
               alignItems: 'center',
-              minWidth: '180px',
+              width: isMobile ? '100%' : 'auto',
+              minWidth: isMobile ? '100%' : '180px',
             }}>
               {/* Metric Box */}
               <div style={{
@@ -300,11 +317,12 @@ export default function CaseStudiesSection() {
                 background: `rgba(${hexToRgb(active.color)}, 0.1)`,
                 backdropFilter: 'blur(8px)',
                 borderRadius: '2px',
-                width: '100%',
+                flex: isMobile ? 1 : 'none',
+                width: isMobile ? 'auto' : '100%',
               }}>
                 <div style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1.4rem',
+                  fontSize: isMobile ? '1.2rem' : '1.4rem',
                   color: active.color,
                   fontWeight: 300,
                   marginBottom: '0.3rem',
@@ -334,9 +352,12 @@ export default function CaseStudiesSection() {
                   textDecoration: 'none',
                   letterSpacing: '0.15em',
                   borderRadius: '1px',
-                  width: '100%',
+                  flex: isMobile ? 1 : 'none',
+                  width: isMobile ? 'auto' : '100%',
                   textAlign: 'center',
                   transition: 'all 0.3s ease',
+                  display: 'block',
+                  alignSelf: 'stretch',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.background = active.color
@@ -349,50 +370,52 @@ export default function CaseStudiesSection() {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                VIEW_SYSTEM_REPORT →
+                {isMobile ? 'REPORT →' : 'VIEW_SYSTEM_REPORT →'}
               </Link>
             </div>
           </motion.div>
 
-          {/* Timeline dots */}
-          <div style={{
-            padding: '1rem 2.5rem',
-            borderTop: '1px solid rgba(255,255,255,0.04)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-          }}>
-            {study.phases.map((p, i) => (
-              <div
-                key={i}
-                style={{
-                  flex: i < study.phases.length - 1 ? 1 : 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                }}
-              >
-                <div style={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: '50%',
-                  background: i <= activePhase ? p.color : 'rgba(255,255,255,0.1)',
-                  boxShadow: i === activePhase ? `0 0 8px ${p.color}` : 'none',
-                  flexShrink: 0,
-                  transition: 'all 0.4s ease',
-                }} />
-                {i < study.phases.length - 1 && (
-                  <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.08)' }}>
-                    <motion.div
-                      animate={{ width: i < activePhase ? '100%' : '0%' }}
-                      transition={{ duration: 0.4 }}
-                      style={{ height: '100%', background: p.color }}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          {/* Timeline dots - hidden on mobile */}
+          {!isMobile && (
+            <div style={{
+              padding: '1rem 2.5rem',
+              borderTop: '1px solid rgba(255,255,255,0.04)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}>
+              {study.phases.map((p, i) => (
+                <div
+                  key={i}
+                  style={{
+                    flex: i < study.phases.length - 1 ? 1 : 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                  }}
+                >
+                  <div style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: '50%',
+                    background: i <= activePhase ? p.color : 'rgba(255,255,255,0.1)',
+                    boxShadow: i === activePhase ? `0 0 8px ${p.color}` : 'none',
+                    flexShrink: 0,
+                    transition: 'all 0.4s ease',
+                  }} />
+                  {i < study.phases.length - 1 && (
+                    <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.08)' }}>
+                      <motion.div
+                        animate={{ width: i < activePhase ? '100%' : '0%' }}
+                        transition={{ duration: 0.4 }}
+                        style={{ height: '100%', background: p.color }}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
@@ -405,3 +428,4 @@ function hexToRgb(hex: string) {
     ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}`
     : '255,255,255'
 }
+

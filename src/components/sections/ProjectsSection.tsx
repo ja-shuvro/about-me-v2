@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const PROJECTS = [
@@ -128,23 +128,64 @@ const PROJECTS = [
   }
 ]
 
-function BuildingAnimation({ color }: { color: string }) {
+function BuildingAnimation({ color, isMobile }: { color: string; isMobile: boolean }) {
+  const barsCount = isMobile ? 6 : 12
+  const [mounted, setMounted] = useState(false)
+  const [heights, setHeights] = useState<number[]>([])
+  const [durations, setDurations] = useState<number[]>([])
+
+  useEffect(() => {
+    setMounted(true)
+    const h: number[] = []
+    const d: number[] = []
+    for (let i = 0; i < 12; i++) {
+      h.push(8 + Math.random() * (isMobile ? 12 : 20))
+      d.push(1 + Math.random())
+    }
+    setHeights(h)
+    setDurations(d)
+  }, [isMobile])
+
+  if (!mounted || heights.length === 0) {
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'flex-end',
+        gap: '2px',
+        height: isMobile ? 20 : 30,
+      }}>
+        {[...Array(barsCount)].map((_, i) => (
+          <div
+            key={i}
+            style={{
+              width: 3,
+              height: 4,
+              background: color,
+              borderRadius: '1px 1px 0 0',
+              opacity: 0.3,
+            }}
+          />
+        ))}
+      </div>
+    )
+  }
+
   return (
     <div style={{
       display: 'flex',
       alignItems: 'flex-end',
       gap: '2px',
-      height: 30,
+      height: isMobile ? 20 : 30,
     }}>
-      {[...Array(12)].map((_, i) => (
+      {[...Array(barsCount)].map((_, i) => (
         <motion.div
           key={i}
           animate={{
-            height: [4, 8 + Math.random() * 20, 4],
+            height: [4, heights[i] || 15, 4],
             opacity: [0.3, 1, 0.3],
           }}
           transition={{
-            duration: 1 + Math.random(),
+            duration: durations[i] || 1.5,
             repeat: Infinity,
             delay: i * 0.08,
             ease: 'easeInOut',
@@ -160,7 +201,7 @@ function BuildingAnimation({ color }: { color: string }) {
   )
 }
 
-function ProjectCard({ project, delay }: { project: typeof PROJECTS[0]; delay: number }) {
+function ProjectCard({ project, delay, isMobile }: { project: typeof PROJECTS[0]; delay: number; isMobile: boolean }) {
   const [expanded, setExpanded] = useState(false)
   const [activeImgIndex, setActiveImgIndex] = useState(0)
   const ref = useRef(null)
@@ -180,7 +221,7 @@ function ProjectCard({ project, delay }: { project: typeof PROJECTS[0]; delay: n
         backdropFilter: 'blur(10px)',
         border: `1px solid ${expanded ? project.color + '60' : 'rgba(255,255,255,0.1)'}`,
         borderRadius: '2px',
-        padding: '2rem',
+        padding: isMobile ? '1.2rem' : '2rem',
         cursor: 'pointer',
         transition: 'all 0.4s ease',
       }}
@@ -191,6 +232,7 @@ function ProjectCard({ project, delay }: { project: typeof PROJECTS[0]; delay: n
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         marginBottom: '1.5rem',
+        gap: '0.5rem',
       }}>
         <div>
           <div style={{
@@ -204,7 +246,7 @@ function ProjectCard({ project, delay }: { project: typeof PROJECTS[0]; delay: n
           </div>
           <h3 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '1.8rem',
+            fontSize: isMobile ? '1.4rem' : '1.8rem',
             color: '#ffffff',
             fontWeight: 300,
             letterSpacing: '-0.02em',
@@ -220,16 +262,16 @@ function ProjectCard({ project, delay }: { project: typeof PROJECTS[0]; delay: n
             {project.tagline}
           </p>
         </div>
-        <BuildingAnimation color={project.color} />
+        <BuildingAnimation color={project.color} isMobile={isMobile} />
       </div>
 
       {/* Metrics */}
-      <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'flex', gap: isMobile ? '0.8rem' : '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
         {Object.entries(project.metrics).map(([key, val]) => (
-          <div key={key}>
+          <div key={key} style={{ minWidth: isMobile ? '70px' : 'auto' }}>
             <div style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.3rem',
+              fontSize: isMobile ? '1.1rem' : '1.3rem',
               color: project.color,
               fontWeight: 300,
             }}>
@@ -281,7 +323,7 @@ function ProjectCard({ project, delay }: { project: typeof PROJECTS[0]; delay: n
                 </span>
               ))}
             </div>
-            
+
             {/* Actions */}
             <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
               {project.links.site && (
@@ -535,14 +577,22 @@ function hexToRgb(hex: string) {
 export default function ProjectsSection() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
 
   return (
-    <section style={{ minHeight: '100vh', padding: '8rem 3rem' }}>
+    <section className="responsive-section" style={{ minHeight: '100vh' }}>
       <div ref={ref} style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          style={{ marginBottom: '4rem' }}
+          style={{ marginBottom: isMobile ? '2.5rem' : '4rem' }}
         >
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -556,7 +606,7 @@ export default function ProjectsSection() {
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2.3rem, 5vw, 4.5rem)',
             fontWeight: 300,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -570,7 +620,7 @@ export default function ProjectsSection() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {PROJECTS.map((p, i) => (
-            <ProjectCard key={p.id} project={p} delay={i * 0.15} />
+            <ProjectCard key={p.id} project={p} delay={i * 0.15} isMobile={isMobile} />
           ))}
         </div>
       </div>

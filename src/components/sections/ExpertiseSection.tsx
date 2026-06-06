@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const SKILL_NODES = [
@@ -179,18 +179,25 @@ function hexToRgb(hex: string) {
 export default function ExpertiseSection() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
 
   return (
-    <section style={{
+    <section className="responsive-section" style={{
       minHeight: '100vh',
-      padding: '8rem 3rem',
       position: 'relative',
     }}>
       <div ref={ref} style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          style={{ marginBottom: '4rem' }}
+          style={{ marginBottom: isMobile ? '2.5rem' : '4rem' }}
         >
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -204,7 +211,7 @@ export default function ExpertiseSection() {
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2.3rem, 5vw, 4.5rem)',
             fontWeight: 300,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -228,12 +235,7 @@ export default function ExpertiseSection() {
         </motion.div>
 
         {/* Skills grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '1rem',
-          marginBottom: '4rem',
-        }}>
+        <div className="skills-grid">
           {SKILL_NODES.map((node, i) => (
             <SkillNode key={node.category} node={node} delay={i * 0.12} index={i} />
           ))}
@@ -246,7 +248,7 @@ export default function ExpertiseSection() {
           transition={{ delay: 0.8 }}
           style={{
             textAlign: 'center',
-            padding: '3rem',
+            padding: isMobile ? '1.5rem' : '3rem',
             border: '1px solid rgba(124,58,237,0.15)',
             background: 'rgba(124,58,237,0.03)',
             borderRadius: '2px',
@@ -254,12 +256,12 @@ export default function ExpertiseSection() {
         >
           <p style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(1.2rem, 2vw, 1.6rem)',
+            fontSize: 'clamp(1.1rem, 2vw, 1.6rem)',
             color: 'rgba(255,255,255,0.7)',
             lineHeight: 1.6,
             fontWeight: 300,
           }}>
-            &ldquo;The best technology is <span style={{ color: '#7c3aed' }}>invisible</span>. 
+            &ldquo;The best technology is <span style={{ color: '#7c3aed' }}>invisible</span>.
             It solves problems so elegantly that users never notice the engineering beneath.&rdquo;
           </p>
         </motion.div>
@@ -267,3 +269,4 @@ export default function ExpertiseSection() {
     </section>
   )
 }
+

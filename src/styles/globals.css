@@ -19,21 +19,24 @@
 }
 
 html {
-  cursor: none;
+  /* Default HTML */
 }
 
 body {
   background: var(--color-void);
   color: #ffffff;
   overflow-x: hidden;
-  cursor: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a, button {
-  cursor: none;
+/* Only hide cursor on desktop devices with hover support */
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button {
+    cursor: none;
+  }
 }
+
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
@@ -112,3 +115,53 @@ input::placeholder, textarea::placeholder {
     gap: 1.5rem;
   }
 }
+
+/* Responsive Layout Utilities */
+.responsive-section {
+  padding: 8rem 3rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.case-study-content {
+  padding: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .responsive-section {
+    padding: 4rem 1.5rem !important;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .case-study-content {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    flex-direction: column;
+  }
+}
+

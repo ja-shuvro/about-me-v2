@@ -1,9 +1,18 @@
 'use client'
 import { Canvas } from '@react-three/fiber'
-import { Suspense } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import CinematicBackground from './CinematicBackground'
 
 export default function SceneCanvas() {
+  const [dpr, setDpr] = useState<number | [number, number]>([1, 1.5])
+
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
+    if (isMobile) {
+      setDpr(1)
+    }
+  }, [])
+
   return (
     <div
       style={{
@@ -22,7 +31,7 @@ export default function SceneCanvas() {
           toneMapping: 3, // ACESFilmic
           toneMappingExposure: 1.2,
         }}
-        dpr={[1, 1.5]}
+        dpr={dpr}
       >
         <Suspense fallback={null}>
           <CinematicBackground />
@@ -31,3 +40,4 @@ export default function SceneCanvas() {
     </div>
   )
 }
+

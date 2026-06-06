@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useMemo, useEffect } from 'react'
+import { useRef, useMemo, useEffect, useState } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useScrollStore } from '@/lib/scrollStore'
@@ -10,7 +10,6 @@ import {
   bgVertexShader,
 } from '@/lib/shaders'
 
-const PARTICLE_COUNT = 8000
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t
@@ -56,14 +55,23 @@ function ParticleField({ phase }: { phase: number }) {
     uPhase: { value: 0 },
   })
 
-  const { positions, sizes, velocities, phaseOffsets, lifetimes } = useMemo(() => {
-    const positions = new Float32Array(PARTICLE_COUNT * 3)
-    const sizes = new Float32Array(PARTICLE_COUNT)
-    const velocities = new Float32Array(PARTICLE_COUNT * 3)
-    const phaseOffsets = new Float32Array(PARTICLE_COUNT)
-    const lifetimes = new Float32Array(PARTICLE_COUNT)
+  const [particleCount, setParticleCount] = useState(8000)
 
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
+    if (isMobile) {
+      setParticleCount(2000)
+    }
+  }, [])
+
+  const { positions, sizes, velocities, phaseOffsets, lifetimes } = useMemo(() => {
+    const positions = new Float32Array(particleCount * 3)
+    const sizes = new Float32Array(particleCount)
+    const velocities = new Float32Array(particleCount * 3)
+    const phaseOffsets = new Float32Array(particleCount)
+    const lifetimes = new Float32Array(particleCount)
+
+    for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3
       // Sphere distribution
       const r = Math.random() * 18 + 2
@@ -84,7 +92,7 @@ function ParticleField({ phase }: { phase: number }) {
     }
 
     return { positions, sizes, velocities, phaseOffsets, lifetimes }
-  }, [])
+  }, [particleCount])
 
   const scrollProgress = useScrollStore((s) => s.scrollProgress)
 
@@ -94,7 +102,7 @@ function ParticleField({ phase }: { phase: number }) {
     uniformsRef.current.uPhase.value = lerp(
       uniformsRef.current.uPhase.value,
       phase,
-      0.025
+      0.02
     )
   })
 
@@ -122,9 +130,17 @@ function ParticleField({ phase }: { phase: number }) {
 // Connection lines that appear in discovery/expertise phases
 function ConnectionLines({ phase }: { phase: number }) {
   const linesRef = useRef<THREE.LineSegments>(null)
+  const [lineCount, setLineCount] = useState(200)
+
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
+    if (isMobile) {
+      setLineCount(50)
+    }
+  }, [])
 
   const { positions, colors } = useMemo(() => {
-    const count = 200
+    const count = lineCount
     const positions = new Float32Array(count * 6)
     const colors = new Float32Array(count * 6)
 
@@ -150,7 +166,7 @@ function ConnectionLines({ phase }: { phase: number }) {
     }
 
     return { positions, colors }
-  }, [])
+  }, [lineCount])
 
   useFrame(({ clock }) => {
     if (!linesRef.current) return
@@ -187,6 +203,9 @@ function CameraRig({ phase }: { phase: number }) {
   const targetRef = useRef({ x: 0, y: 0, z: 8, lookX: 0, lookY: 0 })
 
   useEffect(() => {
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouch) return
+
     const handleMouseMove = (e: MouseEvent) => {
       targetRef.current.lookX = (e.clientX / window.innerWidth - 0.5) * 2
       targetRef.current.lookY = -(e.clientY / window.innerHeight - 0.5) * 2

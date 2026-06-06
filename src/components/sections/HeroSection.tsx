@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const FRAGMENTS = [
@@ -20,19 +20,41 @@ const FRAGMENTS = [
 ]
 
 function ErrorFragment({ text, delay }: { text: string; delay: number }) {
+  const [coords, setCoords] = useState<{
+    left: string
+    top: string
+    rx: number
+    ry: number
+    duration: number
+    rd: number
+  } | null>(null)
+
+  useEffect(() => {
+    setCoords({
+      left: `${10 + Math.random() * 80}%`,
+      top: `${10 + Math.random() * 80}%`,
+      rx: (Math.random() - 0.5) * 60,
+      ry: (Math.random() - 0.5) * 40,
+      duration: 3 + Math.random() * 2,
+      rd: Math.random() * 4,
+    })
+  }, [])
+
+  if (!coords) return null
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{
         opacity: [0, 0.6, 0],
-        x: [0, (Math.random() - 0.5) * 60],
-        y: [0, (Math.random() - 0.5) * 40],
+        x: [0, coords.rx],
+        y: [0, coords.ry],
       }}
       transition={{
-        duration: 3 + Math.random() * 2,
+        duration: coords.duration,
         delay,
         repeat: Infinity,
-        repeatDelay: Math.random() * 4,
+        repeatDelay: coords.rd,
       }}
       style={{
         position: 'absolute',
@@ -41,8 +63,8 @@ function ErrorFragment({ text, delay }: { text: string; delay: number }) {
         color: '#ff3366',
         letterSpacing: '0.05em',
         opacity: 0,
-        left: `${10 + Math.random() * 80}%`,
-        top: `${10 + Math.random() * 80}%`,
+        left: coords.left,
+        top: coords.top,
         whiteSpace: 'nowrap',
         pointerEvents: 'none',
         textShadow: '0 0 10px #ff3366',
@@ -53,8 +75,62 @@ function ErrorFragment({ text, delay }: { text: string; delay: number }) {
   )
 }
 
+function GlitchLine({ index }: { index: number }) {
+  const [params, setParams] = useState<{
+    y: number
+    delay: number
+    repeatDelay: number
+  } | null>(null)
+
+  useEffect(() => {
+    setParams({
+      y: (Math.random() - 0.5) * 200,
+      delay: index * 0.8 + Math.random() * 2,
+      repeatDelay: 2 + Math.random() * 3,
+    })
+  }, [index])
+
+  if (!params) return null
+
+  return (
+    <motion.div
+      animate={{
+        opacity: [0, 0.3, 0],
+        scaleX: [0.8, 1.1, 0.9],
+        y: [params.y],
+      }}
+      transition={{
+        duration: 0.1,
+        delay: params.delay,
+        repeat: Infinity,
+        repeatDelay: params.repeatDelay,
+      }}
+      style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        height: 1,
+        background: 'rgba(255,51,102,0.4)',
+        top: '50%',
+      }}
+    />
+  )
+}
+
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
+
+  const activeFragments = isMobile ? FRAGMENTS.slice(0, 5) : FRAGMENTS
 
   return (
     <section
@@ -69,38 +145,18 @@ export default function HeroSection() {
         overflow: 'hidden',
       }}
     >
-      {/* Error fragments floating */}
-      {FRAGMENTS.map((f, i) => (
+      {/* Error fragments floating - client-only to avoid hydration mismatch */}
+      {mounted && activeFragments.map((f, i) => (
         <ErrorFragment key={f} text={f} delay={i * 0.4} />
       ))}
 
-      {/* Glitch lines */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          animate={{
-            opacity: [0, 0.3, 0],
-            scaleX: [0.8, 1.1, 0.9],
-            y: [(Math.random() - 0.5) * 200],
-          }}
-          transition={{
-            duration: 0.1,
-            delay: i * 0.8 + Math.random() * 2,
-            repeat: Infinity,
-            repeatDelay: 2 + Math.random() * 3,
-          }}
-          style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            height: 1,
-            background: 'rgba(255,51,102,0.4)',
-            top: '50%',
-          }}
-        />
+      {/* Glitch lines - client-only to avoid hydration mismatch */}
+      {mounted && [...Array(isMobile ? 3 : 5)].map((_, i) => (
+        <GlitchLine key={i} index={i} />
       ))}
 
-      <div style={{ textAlign: 'center', position: 'relative', zIndex: 10, maxWidth: '900px', padding: '0 2rem' }}>
+
+      <div style={{ textAlign: 'center', position: 'relative', zIndex: 10, maxWidth: '900px', padding: '0 1.5rem' }}>
         {/* System label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -108,15 +164,15 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.3 }}
           style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: '0.7rem',
+            fontSize: isMobile ? '0.6rem' : '0.7rem',
             color: '#ff3366',
             letterSpacing: '0.4em',
             textTransform: 'uppercase',
-            marginBottom: '2rem',
+            marginBottom: isMobile ? '1.5rem' : '2rem',
             opacity: 0.8,
           }}
         >
-          SYSTEM STATE: FRAGMENTED — DETECTING ANOMALIES
+          {isMobile ? 'SYSTEM STATE: FRAGMENTED' : 'SYSTEM STATE: FRAGMENTED — DETECTING ANOMALIES'}
         </motion.div>
 
         {/* Main headline */}
@@ -126,12 +182,12 @@ export default function HeroSection() {
           transition={{ duration: 1.5, delay: 0.6 }}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(3rem, 8vw, 7rem)',
+            fontSize: 'clamp(2.5rem, 8vw, 7rem)',
             fontWeight: 300,
             color: '#ffffff',
             letterSpacing: '-0.02em',
             lineHeight: 1.0,
-            marginBottom: '2rem',
+            marginBottom: isMobile ? '1.5rem' : '2rem',
           }}
         >
           <motion.span
@@ -168,10 +224,10 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 1.2 }}
           style={{
             fontFamily: 'var(--font-body)',
-            fontSize: '1.1rem',
+            fontSize: isMobile ? '0.95rem' : '1.1rem',
             color: 'rgba(255,255,255,0.45)',
             maxWidth: '580px',
-            margin: '0 auto 3rem',
+            margin: isMobile ? '0 auto 2rem' : '0 auto 3rem',
             lineHeight: 1.7,
             letterSpacing: '0.01em',
           }}
@@ -197,9 +253,9 @@ export default function HeroSection() {
             letterSpacing: '0.3em',
           }}
         >
-          <div style={{ width: 1, height: 30, background: 'rgba(255,255,255,0.2)' }} />
+          <div style={{ width: 1, height: isMobile ? 20 : 30, background: 'rgba(255,255,255,0.2)' }} />
           SCROLL TO BEGIN
-          <div style={{ width: 1, height: 30, background: 'rgba(255,255,255,0.2)' }} />
+          <div style={{ width: 1, height: isMobile ? 20 : 30, background: 'rgba(255,255,255,0.2)' }} />
         </motion.div>
       </div>
 
@@ -209,10 +265,10 @@ export default function HeroSection() {
           key={pos}
           style={{
             position: 'absolute',
-            [pos.includes('top') ? 'top' : 'bottom']: '2rem',
-            [pos.includes('left') ? 'left' : 'right']: '2rem',
-            width: 30,
-            height: 30,
+            [pos.includes('top') ? 'top' : 'bottom']: isMobile ? '1rem' : '2rem',
+            [pos.includes('left') ? 'left' : 'right']: isMobile ? '1rem' : '2rem',
+            width: isMobile ? 15 : 30,
+            height: isMobile ? 15 : 30,
             borderTop: pos.includes('top') ? '1px solid rgba(255,51,102,0.3)' : 'none',
             borderBottom: pos.includes('bottom') ? '1px solid rgba(255,51,102,0.3)' : 'none',
             borderLeft: pos.includes('left') ? '1px solid rgba(255,51,102,0.3)' : 'none',
@@ -223,3 +279,4 @@ export default function HeroSection() {
     </section>
   )
 }
+

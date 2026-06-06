@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const DATA_POINTS = [
@@ -37,8 +37,8 @@ function ScanLine() {
   )
 }
 
-function DataRow({ label, value, confidence, delay }: {
-  label: string; value: string; confidence: number; delay: number
+function DataRow({ label, value, confidence, delay, isMobile }: {
+  label: string; value: string; confidence: number; delay: number; isMobile: boolean
 }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
@@ -52,7 +52,7 @@ function DataRow({ label, value, confidence, delay }: {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '1rem',
+        gap: '0.8rem',
         padding: '0.75rem 0',
         borderBottom: '1px solid rgba(0,255,136,0.08)',
       }}
@@ -63,34 +63,39 @@ function DataRow({ label, value, confidence, delay }: {
         color: '#00ff88',
         letterSpacing: '0.2em',
         opacity: 0.7,
-        width: '160px',
+        width: isMobile ? '100px' : '150px',
         flexShrink: 0,
       }}>
         {label}
       </span>
       <span style={{
         fontFamily: 'var(--font-mono)',
-        fontSize: '0.85rem',
+        fontSize: isMobile ? '0.75rem' : '0.85rem',
         color: 'rgba(255,255,255,0.85)',
         flex: 1,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
       }}>
         {value}
       </span>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        <div style={{
-          width: 60,
-          height: 2,
-          background: 'rgba(0,255,136,0.15)',
-          borderRadius: 1,
-          overflow: 'hidden',
-        }}>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={inView ? { width: `${confidence}%` } : {}}
-            transition={{ duration: 1, delay: delay + 0.3 }}
-            style={{ height: '100%', background: '#00ff88', borderRadius: 1 }}
-          />
-        </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexShrink: 0 }}>
+        {!isMobile && (
+          <div style={{
+            width: 50,
+            height: 2,
+            background: 'rgba(0,255,136,0.15)',
+            borderRadius: 1,
+            overflow: 'hidden',
+          }}>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={inView ? { width: `${confidence}%` } : {}}
+              transition={{ duration: 1, delay: delay + 0.3 }}
+              style={{ height: '100%', background: '#00ff88', borderRadius: 1 }}
+            />
+          </div>
+        )}
         <span style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '0.55rem',
@@ -107,13 +112,20 @@ function DataRow({ label, value, confidence, delay }: {
 export default function AboutSection() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 768)
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
 
   return (
-    <section style={{
+    <section className="responsive-section" style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
-      padding: '8rem 3rem',
       position: 'relative',
     }}>
       <div ref={ref} style={{ maxWidth: '1100px', margin: '0 auto', width: '100%' }}>
@@ -122,7 +134,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          style={{ marginBottom: '4rem' }}
+          style={{ marginBottom: isMobile ? '2.5rem' : '4rem' }}
         >
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -136,7 +148,7 @@ export default function AboutSection() {
           </div>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2.3rem, 5vw, 4.5rem)',
             fontWeight: 300,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -148,7 +160,7 @@ export default function AboutSection() {
           </h2>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+        <div className="about-grid">
           {/* Left: Data analysis terminal */}
           <div>
             <div style={{
@@ -156,7 +168,7 @@ export default function AboutSection() {
               backdropFilter: 'blur(12px)',
               border: '1px solid rgba(0,255,136,0.18)',
               borderRadius: '2px',
-              padding: '1.5rem',
+              padding: isMobile ? '1rem' : '1.5rem',
               position: 'relative',
               overflow: 'hidden',
             }}>
@@ -168,16 +180,16 @@ export default function AboutSection() {
                 marginBottom: '1.5rem',
                 letterSpacing: '0.1em',
               }}>
-                &gt; RUNNING DEEP_SCAN v2.4.1 ... SUBJECT IDENTIFIED
+                &gt; RUNNING DEEP_SCAN Subject: J.A. Shuvro
               </div>
 
               {DATA_POINTS.map((d, i) => (
-                <DataRow key={d.label} {...d} delay={i * 0.1 + 0.3} />
+                <DataRow key={d.label} {...d} delay={i * 0.1 + 0.3} isMobile={isMobile} />
               ))}
             </div>
 
             {/* Graph connections */}
-            <div style={{ marginTop: '2rem' }}>
+            <div style={{ marginTop: '1.5rem' }}>
               {CONNECTIONS.map((c, i) => (
                 <motion.div
                   key={c}
@@ -207,7 +219,7 @@ export default function AboutSection() {
             >
               <p style={{
                 fontFamily: 'var(--font-body)',
-                fontSize: '1.15rem',
+                fontSize: isMobile ? '1.05rem' : '1.15rem',
                 color: 'rgba(255,255,255,0.7)',
                 lineHeight: 1.8,
                 marginBottom: '1.5rem',
@@ -219,7 +231,7 @@ export default function AboutSection() {
               </p>
               <p style={{
                 fontFamily: 'var(--font-body)',
-                fontSize: '1.15rem',
+                fontSize: isMobile ? '1.05rem' : '1.15rem',
                 color: 'rgba(255,255,255,0.5)',
                 lineHeight: 1.8,
                 marginBottom: '2rem',
@@ -230,11 +242,15 @@ export default function AboutSection() {
               </p>
 
               {/* Stats */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                gap: '1rem'
+              }}>
                 {[
                   { num: '20+', label: 'Projects Built' },
-                  { num: '10+', label: 'Android Apps Deployed' },
-                  { num: '10+', label: 'Web Platforms Deployed' },
+                  { num: '10+', label: 'Android Apps' },
+                  { num: '10+', label: 'Web Platforms' },
                   { num: '3+', label: 'CMS Integrations' },
                 ].map((stat, i) => (
                   <motion.div
@@ -261,7 +277,7 @@ export default function AboutSection() {
                     </div>
                     <div style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '0.6rem',
+                      fontSize: '0.55rem',
                       color: 'rgba(255,255,255,0.4)',
                       letterSpacing: '0.15em',
                       textTransform: 'uppercase',
@@ -279,3 +295,4 @@ export default function AboutSection() {
     </section>
   )
 }
+
