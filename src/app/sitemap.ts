@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic sitemap base URL
-  const baseUrl = 'https://jashuvro.com'
+  const baseUrl = 'https://www.jashuvro.com'
 
   return [
     {

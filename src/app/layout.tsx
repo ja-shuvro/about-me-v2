@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import '../styles/globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jashuvro.com'),
+  metadataBase: new URL('https://www.jashuvro.com'),
   title: 'J.A. Shuvro — Flutter & Full-Stack Developer',
   description: 'Portfolio of J.A. Shuvro (Md. Jonaed Ali Shuvro), a professional Flutter & Full-Stack Developer. Specialized in building mobile apps (Android/iOS) and robust web architectures with Laravel, React, Next.js, and Express.',
   keywords: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'J.A. Shuvro — Flutter & Full-Stack Developer',
     description: 'Bespoke Flutter mobile applications and high-performance Full-Stack web systems. Check out case studies on Flirtmetrics WebSocket chat optimization and ERP platforms.',
-    url: 'https://jashuvro.com',
+    url: 'https://www.jashuvro.com',
     siteName: 'J.A. Shuvro Portfolio',
     locale: 'en_US',
     type: 'profile',
@@ -92,7 +92,7 @@ const jsonLd = {
     'Jonaed Ali Shuvro',
     'J.A. Shuvro — Flutter & Full-Stack Developer'
   ],
-  url: 'https://jashuvro.com',
+  url: 'https://www.jashuvro.com',
   image: 'https://avatars.githubusercontent.com/u/89667794?v=4',
   jobTitle: 'Flutter & Full-Stack Developer',
   worksFor: {
