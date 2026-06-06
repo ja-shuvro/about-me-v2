@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://jsahuvro.com/sitemap.xml',
+    sitemap: 'https://jashuvro.com/sitemap.xml',
   }
 }

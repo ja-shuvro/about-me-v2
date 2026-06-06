@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'J.A. Shuvro — Flutter & Full-Stack Developer',
     description: 'Bespoke Flutter mobile applications and high-performance Full-Stack web systems. Check out case studies on Flirtmetrics WebSocket chat optimization and ERP platforms.',
-    url: 'https://jsahuvro.com',
+    url: 'https://jashuvro.com',
     siteName: 'J.A. Shuvro Portfolio',
     locale: 'en_US',
     type: 'profile',
@@ -57,7 +57,7 @@ const jsonLd = {
   '@type': 'Person',
   name: 'J.A. Shuvro',
   alternateName: ['JA. Suvro', 'Shuvro', 'J.A. Shuvro — Flutter & Full-Stack Developer'],
-  url: 'https://jsahuvro.com',
+  url: 'https://jashuvro.com',
   image: 'https://avatars.githubusercontent.com/u/89667794?v=4',
   jobTitle: 'Flutter & Full-Stack Developer',
   worksFor: {

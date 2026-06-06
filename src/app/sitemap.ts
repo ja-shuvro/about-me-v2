@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Replace jsahuvro.com with your custom domain once deployed
-  const baseUrl = 'https://jsahuvro.com'
+  // Dynamic sitemap base URL
+  const baseUrl = 'https://jashuvro.com'
 
   return [
     {
