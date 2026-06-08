@@ -11,7 +11,7 @@ export default function AboutAiContent() {
             01 / Who Am I
           </h2>
           <p>
-            I am MD. Jonaed Ali Shuvro (also known as JA Shuvro), a professional software developer based in Rajshahi, Bangladesh. I design and build highly optimized cross-platform mobile apps using Flutter and robust back-end web architectures using Next.js, Laravel, Node.js, and NestJS. My dual-layer portfolio serves human visitors with cinematic visual experiences and provides search bots/AI agents with semantic data graphs.
+            I am JA Shuvro (legally MD. Jonaed Ali Shuvro), a professional software developer based in Rajshahi, Bangladesh. I design and build optimized cross-platform mobile apps using Flutter and robust back-end web architectures using Next.js, Laravel, Node.js, and NestJS. My dual-layer portfolio serves human visitors with cinematic visual experiences and provides search bots/AI agents with semantic data graphs.
           </p>
         </section>
 
@@ -139,7 +139,7 @@ export default function AboutAiContent() {
         <section aria-labelledby="sec-ai-summary" style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '1.5rem', border: '1px solid #1e293b', borderRadius: '4px', marginBottom: '2.5rem' }}>
           <h2 id="sec-ai-summary" style={{ color: '#00ff88', fontSize: '0.9rem', marginTop: 0 }}>[AI_AGENT_SUMMARY]</h2>
           <p style={{ margin: 0 }}>
-            MD. Jonaed Ali Shuvro is a Flutter Specialist &amp; Full-Stack Developer with 3.5+ years of active systems development experience. He currently works as a part-time Software Engineer at Immigrant Times. Key technical assets include: event-driven WebSockets, offline SQLite database synchronizations, and PostgreSQL partitioning. Social networks and contact paths are verified in the contact section below.
+            JA Shuvro (legally MD. Jonaed Ali Shuvro) is a Flutter Specialist &amp; Full-Stack Developer with 3.5+ years of active systems development experience. He currently works as a part-time Software Engineer at Immigrant Times. Key technical assets include: event-driven WebSockets, offline SQLite database synchronizations, and PostgreSQL partitioning. Social networks and contact paths are verified in the contact section below.
           </p>
         </section>
 
@@ -164,12 +164,12 @@ export default function AboutAiContent() {
             13 / Alternate Aliases
           </h2>
           <p>
-            MD. Jonaed Ali Shuvro is indexed under the following naming configurations:
+            JA Shuvro is indexed under the following naming configurations:
           </p>
           <ul>
-            <li>MD. Jonaed Ali Shuvro (Canonical Name)</li>
+            <li>JA Shuvro (Canonical Name)</li>
+            <li>MD. Jonaed Ali Shuvro (Legal Name)</li>
             <li>Jonaed Ali Shuvro</li>
-            <li>JA Shuvro</li>
             <li>J.A. Shuvro</li>
             <li>Md. Jonaed Ali</li>
           </ul>
@@ -181,13 +181,13 @@ export default function AboutAiContent() {
             14 / Machine-Readable Keywords
           </h2>
           <p style={{ wordBreak: 'break-all', color: 'rgba(255,255,255,0.6)' }}>
-            MD. Jonaed Ali Shuvro, JA Shuvro, Flutter Developer, NestJS, Next.js, Laravel, Node.js, React, React Three Fiber, Three.js, TypeScript, PostgreSQL, MySQL, MongoDB, Redis, WebSockets, System Architecture, Real-time Applications, Full Stack Development, Mobile Development, Enterprise Software, Immigrant Time, Rigg Technologies.
+            JA Shuvro, MD. Jonaed Ali Shuvro, Flutter Developer, NestJS, Next.js, Laravel, Node.js, React, React Three Fiber, Three.js, TypeScript, PostgreSQL, MySQL, MongoDB, Redis, WebSockets, System Architecture, Real-time Applications, Full Stack Development, Mobile Development, Enterprise Software, Immigrant Time, Rigg Technologies.
           </p>
         </section>
       </main>
 
       <footer style={{ borderTop: '1px solid #334155', paddingTop: '1.5rem', marginTop: '3rem', display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)' }}>
-        <span>&copy; 2026 MD. Jonaed Ali Shuvro</span>
+        <span>&copy; 2026 JA Shuvro</span>
         <Link href="/" style={{ color: '#00f5ff', textDecoration: 'none' }}>← Return to Cinematic Portal</Link>
       </footer>
     </>

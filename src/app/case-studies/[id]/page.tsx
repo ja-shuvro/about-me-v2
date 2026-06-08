@@ -7,7 +7,12 @@ import {
   getProjectSchema,
   getSoftwareApplicationSchema,
   getSoftwareSourceCodeSchema,
-  getTechArticleSchema
+  getTechArticleSchema,
+  getPersonSchema,
+  getWebsiteSchema,
+  getOrganizationSchema,
+  getWebPageSchema,
+  getGraphSchema
 } from '@/lib/schemaHelpers'
 
 interface Props {
@@ -21,25 +26,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!data) {
     return {
-      title: 'Project Not Found // MD. Jonaed Ali Shuvro',
+      title: 'Project Not Found // JA Shuvro',
       description: 'The requested software case study could not be located on the server.',
       robots: 'noindex, nofollow'
     }
   }
 
   return {
-    title: `${data.name} Case Study // Systems Architecture by MD. Jonaed Ali Shuvro`,
+    title: `${data.name} Case Study // Software Development by JA Shuvro`,
     description: data.overview,
-    keywords: [...data.tech, 'Case Study', 'Performance Optimization', 'Systems Engineering', 'MD. Jonaed Ali Shuvro'],
+    keywords: [...data.tech, 'Case Study', 'Performance Optimization', 'Software Development', 'JA Shuvro'],
     alternates: {
       canonical: `https://www.jashuvro.com/case-studies/${id}`
     },
-    publisher: 'MD. Jonaed Ali Shuvro',
+    publisher: 'JA Shuvro',
     other: {
-      author: 'MD. Jonaed Ali Shuvro',
-      creator: 'MD. Jonaed Ali Shuvro',
-      publisher: 'MD. Jonaed Ali Shuvro',
-      copyrightHolder: 'MD. Jonaed Ali Shuvro',
+      author: 'JA Shuvro',
+      creator: 'JA Shuvro',
+      publisher: 'JA Shuvro',
+      copyrightHolder: 'JA Shuvro',
     },
     openGraph: {
       title: `${data.name} — ${data.tagline}`,
@@ -48,11 +53,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: data.datePublished,
       modifiedTime: data.dateModified,
-      authors: ['MD. Jonaed Ali Shuvro']
+      authors: ['JA Shuvro']
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${data.name} Case Study // Systems Architecture`,
+      title: `${data.name} Case Study // Software Development`,
       description: data.overview
     }
   }
@@ -82,38 +87,42 @@ export default function CaseStudyPage({ params }: Props) {
   }
 
   // Schema structured definitions
-  const breadcrumbSchema = getBreadcrumbListSchema([
+  const personNode = getPersonSchema()
+  const orgNode = getOrganizationSchema()
+  const websiteNode = getWebsiteSchema()
+  const webpageNode = getWebPageSchema(
+    `https://www.jashuvro.com/case-studies/${data.id}`,
+    `${data.name} Case Study // Software Development by JA Shuvro`,
+    data.overview
+  )
+  const breadcrumbNode = getBreadcrumbListSchema([
     { name: 'Home', path: '/' },
     { name: 'Case Studies', path: '/#work' },
     { name: data.name, path: `/case-studies/${data.id}` }
   ])
-  const projectSchema = getProjectSchema(data)
-  const appSchema = getSoftwareApplicationSchema(data)
-  const sourceSchema = getSoftwareSourceCodeSchema(data)
-  const articleSchema = getTechArticleSchema(data)
+  const projectNode = getProjectSchema(data)
+  const appNode = getSoftwareApplicationSchema(data)
+  const sourceNode = getSoftwareSourceCodeSchema(data)
+  const articleNode = getTechArticleSchema(data)
+
+  const graphSchema = getGraphSchema([
+    personNode,
+    orgNode,
+    websiteNode,
+    webpageNode,
+    breadcrumbNode,
+    projectNode,
+    appNode,
+    sourceNode,
+    articleNode
+  ])
 
   return (
     <>
-      {/* Dynamic JSON-LD Structured Data */}
+      {/* Unified JSON-LD Graph for AI & Search Engines */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(sourceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
       />
 
       {/* LAYER 1: Cinematic Human Experience */}
@@ -183,7 +192,7 @@ export default function CaseStudyPage({ params }: Props) {
             <section aria-labelledby="sec-repos" style={{ marginTop: '2rem' }}>
               <h2 id="sec-repos" style={{ color: data.color, fontSize: '0.8rem', letterSpacing: '0.1em' }}>[09 / SOURCE_CHANNELS]</h2>
               <p>
-                <strong>Developer Credentials:</strong> MD. Jonaed Ali Shuvro (author & creator) <br />
+                <strong>Developer Credentials:</strong> JA Shuvro (legally MD. Jonaed Ali Shuvro) (author & creator) <br />
                 <strong>Programming Language:</strong> {data.programmingLanguage} <br />
                 <strong>Application Category:</strong> {data.applicationCategory} <br />
                 <strong>Keywords:</strong> {data.tech.join(', ')} <br />

@@ -5,26 +5,36 @@ import { CaseStudy } from './projectData'
 
 export const BASE_URL = 'https://www.jashuvro.com'
 
-export function getPersonSchema() {
+export function getGraphSchema(nodes: any[]) {
+  // Strip '@context' from nodes to keep the graph payload clean
+  const cleanedNodes = nodes.map(node => {
+    const { '@context': _, ...rest } = node
+    return rest
+  })
   return {
     '@context': 'https://schema.org',
+    '@graph': cleanedNodes
+  }
+}
+
+export function getPersonSchema() {
+  return {
     '@type': 'Person',
     '@id': `${BASE_URL}/#person`,
-    'name': 'MD. Jonaed Ali Shuvro',
+    'name': 'JA Shuvro',
     'givenName': 'Jonaed Ali',
     'familyName': 'Shuvro',
     'additionalName': 'Md.',
     'alternateName': [
+      'MD. Jonaed Ali Shuvro',
       'Jonaed Ali Shuvro',
-      'JA Shuvro',
-      'J.A. Shuvro',
       'Md. Jonaed Ali',
-      'MD. Jonaed Ali Shuvro'
+      'J.A. Shuvro'
     ],
     'url': BASE_URL,
     'image': 'https://avatars.githubusercontent.com/u/89667794?v=4',
     'jobTitle': 'Flutter Specialist & Full-Stack Developer',
-    'description': 'Flutter Specialist & Full-Stack Developer with 3.5+ years of active system development. Specializing in high-performance mobile apps and robust enterprise web architectures.',
+    'description': 'Flutter Specialist & Full-Stack Developer specializing in real-time systems and AI-optimized web experiences.',
     'nationality': {
       '@type': 'Country',
       'name': 'Bangladesh'
@@ -33,19 +43,17 @@ export function getPersonSchema() {
       '@type': 'Place',
       'name': 'Rajshahi, Bangladesh'
     },
-    'email': 'dev.jsahuvro@gmail.com',
+    'email': 'mailto:dev.jsahuvro@gmail.com',
     'publishingPrinciples': `${BASE_URL}/about-ai`,
     'worksFor': {
-      '@type': 'Organization',
-      '@id': `${BASE_URL}/#organization`,
-      'name': 'Immigrant Times',
-      'sameAs': 'https://www.linkedin.com/company/immigranttimes/posts/?feedView=all'
+      '@id': `${BASE_URL}/#organization`
     },
     'sameAs': [
       'https://github.com/ja-shuvro',
       'https://www.linkedin.com/in/ja-shuvro-13733b37b',
+      'https://gravatar.com/jashuvro',
       'https://x.com/shuvro_a',
-      'https://wa.me/01728723881'
+      'https://www.twine.net/jashuvro'
     ],
     'knowsAbout': [
       'Flutter',
@@ -69,50 +77,72 @@ export function getPersonSchema() {
       'Mobile Development',
       'Enterprise Software'
     ],
-    'created': [
+    'subjectOf': [
       {
-        '@type': 'SoftwareApplication',
-        '@id': `${BASE_URL}/case-studies/flirtmetrics#software`
+        '@id': `${BASE_URL}/case-studies/flirtmetrics#article`
       },
       {
-        '@type': 'SoftwareApplication',
-        '@id': `${BASE_URL}/case-studies/erp#software`
+        '@id': `${BASE_URL}/case-studies/erp#article`
       }
-    ]
+    ],
+    'inLanguage': 'en'
+  }
+}
+
+export function getOrganizationSchema() {
+  return {
+    '@type': 'Organization',
+    '@id': `${BASE_URL}/#organization`,
+    'name': 'Immigrant Times',
+    'sameAs': 'https://www.linkedin.com/company/immigranttimes/',
+    'inLanguage': 'en'
   }
 }
 
 export function getWebsiteSchema() {
   return {
-    '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${BASE_URL}/#website`,
-    'name': 'MD. Jonaed Ali Shuvro Portfolio',
+    'name': 'JA Shuvro Portfolio',
     'url': BASE_URL,
     'publisher': {
       '@id': `${BASE_URL}/#person`
     },
     'author': {
       '@id': `${BASE_URL}/#person`
-    }
+    },
+    'inLanguage': 'en'
+  }
+}
+
+export function getWebPageSchema(url: string, name: string, description: string) {
+  return {
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    'url': url,
+    'name': name,
+    'description': description,
+    'about': {
+      '@id': `${BASE_URL}/#person`
+    },
+    'inLanguage': 'en'
   }
 }
 
 export function getProfilePageSchema() {
   return {
-    '@context': 'https://schema.org',
     '@type': 'ProfilePage',
     '@id': `${BASE_URL}/about-ai#profile`,
     'url': `${BASE_URL}/about-ai`,
     'mainEntity': {
       '@id': `${BASE_URL}/#person`
-    }
+    },
+    'inLanguage': 'en'
   }
 }
 
 export function getBreadcrumbListSchema(items: { name: string; path: string }[]) {
   return {
-    '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     '@id': `${BASE_URL}${items[items.length - 1]?.path || ''}#breadcrumb`,
     'itemListElement': items.map((item, index) => ({
@@ -120,31 +150,33 @@ export function getBreadcrumbListSchema(items: { name: string; path: string }[])
       'position': index + 1,
       'name': item.name,
       'item': item.path.startsWith('http') ? item.path : `${BASE_URL}${item.path}`
-    }))
+    })),
+    'inLanguage': 'en'
   }
 }
 
 export function getProjectSchema(project: CaseStudy) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Project',
+    '@type': 'CreativeWork',
     '@id': `${BASE_URL}/case-studies/${project.id}#project`,
     'name': project.name,
     'description': project.overview,
     'url': `${BASE_URL}/case-studies/${project.id}`,
     'creator': {
       '@id': `${BASE_URL}/#person`
-    }
+    },
+    'inLanguage': 'en'
   }
 }
 
 export function getSoftwareApplicationSchema(project: CaseStudy) {
   return {
-    '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     '@id': `${BASE_URL}/case-studies/${project.id}#software`,
     'name': project.name,
     'description': project.overview,
+    'dateCreated': project.datePublished.split('T')[0],
+    'dateModified': project.dateModified.split('T')[0],
     'applicationCategory': project.applicationCategory || 'BusinessApplication',
     'operatingSystem': project.operatingSystem || 'Windows, macOS, Linux, iOS, Android',
     'softwareVersion': '1.0.0',
@@ -160,35 +192,36 @@ export function getSoftwareApplicationSchema(project: CaseStudy) {
     'downloadUrl': project.links.demo || project.links.site || BASE_URL,
     'subjectOf': {
       '@id': `${BASE_URL}/case-studies/${project.id}#article`
-    }
+    },
+    'inLanguage': 'en'
   }
 }
 
 export function getSoftwareSourceCodeSchema(project: CaseStudy) {
+  const isPrivate = project.links.github.includes('Private')
   return {
-    '@context': 'https://schema.org',
     '@type': 'SoftwareSourceCode',
     '@id': `${BASE_URL}/case-studies/${project.id}#sourcecode`,
     'name': `${project.name} Source Code`,
-    'codeRepository': project.links.github.includes('Private') ? 'Private Repository' : project.links.github,
+    ...(isPrivate ? {} : { 'codeRepository': project.links.github }),
     'programmingLanguage': project.programmingLanguage || 'TypeScript',
     'author': {
       '@id': `${BASE_URL}/#person`
     },
     'targetProduct': {
       '@id': `${BASE_URL}/case-studies/${project.id}#software`
-    }
+    },
+    'inLanguage': 'en'
   }
 }
 
 export function getTechArticleSchema(project: CaseStudy) {
   return {
-    '@context': 'https://schema.org',
     '@type': 'TechArticle',
     '@id': `${BASE_URL}/case-studies/${project.id}#article`,
     'headline': `${project.name} Case Study: ${project.tagline}`,
     'description': project.overview,
-    'inLanguage': 'en-US',
+    'inLanguage': 'en',
     'datePublished': project.datePublished,
     'dateModified': project.dateModified,
     'author': {
@@ -200,18 +233,21 @@ export function getTechArticleSchema(project: CaseStudy) {
     'about': {
       '@id': `${BASE_URL}/case-studies/${project.id}#software`
     },
-    'dependencies': project.tech.join(', ')
+    'isPartOf': {
+      '@id': `${BASE_URL}/#portfolio`
+    },
+    'dependencies': project.tech.join(', '),
+    'keywords': project.tech
   }
 }
 
 export function getPortfolioSchema(projects: CaseStudy[]) {
   return {
-    '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     '@id': `${BASE_URL}/#portfolio`,
-    'name': "MD. Jonaed Ali Shuvro's Software Portfolio",
-    'description': 'A collection of software engineering projects, mobile apps, and web platforms developed by MD. Jonaed Ali Shuvro.',
-    'url': `${BASE_URL}/#work`,
+    'name': "JA Shuvro's Software Portfolio",
+    'description': 'A collection of software engineering projects, mobile apps, and web platforms developed by JA Shuvro.',
+    'url': BASE_URL,
     'about': {
       '@id': `${BASE_URL}/#person`
     },
@@ -221,12 +257,17 @@ export function getPortfolioSchema(projects: CaseStudy[]) {
     'publisher': {
       '@id': `${BASE_URL}/#person`
     },
+    'mainEntity': {
+      '@id': `${BASE_URL}/#person`
+    },
     'hasPart': projects.map(p => ({
       '@type': 'CreativeWork',
       'name': p.name,
       'description': p.overview,
       'url': `${BASE_URL}/case-studies/${p.id}`
-    }))
+    })),
+    'inLanguage': 'en'
   }
 }
+
 

@@ -2,13 +2,12 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   const entityData = {
-    name: "MD. Jonaed Ali Shuvro",
+    name: "JA Shuvro",
     alternateNames: [
+      "MD. Jonaed Ali Shuvro",
       "Jonaed Ali Shuvro",
-      "JA Shuvro",
       "J.A. Shuvro",
-      "Md. Jonaed Ali",
-      "MD. Jonaed Ali Shuvro"
+      "Md. Jonaed Ali"
     ],
     title: "Flutter Specialist & Full-Stack Developer",
     worksFor: "Immigrant Times",

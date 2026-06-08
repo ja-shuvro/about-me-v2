@@ -8,15 +8,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jashuvro.com'),
-  title: 'MD. Jonaed Ali Shuvro — Flutter & Full-Stack Developer',
-  description: 'Portfolio of MD. Jonaed Ali Shuvro, a professional Flutter & Full-Stack Developer. Specialized in building mobile apps (Android/iOS) and robust web architectures with Laravel, React, Next.js, and Express.',
+  title: 'JA Shuvro — Flutter Specialist & Full-Stack Developer',
+  description: 'Portfolio of JA Shuvro (MD. Jonaed Ali Shuvro), a professional Flutter Specialist & Full-Stack Developer. Specialized in building mobile apps (Android/iOS) and robust web architectures with Laravel, React, Next.js, and Express.',
   keywords: [
+    'JA Shuvro',
     'MD. Jonaed Ali Shuvro',
     'Jonaed Ali Shuvro',
-    'JA Shuvro',
     'J.A. Shuvro',
     'Md. Jonaed Ali',
-    'Md. Jonaed Ali Shuvro',
     'Shuvro',
     'Flutter Developer',
     'Full-Stack Developer',
@@ -32,20 +31,20 @@ export const metadata: Metadata = {
     'ERP Platforms Architect',
     'Immigrant Times'
   ],
-  authors: [{ name: 'MD. Jonaed Ali Shuvro', url: 'https://github.com/ja-shuvro' }],
-  creator: 'MD. Jonaed Ali Shuvro',
-  publisher: 'MD. Jonaed Ali Shuvro',
-  applicationName: 'MD. Jonaed Ali Shuvro',
+  authors: [{ name: 'JA Shuvro', url: 'https://github.com/ja-shuvro' }],
+  creator: 'JA Shuvro',
+  publisher: 'JA Shuvro',
+  applicationName: 'JA Shuvro',
   appleWebApp: {
-    title: 'MD. Jonaed Ali Shuvro',
+    title: 'JA Shuvro',
     capable: true,
     statusBarStyle: 'default',
   },
   other: {
-    creator: 'MD. Jonaed Ali Shuvro',
-    publisher: 'MD. Jonaed Ali Shuvro',
-    author: 'MD. Jonaed Ali Shuvro',
-    copyrightHolder: 'MD. Jonaed Ali Shuvro',
+    creator: 'JA Shuvro',
+    publisher: 'JA Shuvro',
+    author: 'JA Shuvro',
+    copyrightHolder: 'JA Shuvro',
   },
   icons: {
     icon: '/logo-round.png',
@@ -64,10 +63,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'MD. Jonaed Ali Shuvro — Flutter & Full-Stack Developer',
-    description: 'Bespoke Flutter mobile applications and high-performance Full-Stack web systems. Check out case studies on Flirtmetrics WebSocket chat optimization and ERP platforms.',
+    title: 'JA Shuvro — Flutter Specialist & Full-Stack Developer',
+    description: 'Bespoke Flutter mobile applications and high-performance Full-Stack web systems by JA Shuvro (MD. Jonaed Ali Shuvro). Check out case studies on Flirtmetrics WebSocket chat optimization and ERP platforms.',
     url: 'https://www.jashuvro.com',
-    siteName: 'MD. Jonaed Ali Shuvro Portfolio',
+    siteName: 'JA Shuvro Portfolio',
     locale: 'en_US',
     type: 'profile',
     username: 'ja-shuvro',
@@ -77,13 +76,13 @@ export const metadata: Metadata = {
         url: '/logo-landscape.png',
         width: 1200,
         height: 630,
-        alt: 'MD. Jonaed Ali Shuvro — Flutter & Full-Stack Developer Logo',
+        alt: 'JA Shuvro — Flutter Specialist & Full-Stack Developer Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MD. Jonaed Ali Shuvro — Flutter & Full-Stack Developer',
+    title: 'JA Shuvro — Flutter Specialist & Full-Stack Developer',
     description: 'Bespoke Flutter mobile applications and high-performance Full-Stack web systems.',
     creator: '@shuvro_a',
     images: ['/logo-landscape.png'],
@@ -95,23 +94,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const personSchema = getPersonSchema()
-  const websiteSchema = getWebsiteSchema()
-
   return (
     <html lang="en">
       <head>
-        {/* Base AI Structured Schemas */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
         {/* AI & Search Discovery Links */}
-        <link rel="alternate" type="application/rss+xml" href="https://www.jashuvro.com/feed.xml" title="MD. Jonaed Ali Shuvro RSS Feed" />
+        <link rel="alternate" type="application/rss+xml" href="https://www.jashuvro.com/feed.xml" title="JA Shuvro RSS Feed" />
         <link rel="alternate" href="https://www.jashuvro.com/about-ai" title="AI Machine Readable Profile" />
         <link rel="alternate" href="https://www.jashuvro.com/llms.txt" title="LLM Crawler Details" />
         <link rel="author" href="https://www.jashuvro.com/humans.txt" />

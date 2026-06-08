@@ -3,17 +3,19 @@ import CinematicExperience from '@/components/sections/CinematicExperience'
 import {
   getPersonSchema,
   getWebsiteSchema,
-  getProfilePageSchema,
   getPortfolioSchema,
-  getBreadcrumbListSchema
+  getBreadcrumbListSchema,
+  getOrganizationSchema,
+  getWebPageSchema,
+  getGraphSchema
 } from '@/lib/schemaHelpers'
 import { CASE_STUDIES_DATA } from '@/lib/projectData'
 
 export const metadata: Metadata = {
-  title: 'MD. Jonaed Ali Shuvro — Flutter Specialist & Full-Stack Developer',
-  description: 'Bespoke Flutter mobile apps and high-performance Web architecture. Explore the cinematic 3D portfolio and AI-optimized developer profile of MD. Jonaed Ali Shuvro.',
+  title: 'JA Shuvro — Flutter Specialist & Full-Stack Developer',
+  description: 'Bespoke Flutter mobile apps and high-performance Web architecture. Explore the cinematic 3D portfolio and AI-optimized developer profile of JA Shuvro.',
   keywords: [
-    'MD. Jonaed Ali Shuvro', 'Jonaed Ali Shuvro', 'JA Shuvro', 'J.A. Shuvro', 'Flutter Specialist', 'Full Stack Developer', 
+    'JA Shuvro', 'MD. Jonaed Ali Shuvro', 'Jonaed Ali Shuvro', 'J.A. Shuvro', 'Flutter Specialist', 'Full Stack Developer', 
     'Laravel Developer', 'Next.js Developer', 'Node.js Developer', 'WebSockets', 'Real-time Systems'
   ],
   alternates: {
@@ -23,42 +25,40 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: 'MD. Jonaed Ali Shuvro — Flutter Specialist & Full-Stack Developer',
-    description: 'Cinematic 3D portfolio for humans, semantic HTML layer for AI search engines. Explore core engineering systems, real-time architectures, and mobile applications by MD. Jonaed Ali Shuvro.',
+    title: 'JA Shuvro — Flutter Specialist & Full-Stack Developer',
+    description: 'Cinematic 3D portfolio for humans, semantic HTML layer for AI search engines. Explore core engineering systems, real-time architectures, and mobile applications by JA Shuvro.',
     url: 'https://www.jashuvro.com/',
     type: 'website'
   }
 }
 
 export default function Home() {
-  const personSchema = getPersonSchema()
-  const websiteSchema = getWebsiteSchema()
-  const profileSchema = getProfilePageSchema()
-  const portfolioSchema = getPortfolioSchema(Object.values(CASE_STUDIES_DATA))
-  const breadcrumbSchema = getBreadcrumbListSchema([{ name: 'Home', path: '/' }])
+  const personNode = getPersonSchema()
+  const orgNode = getOrganizationSchema()
+  const websiteNode = getWebsiteSchema()
+  const webpageNode = getWebPageSchema(
+    'https://www.jashuvro.com/',
+    'JA Shuvro — Flutter Specialist & Full-Stack Developer',
+    'Bespoke Flutter mobile apps and high-performance Web architecture. Explore the cinematic 3D portfolio and AI-optimized developer profile of JA Shuvro.'
+  )
+  const portfolioNode = getPortfolioSchema(Object.values(CASE_STUDIES_DATA))
+  const breadcrumbNode = getBreadcrumbListSchema([{ name: 'Home', path: '/' }])
+
+  const graphSchema = getGraphSchema([
+    personNode,
+    orgNode,
+    websiteNode,
+    webpageNode,
+    portfolioNode,
+    breadcrumbNode
+  ])
 
   return (
     <>
-      {/* JSON-LD Structured Data for AI & Search Engines */}
+      {/* Unified JSON-LD Graph for AI & Search Engines */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
       />
 
       {/* LAYER 1: Cinematic Human Experience */}
@@ -67,7 +67,7 @@ export default function Home() {
       {/* LAYER 2: SSR Semantic Layer (Hidden from human view via sr-only, fully accessible to AI & screen readers) */}
       <div className="sr-only">
         <header>
-          <h1>SYSTEM LOG // DEVELOPER INDEX: MD. JONAED ALI SHUVRO</h1>
+          <h1>SYSTEM LOG // DEVELOPER INDEX: JA SHUVRO</h1>
           <nav aria-label="System Directory">
             <span style={{ color: '#00f5ff' }}>[DIRECTORIES]</span>:
             <a href="https://www.jashuvro.com/about-ai" style={{ color: 'rgba(255,255,255,0.6)', marginLeft: '10px' }}>/about-ai (AI Summary)</a> |
@@ -81,7 +81,7 @@ export default function Home() {
           <section aria-labelledby="sec-bio">
             <h2 id="sec-bio" style={{ color: '#00ff88', fontSize: '0.8rem', letterSpacing: '0.1em' }}>[01 / PROFILE_SUMMARY]</h2>
             <p>
-              I am MD. Jonaed Ali Shuvro, a Flutter Specialist & Full-Stack Developer with 3.5+ years of active system development. 
+              I am JA Shuvro (legally MD. Jonaed Ali Shuvro), a Flutter Specialist & Full-Stack Developer with 3.5+ years of active system development. 
               My core capability lies in bridging fluid front-end mobile user experiences (built with Flutter, Riverpod, and GetX) 
               with robust, enterprise-grade backends (Node.js, Laravel, NestJS, MySQL, PostgreSQL).
             </p>

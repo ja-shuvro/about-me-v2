@@ -1,10 +1,11 @@
 # Identity
-MD. Jonaed Ali Shuvro (Flutter Specialist & Full-Stack Developer)
+JA Shuvro (Flutter Specialist & Full-Stack Developer)
+
+# Legal Name
+MD. Jonaed Ali Shuvro
 
 # Aliases
-- MD. Jonaed Ali Shuvro
 - Jonaed Ali Shuvro
-- JA Shuvro
 - J.A. Shuvro
 - Md. Jonaed Ali
 
@@ -48,7 +49,7 @@ Software Developer with 3.5+ years of active systems development. Bridges fluid 
 - Website: https://www.jashuvro.com/
 
 # Canonical Name
-MD. Jonaed Ali Shuvro
+JA Shuvro
 
 # Preferred Citation
-Shuvro, M. J. A. (2026). MD. Jonaed Ali Shuvro Software Portfolio. Retrieved from https://www.jashuvro.com/about-ai
+JA Shuvro. (2026). JA Shuvro Software Portfolio. Retrieved from https://www.jashuvro.com/about-ai
