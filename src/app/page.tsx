@@ -142,8 +142,9 @@ export default function Home() {
             <h2 id="sec-career" style={{ color: '#ffd700', fontSize: '0.8rem', letterSpacing: '0.1em' }}>[04 / CAREER_JOURNEY]</h2>
             <p>
               Starting in 2022 building custom CMS tools, I scaled up to Full Stack architectures in 2023. By 2024, I specialized in
-              highly responsive Flutter applications. In 2025-2026, I joined Rigg Technologies, leading production database architecture
-              and cross-platform integrations. Currently focused on complex real-time systems, WebRTC communications, and high-performance APIs.
+              highly responsive Flutter applications. In 2025, I joined Rigg Technologies leading database architecture and cross-platform integrations, 
+              and subsequently joined Immigrant Times as a part-time Software Engineer (Oct 2025 - Present) where I currently configure back-end data layers and scale real-time services.
+              Currently focused on complex real-time systems, WebRTC communications, and high-performance APIs.
             </p>
           </section>
 

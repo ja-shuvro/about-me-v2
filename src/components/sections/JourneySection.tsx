@@ -46,11 +46,11 @@ const MILESTONES = [
   {
     year: '2026',
     era: 'HARMONY',
-    role: 'Full-Stack Developer & Mobile Architect',
-    company: 'Independent Developer',
+    role: 'Software Engineer & Full-Stack Developer',
+    company: 'Immigrant Times (Part-time) & Freelance',
     color: '#ffd700',
-    unlock: '+Advanced Next.js +Complex Systems Engineering',
-    description: 'Synthesizing mobile fluid design and backend robustness to build state-of-the-art interactive platforms. Converting complex workflows into clear, high-performing digital products.',
+    unlock: '+Advanced Next.js +Database Scaling +Real-time Services',
+    description: 'Working as a part-time Software Engineer at Immigrant Times, scaling backend database systems and APIs, while simultaneously designing advanced full-stack interactive applications.',
     level: 'LVL 5',
   },
 ]
