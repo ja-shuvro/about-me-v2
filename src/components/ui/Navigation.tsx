@@ -36,7 +36,7 @@ export default function Navigation() {
 
   const scrollToSection = (index: number) => {
     setIsOpen(false)
-    const mainElement = document.querySelector('main')
+    const mainElement = document.querySelector('main.cinematic-main')
     const targetElement = mainElement?.children[index] as HTMLElement | undefined
 
     if (typeof window !== 'undefined' && (window as any).lenis) {
@@ -102,6 +102,7 @@ export default function Navigation() {
               <button
                 key={s.phase}
                 onClick={() => scrollToSection(i)}
+                aria-label={`Navigate to ${s.label} section`}
                 style={{
                   background: 'none',
                   border: 'none',

@@ -141,6 +141,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* AI & Search Discovery Links */}
+        <link rel="alternate" type="application/rss+xml" href="https://www.jashuvro.com/feed.xml" title="J.A. Shuvro RSS Feed" />
+        <link rel="alternate" href="https://www.jashuvro.com/about-ai" title="AI Machine Readable Profile" />
+        <link rel="alternate" href="https://www.jashuvro.com/llms.txt" title="LLM Crawler Details" />
+        <link rel="author" href="https://www.jashuvro.com/humans.txt" />
       </head>
       <body>{children}</body>
     </html>

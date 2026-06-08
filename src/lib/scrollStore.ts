@@ -28,7 +28,7 @@ const PHASE_BOUNDARIES: { phase: NarrativePhase; start: number; end: number }[] 
 
 function getPhase(progress: number): { phase: NarrativePhase; phaseProgress: number } {
   if (typeof window !== 'undefined') {
-    const mainElement = document.querySelector('main')
+    const mainElement = document.querySelector('main.cinematic-main')
     const sections = mainElement
       ? (Array.from(mainElement.children).filter((el) => el.tagName === 'SECTION') as HTMLElement[])
       : []

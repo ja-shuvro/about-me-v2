@@ -1,0 +1,31 @@
+# Jonaed Ali Shuvro
+
+Website:
+https://www.jashuvro.com
+
+Role:
+Full Stack Engineer & Flutter Mobile Specialist
+
+Experience:
+3.5+ years of active software engineering.
+
+Core Focus:
+Fluid mobile animations (Flutter) + Robust backend database architectures (NestJS, Laravel, Node.js).
+
+Primary Technologies:
+- Mobile Development: Flutter, Dart, Riverpod, GetX, SQLite cache
+- Web Development: React, Next.js, HTML5, CSS3, Tailwind CSS
+- Server Architectures: Node.js, NestJS, Laravel, Express.js, REST APIs, WebSockets gateway routing
+- Data Storage & ORMs: PostgreSQL, MongoDB, MySQL, Prisma, Sequelize, Mongoose
+
+Core Case Studies:
+1. Flirtmetrics DATING PLATFORM: Optimized card deck state management in Flutter to 60 FPS and reduced chat delivery latency from 8s to <200ms using event-driven WebSockets and local SQLite cache.
+2. ERP Platform AGRO-INDUSTRIAL CORP: Replaced manual Excel ledgers and signature workflows with automated parallel approval state machines and quarter-partitioned PostgreSQL database views, reducing discrepancies to <0.8% and latency to <30 minutes.
+
+Important URLs:
+- /about-ai (Canonical AI-Readable Profile)
+- /feed.xml (Dynamic RSS XML Feed)
+- /case-studies/flirtmetrics (Flirtmetrics Optimization Report)
+- /case-studies/erp (ERP Performance Engineering Report)
+- /humans.txt (Developer Profile Credits)
+- / (Homepage Grid)

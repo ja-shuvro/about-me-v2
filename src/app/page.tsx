@@ -1,75 +1,165 @@
-'use client'
-import dynamic from 'next/dynamic'
-import { useSmoothScroll } from '@/hooks/useSmoothScroll'
-import Navigation from '@/components/ui/Navigation'
-import ScrollIndicator from '@/components/ui/ScrollIndicator'
-import PhaseOverlay from '@/components/ui/PhaseOverlay'
-import CustomCursor from '@/components/ui/CustomCursor'
-import HeroSection from '@/components/sections/HeroSection'
-import AboutSection from '@/components/sections/AboutSection'
-import ExpertiseSection from '@/components/sections/ExpertiseSection'
-import ProjectsSection from '@/components/sections/ProjectsSection'
-import CaseStudiesSection from '@/components/sections/CaseStudiesSection'
-import JourneySection from '@/components/sections/JourneySection'
-import ContactSection from '@/components/sections/ContactSection'
+import type { Metadata } from 'next'
+import CinematicExperience from '@/components/sections/CinematicExperience'
+import {
+  getPersonSchema,
+  getWebsiteSchema,
+  getProfilePageSchema,
+  getPortfolioSchema
+} from '@/lib/schemaHelpers'
+import { CASE_STUDIES_DATA } from '@/lib/projectData'
 
-import { useScrollStore } from '@/lib/scrollStore'
+export const metadata: Metadata = {
+  title: 'Jonaed Ali Shuvro — Full Stack Engineer & Flutter Specialist',
+  description: 'Bespoke Flutter mobile apps and high-performance Web architecture. Explore the cinematic 3D portfolio and AI-optimized developer profile of Jonaed Ali Shuvro.',
+  keywords: [
+    'Jonaed Ali Shuvro', 'J.A. Shuvro', 'Flutter Specialist', 'Full Stack Engineer', 
+    'Laravel Developer', 'Next.js Developer', 'Node.js Developer', 'WebSockets', 'Real-time Systems'
+  ],
+  alternates: {
+    canonical: 'https://www.jashuvro.com',
+    types: {
+      'application/rss+xml': 'https://www.jashuvro.com/feed.xml',
+    }
+  },
+  openGraph: {
+    title: 'Jonaed Ali Shuvro — Full Stack Engineer & Flutter Specialist',
+    description: 'Cinematic 3D portfolio for humans, semantic HTML layer for AI search engines. Explore core engineering systems, real-time architectures, and mobile applications.',
+    url: 'https://www.jashuvro.com',
+    type: 'website'
+  }
+}
 
-// Dynamically import Three.js canvas to avoid SSR issues
-const SceneCanvas = dynamic(() => import('@/components/three/SceneCanvas'), {
-  ssr: false,
-})
-
-export default function Portfolio() {
-  useSmoothScroll()
-  const { phase } = useScrollStore()
-  const isLatePhase = phase === 'evolution' || phase === 'convergence'
+export default function Home() {
+  const personSchema = getPersonSchema()
+  const websiteSchema = getWebsiteSchema()
+  const profileSchema = getProfilePageSchema()
+  const portfolioSchema = getPortfolioSchema(Object.values(CASE_STUDIES_DATA))
 
   return (
     <>
-      {/* Fixed 3D background */}
-      <SceneCanvas />
-
-      {/* Ambient overlay to improve text readability */}
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 1,
-          background: isLatePhase
-            ? 'radial-gradient(circle at center, rgba(2, 4, 8, 0.25) 0%, rgba(2, 4, 8, 0.95) 90%), rgba(2, 4, 8, 0.7)'
-            : 'radial-gradient(circle at center, transparent 20%, rgba(2, 4, 8, 0.85) 100%), rgba(2, 4, 8, 0.45)',
-          backdropFilter: isLatePhase ? 'blur(4px)' : 'none',
-          transition: 'background 0.8s ease, backdrop-filter 0.8s ease',
-          pointerEvents: 'none',
-        }}
+      {/* JSON-LD Structured Data for AI & Search Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
       />
 
-      {/* Custom cursor */}
-      <CustomCursor />
+      {/* LAYER 1: Cinematic Human Experience */}
+      <CinematicExperience />
 
-      {/* Fixed UI overlays */}
-      <Navigation />
-      <ScrollIndicator />
-      <PhaseOverlay />
+      {/* LAYER 2: SSR Semantic Layer (Hidden from human view via sr-only, fully accessible to AI & screen readers) */}
+      <div className="sr-only">
+        <header>
+          <h1>SYSTEM LOG // DEVELOPER INDEX: JONAED ALI SHUVRO</h1>
+          <nav aria-label="System Directory">
+            <span style={{ color: '#00f5ff' }}>[DIRECTORIES]</span>: 
+            <a href="/about-ai" style={{ color: 'rgba(255,255,255,0.6)', marginLeft: '10px' }}>/about-ai (AI Summary)</a> | 
+            <a href="/feed.xml" style={{ color: 'rgba(255,255,255,0.6)', marginLeft: '10px' }}>/feed.xml (RSS)</a> | 
+            <a href="/llms.txt" style={{ color: 'rgba(255,255,255,0.6)', marginLeft: '10px' }}>/llms.txt (LLM text)</a> | 
+            <a href="/humans.txt" style={{ color: 'rgba(255,255,255,0.6)', marginLeft: '10px' }}>/humans.txt (Credits)</a>
+          </nav>
+        </header>
 
-      {/* Scrollable content */}
-      <main style={{ position: 'relative', zIndex: 10 }}>
-        <HeroSection />
-        <AboutSection />
-        <ExpertiseSection />
-        <ProjectsSection />
-        <CaseStudiesSection />
-        <JourneySection />
-        <ContactSection />
+        <main style={{ marginTop: '2rem' }}>
+          <section aria-labelledby="sec-bio">
+            <h2 id="sec-bio" style={{ color: '#00ff88', fontSize: '0.8rem', letterSpacing: '0.1em' }}>[01 / PROFILE_SUMMARY]</h2>
+            <p>
+              I am a Senior Full Stack Engineer & Flutter Specialist with 3.5+ years of active system engineering. 
+              My core capability lies in bridging fluid front-end mobile user experiences (built with Flutter, Riverpod, and GetX) 
+              with robust, enterprise-grade backends (Node.js, Laravel, NestJS, MySQL, PostgreSQL).
+            </p>
+          </section>
 
-        {/* Footer */}
-        <footer className="site-footer">
-          <p className="footer-text">
-            © 2026 J.A. SHUVRO — BUILT WITH NEXT.JS · THREE.JS · FRAMER MOTION · GSAP
-          </p>
+          <section aria-labelledby="sec-capabilities" style={{ marginTop: '2rem' }}>
+            <h2 id="sec-capabilities" style={{ color: '#7c3aed', fontSize: '0.8rem', letterSpacing: '0.1em' }}>[02 / TECHNICAL_STACK]</h2>
+            <ul>
+              <li><strong>Mobile Runtimes:</strong> Flutter, Dart, Android SDK, iOS SDK, Riverpod, GetX State Management</li>
+              <li><strong>Web Architectures:</strong> React.js, Next.js (App Router), HTML5, CSS3, Tailwind CSS, Bootstrap</li>
+              <li><strong>Backend Frameworks:</strong> Laravel (PHP), NestJS, Express.js (Node.js), REST APIs, WebSockets</li>
+              <li><strong>Data Layer Engines:</strong> PostgreSQL, MongoDB, MySQL, Mongoose, Prisma ORM, Sequelize</li>
+              <li><strong>Integrations:</strong> Real-time bi-directional systems, WebRTC, custom WordPress plugins</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="sec-projects" style={{ marginTop: '2rem' }}>
+            <h2 id="sec-projects" style={{ color: '#ff6b35', fontSize: '0.8rem', letterSpacing: '0.1em' }}>[03 / DEPLOYED_SYSTEMS]</h2>
+            
+            <article style={{ marginBottom: '1.5rem', borderLeft: '1px solid rgba(255,51,102,0.2)', paddingLeft: '10px' }}>
+              <h3>PROJECT 01: Flirtmetrics — Real-Time Chat & Matchmaking Mobile App</h3>
+              <p>
+                <strong>Role:</strong> Mobile Specialist & Flutter Lead. Optimized UI card swiping to achieve a stable 60 FPS 
+                by isolating Riverpod state rebuilds. Resolved 8-second chat delivery latency issues by transitioning the application 
+                to event-driven WebSockets and local SQLite cache.
+              </p>
+              <p>
+                <em>Technologies:</em> Flutter, Riverpod, WebSockets, SQLite, Firebase, REST.
+              </p>
+              <p>
+                <strong>Links:</strong> 
+                <a href="https://play.google.com/store/apps/details?id=com.flirtmetrics.app" style={{ color: '#00f5ff', marginLeft: '5px' }}>[Play Store]</a>
+                <a href="https://apps.apple.com/pk/app/flirtmetrics-cold-approach/id6755988541" style={{ color: '#00f5ff', marginLeft: '5px' }}>[App Store]</a>
+                <span style={{ marginLeft: '10px', color: 'rgba(255,255,255,0.2)' }}>(GitHub: Private Repository)</span>
+              </p>
+            </article>
+
+            <article style={{ borderLeft: '1px solid rgba(0,255,136,0.2)', paddingLeft: '10px' }}>
+              <h3>PROJECT 02: Enterprise ERP System — Supply Chain Ledger Platform</h3>
+              <p>
+                <strong>Role:</strong> Database Architect & Full-Stack Developer. Transformed manual operations (Excel ledgers, paper signatures) 
+                into a real-time ledger synchronization pipeline. Reduced inventory discrepancies to &lt;1% and cut approval delays from 4 days to under 30 minutes.
+              </p>
+              <p>
+                <em>Technologies:</em> Next.js, React, Node.js, PostgreSQL, Tailwind CSS.
+              </p>
+              <p>
+                <strong>Links:</strong>
+                <a href="https://erp-client-six.vercel.app/" style={{ color: '#00f5ff', marginLeft: '5px' }}>[Live Demo]</a>
+                <span style={{ marginLeft: '10px', color: 'rgba(255,255,255,0.2)' }}>(GitHub: Private Repository)</span>
+              </p>
+            </article>
+          </section>
+
+          <section aria-labelledby="sec-career" style={{ marginTop: '2rem' }}>
+            <h2 id="sec-career" style={{ color: '#ffd700', fontSize: '0.8rem', letterSpacing: '0.1em' }}>[04 / CAREER_JOURNEY]</h2>
+            <p>
+              Starting in 2022 building custom CMS tools, I scaled up to Full Stack architectures in 2023. By 2024, I specialized in 
+              highly responsive Flutter applications. In 2025-2026, I joined Rigg Technologies, leading production database architecture 
+              and cross-platform integrations. Currently focused on complex real-time systems, WebRTC communications, and high-performance APIs.
+            </p>
+          </section>
+
+          <section aria-labelledby="sec-contact" style={{ marginTop: '2rem' }}>
+            <h2 id="sec-contact" style={{ color: '#ff3366', fontSize: '0.8rem', letterSpacing: '0.1em' }}>[05 / COMMUNICATIONS_VECTOR]</h2>
+            <p>
+              Direct contact pipeline open: 
+              Email: <a href="mailto:dev.jsahuvro@gmail.com" style={{ color: '#00f5ff' }}>dev.jsahuvro@gmail.com</a> | 
+              Phone: <a href="tel:+8801516577736" style={{ color: '#00f5ff' }}>+880 1516-577736</a>
+            </p>
+            <p>
+              Social channels: 
+              <a href="https://github.com/ja-shuvro" style={{ color: '#00ff88', marginLeft: '5px' }}>[GitHub]</a> | 
+              <a href="https://www.linkedin.com/in/ja-shuvro-13733b37b" style={{ color: '#7c3aed', marginLeft: '5px' }}>[LinkedIn]</a> | 
+              <a href="https://wa.me/01728723881" style={{ color: '#ffd700', marginLeft: '5px' }}>[WhatsApp]</a> | 
+              <a href="https://x.com/shuvro_a" style={{ color: '#ff3366', marginLeft: '5px' }}>[Twitter]</a>
+            </p>
+          </section>
+        </main>
+
+        <footer style={{ marginTop: '3rem', fontSize: '0.65rem', borderTop: '1px dashed rgba(255,255,255,0.05)', paddingTop: '1rem' }}>
+          <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>INDEX_INTEGRITY: SECURE // RE-VERIFIED FOR LLM PARSING (2026-06-08)</span>
         </footer>
-      </main>
+      </div>
     </>
   )
 }

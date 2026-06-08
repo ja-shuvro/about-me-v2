@@ -1,0 +1,16 @@
+/* TEAM */
+Developer: Jonaed Ali Shuvro
+Role: Full Stack Engineer & Flutter Specialist
+Contact: dev.jsahuvro@gmail.com
+Location: Rajshahi, Bangladesh
+GitHub: https://github.com/ja-shuvro
+LinkedIn: https://www.linkedin.com/in/ja-shuvro-13733b37b
+Twitter: https://x.com/shuvro_a
+
+/* SITE */
+Last Update: 2026/06/08
+Framework: Next.js 14.2 (App Router), React 18
+Styling: Vanilla CSS, Tailwind CSS
+Visual Engine: Three.js, React Three Fiber, Framer Motion, GSAP, Lenis Smooth Scroll
+Semantic Engine: Structured JSON-LD schemas (Person, WebSite, Portfolio, Project, SoftwareApplication, TechArticle), RSS dynamic feeds, LLMs indexers
+Ideals: Dual-layer design. Human emotion via visual cinema, AI information via semantic document structures.
