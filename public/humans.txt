@@ -1,6 +1,6 @@
 /* TEAM */
-Developer: Jonaed Ali Shuvro
-Role: Full Stack Engineer & Flutter Specialist
+Developer: MD. Jonaed Ali Shuvro
+Role: Flutter Specialist & Full-Stack Developer
 Contact: dev.jsahuvro@gmail.com
 Location: Rajshahi, Bangladesh
 GitHub: https://github.com/ja-shuvro

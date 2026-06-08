@@ -235,7 +235,7 @@ export default function AboutSection() {
                 lineHeight: 1.8,
                 marginBottom: '1.5rem',
               }}>
-                I am a dedicated software engineer with a track record of delivering robust applications. 
+                I am a dedicated software developer with a track record of delivering robust applications. 
                 From crafting pixel-perfect mobile interfaces with <span style={{ color: '#00ff88' }}>Flutter</span> to 
                 architecting scalable backend systems with Laravel and Node.js, I bridge the gap between 
                 complex requirements and elegant solutions.

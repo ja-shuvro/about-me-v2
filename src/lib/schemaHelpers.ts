@@ -9,47 +9,75 @@ export function getPersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    'name': 'Jonaed Ali Shuvro',
+    '@id': `${BASE_URL}/#person`,
+    'name': 'MD. Jonaed Ali Shuvro',
+    'givenName': 'Jonaed Ali',
+    'familyName': 'Shuvro',
+    'additionalName': 'Md.',
     'alternateName': [
+      'Jonaed Ali Shuvro',
+      'JA Shuvro',
       'J.A. Shuvro',
-      'JA. Shuvro',
-      'Shuvro',
-      'Jonaed Ali',
       'Md. Jonaed Ali',
-      'Md. Jonaed Ali Shuvro',
-      'Jonaed Ali Shuvro'
+      'MD. Jonaed Ali Shuvro'
     ],
     'url': BASE_URL,
     'image': 'https://avatars.githubusercontent.com/u/89667794?v=4',
-    'jobTitle': 'Full Stack Engineer & Mobile Specialist',
-    'description': 'Professional Full Stack Engineer and Flutter Mobile Specialist with over 3.5 years of experience building mobile applications (Android/iOS) and robust, scalable backend web systems.',
+    'jobTitle': 'Flutter Specialist & Full-Stack Developer',
+    'description': 'Flutter Specialist & Full-Stack Developer with 3.5+ years of active system development. Specializing in high-performance mobile apps and robust enterprise web architectures.',
+    'nationality': {
+      '@type': 'Country',
+      'name': 'Bangladesh'
+    },
+    'homeLocation': {
+      '@type': 'Place',
+      'name': 'Rajshahi, Bangladesh'
+    },
+    'email': 'dev.jsahuvro@gmail.com',
+    'publishingPrinciples': `${BASE_URL}/about-ai`,
     'worksFor': {
       '@type': 'Organization',
-      'name': 'Freelance & Independent Developer'
+      '@id': `${BASE_URL}/#organization`,
+      'name': 'Immigrant Times',
+      'sameAs': 'https://www.linkedin.com/company/immigranttimes/posts/?feedView=all'
     },
     'sameAs': [
       'https://github.com/ja-shuvro',
       'https://www.linkedin.com/in/ja-shuvro-13733b37b',
-      'https://wa.me/01728723881',
-      'https://x.com/shuvro_a'
+      'https://x.com/shuvro_a',
+      'https://wa.me/01728723881'
     ],
     'knowsAbout': [
       'Flutter',
       'Dart',
-      'Android Development',
-      'iOS Development',
-      'React.js',
+      'NestJS',
       'Next.js',
       'Laravel',
-      'PHP',
       'Node.js',
-      'NestJS',
-      'Express.js',
+      'React',
+      'React Three Fiber',
+      'Three.js',
+      'TypeScript',
       'PostgreSQL',
-      'MongoDB',
       'MySQL',
+      'MongoDB',
+      'Redis',
       'WebSockets',
-      'Systems Engineering'
+      'System Architecture',
+      'Real-time Applications',
+      'Full Stack Development',
+      'Mobile Development',
+      'Enterprise Software'
+    ],
+    'created': [
+      {
+        '@type': 'SoftwareApplication',
+        '@id': `${BASE_URL}/case-studies/flirtmetrics#software`
+      },
+      {
+        '@type': 'SoftwareApplication',
+        '@id': `${BASE_URL}/case-studies/erp#software`
+      }
     ]
   }
 }
@@ -58,11 +86,14 @@ export function getWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'name': 'Jonaed Ali Shuvro Portfolio',
+    '@id': `${BASE_URL}/#website`,
+    'name': 'MD. Jonaed Ali Shuvro Portfolio',
     'url': BASE_URL,
+    'publisher': {
+      '@id': `${BASE_URL}/#person`
+    },
     'author': {
-      '@type': 'Person',
-      'name': 'Jonaed Ali Shuvro'
+      '@id': `${BASE_URL}/#person`
     }
   }
 }
@@ -71,8 +102,11 @@ export function getProfilePageSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    'url': BASE_URL,
-    'mainEntity': getPersonSchema()
+    '@id': `${BASE_URL}/about-ai#profile`,
+    'url': `${BASE_URL}/about-ai`,
+    'mainEntity': {
+      '@id': `${BASE_URL}/#person`
+    }
   }
 }
 
@@ -80,11 +114,12 @@ export function getBreadcrumbListSchema(items: { name: string; path: string }[])
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    '@id': `${BASE_URL}${items[items.length - 1]?.path || ''}#breadcrumb`,
     'itemListElement': items.map((item, index) => ({
       '@type': 'ListItem',
       'position': index + 1,
       'name': item.name,
-      'item': `${BASE_URL}${item.path}`
+      'item': item.path.startsWith('http') ? item.path : `${BASE_URL}${item.path}`
     }))
   }
 }
@@ -93,12 +128,12 @@ export function getProjectSchema(project: CaseStudy) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Project',
+    '@id': `${BASE_URL}/case-studies/${project.id}#project`,
     'name': project.name,
     'description': project.overview,
     'url': `${BASE_URL}/case-studies/${project.id}`,
     'creator': {
-      '@type': 'Person',
-      'name': 'Jonaed Ali Shuvro'
+      '@id': `${BASE_URL}/#person`
     }
   }
 }
@@ -107,16 +142,25 @@ export function getSoftwareApplicationSchema(project: CaseStudy) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': `${BASE_URL}/case-studies/${project.id}#software`,
     'name': project.name,
     'description': project.overview,
     'applicationCategory': project.applicationCategory || 'BusinessApplication',
     'operatingSystem': project.operatingSystem || 'Windows, macOS, Linux, iOS, Android',
     'softwareVersion': '1.0.0',
     'creator': {
-      '@type': 'Person',
-      'name': 'Jonaed Ali Shuvro'
+      '@id': `${BASE_URL}/#person`
     },
-    'downloadUrl': project.links.demo || project.links.site || BASE_URL
+    'author': {
+      '@id': `${BASE_URL}/#person`
+    },
+    'publisher': {
+      '@id': `${BASE_URL}/#person`
+    },
+    'downloadUrl': project.links.demo || project.links.site || BASE_URL,
+    'subjectOf': {
+      '@id': `${BASE_URL}/case-studies/${project.id}#article`
+    }
   }
 }
 
@@ -124,12 +168,15 @@ export function getSoftwareSourceCodeSchema(project: CaseStudy) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareSourceCode',
+    '@id': `${BASE_URL}/case-studies/${project.id}#sourcecode`,
     'name': `${project.name} Source Code`,
     'codeRepository': project.links.github.includes('Private') ? 'Private Repository' : project.links.github,
     'programmingLanguage': project.programmingLanguage || 'TypeScript',
     'author': {
-      '@type': 'Person',
-      'name': 'Jonaed Ali Shuvro'
+      '@id': `${BASE_URL}/#person`
+    },
+    'targetProduct': {
+      '@id': `${BASE_URL}/case-studies/${project.id}#software`
     }
   }
 }
@@ -138,14 +185,20 @@ export function getTechArticleSchema(project: CaseStudy) {
   return {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
+    '@id': `${BASE_URL}/case-studies/${project.id}#article`,
     'headline': `${project.name} Case Study: ${project.tagline}`,
     'description': project.overview,
     'inLanguage': 'en-US',
     'datePublished': project.datePublished,
     'dateModified': project.dateModified,
     'author': {
-      '@type': 'Person',
-      'name': 'Jonaed Ali Shuvro'
+      '@id': `${BASE_URL}/#person`
+    },
+    'publisher': {
+      '@id': `${BASE_URL}/#person`
+    },
+    'about': {
+      '@id': `${BASE_URL}/case-studies/${project.id}#software`
     },
     'dependencies': project.tech.join(', ')
   }
@@ -155,10 +208,19 @@ export function getPortfolioSchema(projects: CaseStudy[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    'name': "Jonaed Ali Shuvro's Software Portfolio",
-    'description': 'A collection of software engineering projects, mobile apps, and web platforms developed by Jonaed Ali Shuvro.',
+    '@id': `${BASE_URL}/#portfolio`,
+    'name': "MD. Jonaed Ali Shuvro's Software Portfolio",
+    'description': 'A collection of software engineering projects, mobile apps, and web platforms developed by MD. Jonaed Ali Shuvro.',
     'url': `${BASE_URL}/#work`,
-    'about': getPersonSchema(),
+    'about': {
+      '@id': `${BASE_URL}/#person`
+    },
+    'author': {
+      '@id': `${BASE_URL}/#person`
+    },
+    'publisher': {
+      '@id': `${BASE_URL}/#person`
+    },
     'hasPart': projects.map(p => ({
       '@type': 'CreativeWork',
       'name': p.name,
@@ -167,3 +229,4 @@ export function getPortfolioSchema(projects: CaseStudy[]) {
     }))
   }
 }
+

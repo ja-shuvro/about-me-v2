@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/entity.json`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
     }
   ]
 }

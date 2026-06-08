@@ -16,9 +16,9 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Jonaed Ali Shuvro // Software Engineering Portfolio</title>
+  <title>MD. Jonaed Ali Shuvro // Software Portfolio</title>
   <link>https://www.jashuvro.com</link>
-  <description>High-performance mobile and web architecture case studies by Jonaed Ali Shuvro.</description>
+  <description>High-performance mobile and web architecture case studies by MD. Jonaed Ali Shuvro.</description>
   <language>en-us</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
   <atom:link href="https://www.jashuvro.com/feed.xml" rel="self" type="application/rss+xml" />

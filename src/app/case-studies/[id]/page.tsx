@@ -21,18 +21,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!data) {
     return {
-      title: 'Project Not Found // J.A. Shuvro',
+      title: 'Project Not Found // MD. Jonaed Ali Shuvro',
       description: 'The requested software case study could not be located on the server.',
       robots: 'noindex, nofollow'
     }
   }
 
   return {
-    title: `${data.name} Case Study // Full-Stack Engineering Report`,
+    title: `${data.name} Case Study // Systems Architecture by MD. Jonaed Ali Shuvro`,
     description: data.overview,
-    keywords: [...data.tech, 'Case Study', 'Performance Optimization', 'Systems Engineering', 'Jonaed Ali Shuvro'],
+    keywords: [...data.tech, 'Case Study', 'Performance Optimization', 'Systems Engineering', 'MD. Jonaed Ali Shuvro'],
     alternates: {
       canonical: `https://www.jashuvro.com/case-studies/${id}`
+    },
+    publisher: 'MD. Jonaed Ali Shuvro',
+    other: {
+      author: 'MD. Jonaed Ali Shuvro',
+      creator: 'MD. Jonaed Ali Shuvro',
+      publisher: 'MD. Jonaed Ali Shuvro',
+      copyrightHolder: 'MD. Jonaed Ali Shuvro',
     },
     openGraph: {
       title: `${data.name} — ${data.tagline}`,
@@ -41,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: data.datePublished,
       modifiedTime: data.dateModified,
-      authors: ['Jonaed Ali Shuvro']
+      authors: ['MD. Jonaed Ali Shuvro']
     },
     twitter: {
       card: 'summary_large_image',
@@ -176,7 +183,7 @@ export default function CaseStudyPage({ params }: Props) {
             <section aria-labelledby="sec-repos" style={{ marginTop: '2rem' }}>
               <h2 id="sec-repos" style={{ color: data.color, fontSize: '0.8rem', letterSpacing: '0.1em' }}>[09 / SOURCE_CHANNELS]</h2>
               <p>
-                <strong>Developer Credentials:</strong> Jonaed Ali Shuvro (author & creator) <br />
+                <strong>Developer Credentials:</strong> MD. Jonaed Ali Shuvro (author & creator) <br />
                 <strong>Programming Language:</strong> {data.programmingLanguage} <br />
                 <strong>Application Category:</strong> {data.applicationCategory} <br />
                 <strong>Keywords:</strong> {data.tech.join(', ')} <br />

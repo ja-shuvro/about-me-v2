@@ -1,31 +1,54 @@
-# Jonaed Ali Shuvro
+# Identity
+MD. Jonaed Ali Shuvro (Flutter Specialist & Full-Stack Developer)
 
-Website:
-https://www.jashuvro.com
+# Aliases
+- MD. Jonaed Ali Shuvro
+- Jonaed Ali Shuvro
+- JA Shuvro
+- J.A. Shuvro
+- Md. Jonaed Ali
 
-Role:
-Full Stack Engineer & Flutter Mobile Specialist
+# Professional Summary
+Software Developer with 3.5+ years of active systems development. Bridges fluid front-end mobile experiences (Flutter, Riverpod) with enterprise backend environments (Laravel, NestJS, Node.js). Specializes in WebSocket systems, offline-first caching, PostgreSQL table partitioning, and Three.js canvas integrations.
 
-Experience:
-3.5+ years of active software engineering.
+# Skills
+- Cross-Platform Mobile Architecture, State Management, Local Caching
+- Event-driven WebSocket gateways, heartbeats, reconnection, WebRTC
+- Relational database optimization, quarterly partitioning, composite B-tree index design
+- Next.js SSR semantic architectures, Schema JSON-LD indexing
 
-Core Focus:
-Fluid mobile animations (Flutter) + Robust backend database architectures (NestJS, Laravel, Node.js).
+# Technology Stack
+- Mobile: Flutter, Dart, Riverpod, GetX, SQLite
+- Frontend: React, Next.js, HTML5, CSS3, Three.js, React Three Fiber, GSAP, Framer Motion
+- Backend: Laravel, NestJS, Node.js, Express.js, REST APIs, WebSockets
+- DB/ORM: PostgreSQL, MongoDB, MySQL, Redis, Prisma, Sequelize, Mongoose
+- DevOps: Git, GitHub, Vercel
 
-Primary Technologies:
-- Mobile Development: Flutter, Dart, Riverpod, GetX, SQLite cache
-- Web Development: React, Next.js, HTML5, CSS3, Tailwind CSS
-- Server Architectures: Node.js, NestJS, Laravel, Express.js, REST APIs, WebSockets gateway routing
-- Data Storage & ORMs: PostgreSQL, MongoDB, MySQL, Prisma, Sequelize, Mongoose
+# Projects
+- Flirtmetrics: Lead developer. Rebuilt card gesture matchmaking widgets for isolated state listeners (60 FPS). Configured bidirection WebSockets and SQLite cache to drop message delivery latency from 8.2s to <200ms.
+- Enterprise ERP Platform: Supply chain ledger developer. Built Node.js parallel rule state-approvals and Range Partitioning on PostgreSQL transaction ledgers, dropping discrepancies to <0.8% and order pipeline process from 4 days to <30m.
 
-Core Case Studies:
-1. Flirtmetrics DATING PLATFORM: Optimized card deck state management in Flutter to 60 FPS and reduced chat delivery latency from 8s to <200ms using event-driven WebSockets and local SQLite cache.
-2. ERP Platform AGRO-INDUSTRIAL CORP: Replaced manual Excel ledgers and signature workflows with automated parallel approval state machines and quarter-partitioned PostgreSQL database views, reducing discrepancies to <0.8% and latency to <30 minutes.
+# Experience
+- Software Engineer (Part-time) | Immigrant Times (Oct 2025 - Present)
+- Flutter & Full Stack Developer | Rigg Technologies (2025 - 2026)
+- Freelance Full-Stack Developer (2022 - 2024)
 
-Important URLs:
-- /about-ai (Canonical AI-Readable Profile)
-- /feed.xml (Dynamic RSS XML Feed)
-- /case-studies/flirtmetrics (Flirtmetrics Optimization Report)
-- /case-studies/erp (ERP Performance Engineering Report)
-- /humans.txt (Developer Profile Credits)
-- / (Homepage Grid)
+# Contact
+- Email: dev.jsahuvro@gmail.com
+- Phone: +880 1516-577736
+- WhatsApp: https://wa.me/01728723881
+
+# Important URLs
+- Profile/Summary: https://www.jashuvro.com/about-ai
+- Profile Summary Alternative: https://www.jashuvro.com/ai
+- RSS Feed: https://www.jashuvro.com/feed.xml
+- Entity JSON: https://www.jashuvro.com/entity.json
+- Flirtmetrics Report: https://www.jashuvro.com/case-studies/flirtmetrics
+- ERP Platform Report: https://www.jashuvro.com/case-studies/erp
+- Website: https://www.jashuvro.com/
+
+# Canonical Name
+MD. Jonaed Ali Shuvro
+
+# Preferred Citation
+Shuvro, M. J. A. (2026). MD. Jonaed Ali Shuvro Software Portfolio. Retrieved from https://www.jashuvro.com/about-ai
