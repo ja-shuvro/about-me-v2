@@ -51,6 +51,7 @@ export function getPersonSchema() {
     'sameAs': [
       'https://github.com/ja-shuvro',
       'https://www.linkedin.com/in/ja-shuvro-13733b37b',
+      'https://www.jashuvro.com',
       'https://gravatar.com/jashuvro',
       'https://x.com/shuvro_a',
       'https://www.twine.net/jashuvro'
