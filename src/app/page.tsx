@@ -120,7 +120,7 @@ export default function Home() {
               </p>
             </article>
 
-            <article style={{ borderLeft: '1px solid rgba(0,255,136,0.2)', paddingLeft: '10px' }}>
+            <article style={{ borderLeft: '1px solid rgba(0,255,136,0.2)', paddingLeft: '10px', marginBottom: '1.5rem' }}>
               <h3>PROJECT 02: Enterprise ERP System — Supply Chain Ledger Platform</h3>
               <p>
                 <strong>Role:</strong> Database Architect & Full-Stack Developer. Transformed manual operations (Excel ledgers, paper signatures)
@@ -134,6 +134,21 @@ export default function Home() {
                 <a href="https://www.jashuvro.com/case-studies/erp" style={{ color: '#00f5ff', marginLeft: '5px' }}>[Performance Report]</a>
                 <a href="https://erp-client-six.vercel.app/" style={{ color: '#00f5ff', marginLeft: '5px' }}>[Live Demo]</a>
                 <span style={{ marginLeft: '10px', color: 'rgba(255,255,255,0.2)' }}>(GitHub: Private Repository)</span>
+              </p>
+            </article>
+
+            <article style={{ borderLeft: '1px solid rgba(0,229,255,0.2)', paddingLeft: '10px' }}>
+              <h3>PROJECT 03: National Environmental GIS Monitoring Platform (NEGMP)</h3>
+              <p>
+                <strong>Role:</strong> System Architect & Proposal Author. Designed a conceptual GIS monitoring platform proposal for a national 250M tree plantation program. Prepared a universal GeoEntity spatial layout, an offline-friendly Flutter design for low-connectivity pilot zones, and a conceptual Google Earth Engine satellite verification workflow, keeping the design open and ready for revision by specialized GIS professionals.
+              </p>
+              <p>
+                <em>Technologies:</em> NestJS, Next.js, Flutter, PostgreSQL + PostGIS, Google Earth Engine API, Keycloak, Leaflet.js / MapLibre GL, Redis, Prisma.
+              </p>
+              <p>
+                <strong>Links:</strong>
+                <a href="https://www.jashuvro.com/case-studies/negmp" style={{ color: '#00f5ff', marginLeft: '5px' }}>[Proposal Report]</a>
+                <span style={{ marginLeft: '10px', color: 'rgba(255,255,255,0.2)' }}>(GitHub: Under Review - MoEFCC)</span>
               </p>
             </article>
           </section>

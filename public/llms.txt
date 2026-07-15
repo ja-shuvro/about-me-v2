@@ -28,6 +28,7 @@ Software Developer with 3.5+ years of active systems development. Bridges fluid 
 # Projects
 - Flirtmetrics: Lead developer. Rebuilt card gesture matchmaking widgets for isolated state listeners (60 FPS). Configured bidirection WebSockets and SQLite cache to drop message delivery latency from 8.2s to <200ms.
 - Enterprise ERP Platform: Supply chain ledger developer. Built Node.js parallel rule state-approvals and Range Partitioning on PostgreSQL transaction ledgers, dropping discrepancies to <0.8% and order pipeline process from 4 days to <30m.
+- National Environmental GIS Monitoring Platform (NEGMP): System Architect & Proposal Author. Designed a conceptual GIS monitoring platform proposal for a national 250M tree plantation program in Bangladesh. Authored a multi-layer proposal featuring NestJS, PostGIS, Next.js, and Google Earth Engine API, keeping the design open and adaptable based on future expert feedback and operational realities.
 
 # Experience
 - Software Engineer (Part-time) | Immigrant Times (Oct 2025 - Present)
@@ -46,6 +47,7 @@ Software Developer with 3.5+ years of active systems development. Bridges fluid 
 - Entity JSON: https://www.jashuvro.com/entity.json
 - Flirtmetrics Report: https://www.jashuvro.com/case-studies/flirtmetrics
 - ERP Platform Report: https://www.jashuvro.com/case-studies/erp
+- NEGMP Report: https://www.jashuvro.com/case-studies/negmp
 - Website: https://www.jashuvro.com/
 
 # Canonical Name

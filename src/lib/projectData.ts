@@ -133,5 +133,50 @@ export const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     programmingLanguage: 'TypeScript',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web'
+  },
+  negmp: {
+    id: 'negmp',
+    name: 'NEGMP Proposal',
+    tagline: 'National Environmental GIS Monitoring Platform',
+    client: 'Ministry of Environment, Forests and Climate Change (Govt. of Bangladesh)',
+    timeline: 'April 2026',
+    role: 'System Architect & Proposal Author',
+    color: '#00e5ff',
+    metrics: [
+      { label: 'Plantation Target', value: '250M', sub: 'trees over 5 years' },
+      { label: 'Pilot Region', value: 'Rajshahi', sub: 'Barind Tract focus' },
+      { label: 'Verification', value: 'NDVI', sub: 'Google Earth Engine' },
+      { label: 'Data Model', value: 'GeoEntity', sub: 'universal spatial core' },
+    ],
+    tech: ['NestJS', 'Next.js', 'Flutter', 'PostgreSQL', 'PostGIS', 'Google Earth Engine API', 'Keycloak', 'Leaflet.js', 'MapLibre GL', 'Redis', 'Prisma'],
+    images: [
+      '/negmp/thumbnail.png'
+    ],
+    links: {
+      github: 'Proposal Document (Submitted/Under Review)'
+    },
+    overview: 'A humble design proposal for a National Environmental GIS Monitoring Platform (NEGMP), submitted to the Ministry of Environment, Forests and Climate Change, Government of Bangladesh. Combining my background in Agriculture with local context from living in the Rajshahi pilot region, I designed a multi-layer monitoring blueprint. I treat this design as an open starting point, eager to adapt and refine it based on feedback from experienced GIS experts and forestry officials.',
+    problem: 'National plantation monitoring has historically relied on manual field logs, which can lead to reporting gaps. The government sought a way to integrate GPS and satellite-based confirmation. My goal was to design a conceptual path to close this gap, keeping in mind that actual field implementation requires deep listening and adapting to the workflows of local officers.',
+    solution: 'Designed a conceptual 5-layer architecture centered around a flexible, universal GeoEntity data model. I proposed an offline-first Flutter application to support field workers in low-connectivity areas like the Barind Tract, and a satellite verification pipeline using Google Earth Engine API. I approached this design as a learner, understanding that production-grade remote sensing would rely on collaboration with experienced GIS specialists.',
+    architecture: 'Proposed 5-layer system: Backend API (NestJS + PostgreSQL/PostGIS/Prisma), Field Mobile App (Flutter + PWA fallback), Interactive Web Dashboard (Next.js + Leaflet.js / MapLibre GL), Satellite Verification Pipeline (Google Earth Engine API), and Identity/Auth (Keycloak OIDC).',
+    challenges: 'Designing a flexible data structure that allows future modules (like water level or weather) without complex database redesigns, while recognizing my own learning curve in Google Earth Engine remote sensing workflows.',
+    features: [
+      'Universal GeoEntity shared spatial data foundation',
+      'Conceptual NDVI vegetation analysis pipeline via Google Earth Engine API',
+      'Offline-first mobile data capture with PWA fallback designed for low-connectivity zones',
+      'Role-based access control with Keycloak SSO integration',
+      'Extensible future-proof modules designed to accommodate weather and water tracking'
+    ],
+    result: 'The proposal was submitted on April 25, 2026, and is under review. Designing it was a profound learning experience in geospatial planning and public-sector collaboration.',
+    futureImprovements: [
+      'Learn from on-the-ground Forest Department officers to adapt and simplify field workflows',
+      'Collaborate closely with production GIS specialists to refine Google Earth Engine algorithms, using it as an opportunity to deepen my understanding'
+    ],
+    datePublished: '2026-04-25T00:00:00Z',
+    dateModified: '2026-04-25T00:00:00Z',
+    programmingLanguage: 'TypeScript / Dart',
+    applicationCategory: 'GeospatialMonitoringApplication',
+    operatingSystem: 'Web, Android, iOS'
   }
 }
+

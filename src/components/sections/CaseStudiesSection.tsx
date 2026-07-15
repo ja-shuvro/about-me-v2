@@ -89,6 +89,49 @@ const CASE_STUDIES = [
         metric: 'Order time <30m',
       },
     ],
+  },
+  {
+    id: 'negmp',
+    name: 'NEGMP',
+    client: 'MINISTRY OF ENVIRONMENT (BD)',
+    challenge: 'A design proposal submitted to the Ministry of Environment, Forests and Climate Change, combining agricultural insights and local Rajshahi context into a collaborative, remote-sensing monitoring concept.',
+    phases: [
+      {
+        phase: 'PROBLEM',
+        icon: '◈',
+        color: '#ff3366',
+        content: 'Manual reporting lacks GPS and satellite confirmation. I aimed to design a tracking concept while remaining open to learning the practical operational needs of local officers.',
+        metric: 'Tracking gaps identified',
+      },
+      {
+        phase: 'RESEARCH',
+        icon: '◉',
+        color: '#00ff88',
+        content: 'Studied ecological zones (like the drier Barind Tract in Rajshahi) to understand how local climate affects survival rates, hoping to design realistic monitoring zones.',
+        metric: 'Ecological zones mapped',
+      },
+      {
+        phase: 'STRATEGY',
+        icon: '◬',
+        color: '#7c3aed',
+        content: 'Proposed a flexible GeoEntity model to map spatial data. It acts as an open foundation that can adapt to track water levels, weather, or air quality in the future.',
+        metric: 'Flexible GeoEntity model',
+      },
+      {
+        phase: 'SOLUTION',
+        icon: '◆',
+        color: '#ff6b35',
+        content: 'Designed a 5-layer system concept. I approached the Google Earth Engine remote sensing part as a learner, ready to collaborate with production GIS specialists.',
+        metric: 'Collaborative system draft',
+      },
+      {
+        phase: 'OUTCOME',
+        icon: '◎',
+        color: '#00d4ff',
+        content: 'Submitted on April 25, 2026, and currently under review. The process served as an invaluable lesson in designing systems and listening to expert feedback.',
+        metric: 'Under review & open',
+      },
+    ],
   }
 ]
 

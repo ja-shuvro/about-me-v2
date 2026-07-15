@@ -216,7 +216,7 @@ export default function CaseStudyCinematic({ data }: { data: CaseStudy }) {
           <div>
             <h3 style={sectionTitleStyle}>10 / Project Integrations & Repos</h3>
             <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
-              {data.links.github.includes('Private') ? (
+              {!data.links.github.startsWith('http') ? (
                 <span style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.7rem',
@@ -225,7 +225,7 @@ export default function CaseStudyCinematic({ data }: { data: CaseStudy }) {
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   background: 'rgba(255, 255, 255, 0.02)'
                 }}>
-                  GitHub: Private Repository
+                  {data.links.github}
                 </span>
               ) : (
                 <a href={data.links.github} target="_blank" rel="noopener noreferrer" style={repoLinkStyle(data.color)}>

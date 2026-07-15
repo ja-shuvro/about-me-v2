@@ -84,6 +84,9 @@ export function getPersonSchema() {
       },
       {
         '@id': `${BASE_URL}/case-studies/erp#article`
+      },
+      {
+        '@id': `${BASE_URL}/case-studies/negmp#article`
       }
     ],
     'inLanguage': 'en'
