@@ -1,10 +1,10 @@
 /* TEAM */
 Developer: JA Shuvro (MD. Jonaed Ali Shuvro)
-Role: Flutter Specialist & Full-Stack Developer
+Role: Applied AI Engineer & Full-Stack Architect
 Contact: dev.jsahuvro@gmail.com
-Location: Rajshahi, Bangladesh
+Location: Rajshahi / Dhaka, Bangladesh
 GitHub: https://github.com/ja-shuvro
-LinkedIn: https://www.linkedin.com/in/ja-shuvro-13733b37b
+LinkedIn: https://www.linkedin.com/in/ja--shuvro/
 Twitter: https://x.com/shuvro_a
 
 /* SITE */

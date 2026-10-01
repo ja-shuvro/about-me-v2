@@ -13,7 +13,7 @@ export async function GET() {
     worksFor: "Immigrant Times",
     website: "https://www.jashuvro.com",
     github: "https://github.com/ja-shuvro",
-    linkedin: "https://www.linkedin.com/in/ja-shuvro-13733b37b",
+    linkedin: "https://www.linkedin.com/in/ja--shuvro/",
     skills: [
       "Applied AI Engineering",
       "LLM Orchestration & Prompt Design",

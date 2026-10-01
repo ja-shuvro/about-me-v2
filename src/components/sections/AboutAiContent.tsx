@@ -155,7 +155,7 @@ export default function AboutAiContent() {
             <li><strong>Email:</strong> <a href="mailto:dev.jsahuvro@gmail.com" style={{ color: '#00f5ff', textDecoration: 'none' }}>dev.jsahuvro@gmail.com</a></li>
             <li><strong>Phone:</strong> <a href="tel:+8801516577736" style={{ color: '#00f5ff', textDecoration: 'none' }}>+880 1516-577736</a></li>
             <li><strong>GitHub:</strong> <a href="https://github.com/ja-shuvro" style={{ color: '#00ff88', textDecoration: 'none' }}>https://github.com/ja-shuvro</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ja-shuvro-13733b37b" style={{ color: '#7c3aed', textDecoration: 'none' }}>https://www.linkedin.com/in/ja-shuvro-13733b37b</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ja--shuvro/" style={{ color: '#7c3aed', textDecoration: 'none' }}>https://www.linkedin.com/in/ja--shuvro/</a></li>
             <li><strong>WhatsApp:</strong> <a href="https://wa.me/01728723881" style={{ color: '#ffd700', textDecoration: 'none' }}>https://wa.me/01728723881</a></li>
             <li><strong>Twitter:</strong> <a href="https://x.com/shuvro_a" style={{ color: '#ff3366', textDecoration: 'none' }}>https://x.com/shuvro_a</a></li>
           </ul>

@@ -234,7 +234,7 @@ export default function Home() {
             <p>
               Social channels:
               <a href="https://github.com/ja-shuvro" style={{ color: '#00ff88', marginLeft: '5px' }}>[GitHub]</a> |
-              <a href="https://www.linkedin.com/in/ja-shuvro-13733b37b" style={{ color: '#7c3aed', marginLeft: '5px' }}>[LinkedIn]</a> |
+              <a href="https://www.linkedin.com/in/ja--shuvro/" style={{ color: '#7c3aed', marginLeft: '5px' }}>[LinkedIn]</a> |
               <a href="https://wa.me/01728723881" style={{ color: '#ffd700', marginLeft: '5px' }}>[WhatsApp]</a> |
               <a href="https://x.com/shuvro_a" style={{ color: '#ff3366', marginLeft: '5px' }}>[Twitter]</a>
             </p>
