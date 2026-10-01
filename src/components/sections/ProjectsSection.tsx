@@ -1,10 +1,82 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Link from 'next/link'
 
 const PROJECTS = [
   {
     id: '001',
+    name: 'HR Interview System',
+    tagline: 'AI-Powered Autonomous Video & Voice Mock Interview Platform',
+    description: 'An enterprise WordPress and React 18 interview orchestration system featuring automated OpenAI Whisper audio transcription, OpenAI TTS voice question synthesis, and GPT-4o candidate evaluation rubrics with WebRTC recording.',
+    stack: ['WordPress', 'React 18', 'OpenAI Whisper', 'GPT-4o', 'OpenAI TTS', 'WebRTC', 'PHP 8'],
+    metrics: { pipeline: 'Video/Audio', stt: 'Whisper 98.5%', latency: '<3.2s' },
+    color: '#00f5ff',
+    status: 'LIVE // AI',
+    caseStudyId: 'hr-interview-system',
+    images: [
+      '/hr-interview-system/thumbnail.png',
+      '/hr-interview-system/slide1.png'
+    ],
+    links: {
+      github: '#'
+    }
+  },
+  {
+    id: '002',
+    name: 'Medical Interview Bot',
+    tagline: 'Specialized Clinical AI Mock Interviewer & Diagnostics Viva Simulator',
+    description: 'A multi-instance clinical interview simulator allowing healthcare institutions to deploy specialty examiners (Surgery, Medicine, Pediatrics). Ingests medical CVs and case files to generate differential diagnosis viva questions via GPT-5-Nano and GPT-4o-mini.',
+    stack: ['WordPress', 'GPT-5-Nano', 'Whisper STT', 'OpenAI TTS', 'smalot/pdf-parser', 'PhpWord', 'WebRTC'],
+    metrics: { role: 'Clinical AI', parser: 'CV Ingestion', response: '<2.4s' },
+    color: '#00ff88',
+    status: 'LIVE // AI',
+    caseStudyId: 'medical-interview-bot',
+    images: [
+      '/medical-interview-bot/thumbnail.png'
+    ],
+    links: {
+      github: '#'
+    }
+  },
+  {
+    id: '003',
+    name: 'Mentoro (Study Mentor)',
+    tagline: 'Decoupled AI Study Mentor & Intelligent Learning Pack Generation Engine',
+    description: 'A decoupled AI learning workstation featuring a high-concurrency NestJS microservice backend and a WordPress React SPA Question Player with drawing canvas and formula editor. Ingests PDFs, Word docs, and YouTube lecture transcripts to generate flashcards and rubric-graded quizzes.',
+    stack: ['NestJS', 'TypeScript', 'WordPress', 'React SPA', 'OpenAI GPT-4o', 'youtube-transcript', 'Tailwind'],
+    metrics: { backend: 'NestJS Engine', ingestion: 'PDF/YouTube', packGen: '<8s' },
+    color: '#7c3aed',
+    status: 'PRODUCTION // AI',
+    caseStudyId: 'mentoro',
+    images: [
+      '/mentoro/thumbnail.png'
+    ],
+    links: {
+      github: '#'
+    }
+  },
+  {
+    id: '004',
+    name: 'WP AI Tools Suite',
+    tagline: 'Enterprise Multi-Model AI Productivity Suite & Vector Search RAG Hub',
+    description: 'An enterprise WordPress suite uniting OpenAI Assistants API vector store search (RAG), Chat Completions, DALL-E 3 image generation, Whisper STT, TTS, and RunwayML video generation inside a sleek React 18 SPA with a three-tier token budget engine.',
+    stack: ['WordPress', 'React 18', 'Mantine UI', 'OpenAI Assistants (RAG)', 'DALL-E 3', 'Whisper', 'RunwayML'],
+    metrics: { tools: '6-in-1 Suite', rag: 'Vector Store', cost: '-40%' },
+    color: '#ffd700',
+    status: 'LIVE // AI',
+    caseStudyId: 'wp-ai-tools',
+    images: [
+      '/wp-ai-tools/thumbnail.png',
+      '/wp-ai-tools/img_gen_thumb_01.webp',
+      '/wp-ai-tools/img_to_ads.jpg'
+    ],
+    links: {
+      github: '#'
+    }
+  },
+  {
+    id: '005',
     name: 'Flirtmetrics',
     tagline: 'Cross-platform dating app with real-time chat',
     description: 'A cross-platform dating application featuring real-time messaging, custom swiping interfaces, and fluid transitions. Engineered with Flutter and Riverpod state management.',
@@ -12,6 +84,7 @@ const PROJECTS = [
     metrics: { platforms: 'iOS & Android', states: 'Riverpod', latency: '<200ms' },
     color: '#ff3366',
     status: 'LIVE',
+    caseStudyId: 'flirtmetrics',
     images: [
       '/flirtmetrics/thumbnail.png',
       '/flirtmetrics/slide1.png',
@@ -28,7 +101,7 @@ const PROJECTS = [
     }
   },
   {
-    id: '002',
+    id: '006',
     name: 'ERP System',
     tagline: 'Enterprise Resource Planning Platform',
     description: 'A complete enterprise suite for resource planning, inventory tracking, financial auditing, and dealer performance monitoring. Designed with modular widgets and real-time dashboard analytics.',
@@ -36,6 +109,7 @@ const PROJECTS = [
     metrics: { modules: '10+', speed: 'Fast', database: 'PostgreSQL' },
     color: '#00ff88',
     status: 'LIVE',
+    caseStudyId: 'erp',
     images: [
       '/erp/dashboard.png',
       '/erp/login.png',
@@ -49,7 +123,7 @@ const PROJECTS = [
     }
   },
   {
-    id: '003',
+    id: '007',
     name: 'AgriflowBD',
     tagline: 'Smart Agriculture Platform for Bangladesh',
     description: 'An innovative agricultural supply chain and mapping platform connecting growers and distributors. Features real-time price tracking, inventory management, and location mapping.',
@@ -67,7 +141,24 @@ const PROJECTS = [
     }
   },
   {
-    id: '004',
+    id: '008',
+    name: 'NEGMP Proposal',
+    tagline: 'National Environmental GIS Monitoring Platform',
+    description: 'A 5-layer national GIS monitoring platform design proposal for 250M tree plantation tracking. Integrates NestJS, PostGIS, offline Flutter mobile data capture, and Google Earth Engine satellite verification.',
+    stack: ['NestJS', 'Next.js', 'Flutter', 'PostGIS', 'Earth Engine API'],
+    metrics: { target: '250M Trees', pilot: 'Rajshahi', verification: 'NDVI' },
+    color: '#00e5ff',
+    status: 'PROPOSAL',
+    caseStudyId: 'negmp',
+    images: [
+      '/negmp/thumbnail.png'
+    ],
+    links: {
+      github: '#'
+    }
+  },
+  {
+    id: '009',
     name: 'Smart Prop Trader',
     tagline: 'Proprietary property trading web platform',
     description: 'A comprehensive trading dashboard designed for property evaluation and trader tracking. Implemented secure data pipelines, dynamic chart rendering, and detailed user activity analytics.',
@@ -82,7 +173,7 @@ const PROJECTS = [
     }
   },
   {
-    id: '005',
+    id: '010',
     name: 'Student Square',
     tagline: 'Educational management web portal',
     description: 'An academic portal designed for school systems and student management in Bangladesh. Architected with secure REST APIs, transaction logs, and normalized database schemas.',
@@ -97,7 +188,7 @@ const PROJECTS = [
     }
   },
   {
-    id: '006',
+    id: '011',
     name: 'Rent Sale BD',
     tagline: 'Property rental and sales marketplace',
     description: 'A property marketplace platform facilitating rental listings and home sales. Features user profiles, advanced search filtering, and robust relational data management.',
@@ -112,7 +203,7 @@ const PROJECTS = [
     }
   },
   {
-    id: '007',
+    id: '012',
     name: 'McNeil Estate Planning',
     tagline: 'Professional estate planning portal',
     description: 'A bespoke corporate planning and legal portfolio system designed for clients. Custom WordPress integration with lightweight theme structures for high-performance indexing.',
@@ -332,6 +423,17 @@ function ProjectCard({ project, delay, isMobile }: { project: typeof PROJECTS[0]
 
             {/* Actions */}
             <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+              {project.caseStudyId && (
+                <Link
+                  href={`/case-studies/${project.caseStudyId}`}
+                  onClick={(e) => e.stopPropagation()}
+                  style={actionButtonStyle(project.color)}
+                  onMouseEnter={hoverAction}
+                  onMouseLeave={(e) => leaveAction(e, project.color)}
+                >
+                  CASE_STUDY →
+                </Link>
+              )}
               {project.links.site && (
                 <a
                   href={project.links.site}

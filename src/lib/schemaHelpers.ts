@@ -33,8 +33,8 @@ export function getPersonSchema() {
     ],
     'url': BASE_URL,
     'image': 'https://avatars.githubusercontent.com/u/89667794?v=4',
-    'jobTitle': 'Flutter Specialist & Full-Stack Developer',
-    'description': 'Flutter Specialist & Full-Stack Developer specializing in real-time systems and AI-optimized web experiences.',
+    'jobTitle': 'Applied AI Engineer & Full-Stack Developer',
+    'description': 'Applied AI Engineer & Full-Stack Developer specializing in multi-modal LLM systems (Whisper, GPT-4o, TTS), Vector RAG, and scalable enterprise web & mobile architectures.',
     'nationality': {
       '@type': 'Country',
       'name': 'Bangladesh'
@@ -57,16 +57,25 @@ export function getPersonSchema() {
       'https://www.twine.net/jashuvro'
     ],
     'knowsAbout': [
-      'Flutter',
-      'Dart',
+      'Applied AI Engineering',
+      'Large Language Models (LLMs)',
+      'OpenAI GPT-4o & GPT-5-Nano',
+      'OpenAI Whisper Speech-to-Text',
+      'OpenAI TTS Voice Synthesis',
+      'Vector Search & RAG Architecture',
+      'Assistants API & Embeddings',
+      'Prompt Engineering & Rubrics',
       'NestJS',
       'Next.js',
+      'React',
+      'Flutter',
+      'Dart',
+      'WordPress AI Plugins',
+      'WebRTC MediaRecorder',
       'Laravel',
       'Node.js',
-      'React',
-      'React Three Fiber',
-      'Three.js',
       'TypeScript',
+      'PHP',
       'PostgreSQL',
       'MySQL',
       'MongoDB',
@@ -75,10 +84,21 @@ export function getPersonSchema() {
       'System Architecture',
       'Real-time Applications',
       'Full Stack Development',
-      'Mobile Development',
       'Enterprise Software'
     ],
     'subjectOf': [
+      {
+        '@id': `${BASE_URL}/case-studies/hr-interview-system#article`
+      },
+      {
+        '@id': `${BASE_URL}/case-studies/medical-interview-bot#article`
+      },
+      {
+        '@id': `${BASE_URL}/case-studies/mentoro#article`
+      },
+      {
+        '@id': `${BASE_URL}/case-studies/wp-ai-tools#article`
+      },
       {
         '@id': `${BASE_URL}/case-studies/flirtmetrics#article`
       },

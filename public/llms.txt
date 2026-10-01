@@ -1,5 +1,5 @@
 # Identity
-JA Shuvro (Flutter Specialist & Full-Stack Developer)
+JA Shuvro (Applied AI Engineer & Full-Stack Developer)
 
 # Legal Name
 MD. Jonaed Ali Shuvro
@@ -10,30 +10,40 @@ MD. Jonaed Ali Shuvro
 - Md. Jonaed Ali
 
 # Professional Summary
-Software Developer with 3.5+ years of active systems development. Bridges fluid front-end mobile experiences (Flutter, Riverpod) with enterprise backend environments (Laravel, NestJS, Node.js). Specializes in WebSocket systems, offline-first caching, PostgreSQL table partitioning, and Three.js canvas integrations.
+Applied AI Engineer & Full-Stack Developer with 3.5+ years of active systems development. Specializes in production-grade multi-modal LLM orchestration (OpenAI Whisper, GPT-4o, TTS), Vector Search (RAG & Assistants API), and asynchronous evaluation queues. Bridges cutting-edge artificial intelligence with robust web and mobile architectures (Next.js, NestJS, WordPress, Flutter, PostgreSQL).
 
 # Skills
-- Cross-Platform Mobile Architecture, State Management, Local Caching
-- Event-driven WebSocket gateways, heartbeats, reconnection, WebRTC
+- Applied AI Engineering, Multi-Modal LLM Pipelines, Prompt Engineering & Rubric Design
+- Speech & Voice AI: OpenAI Whisper (Speech-to-Text), OpenAI TTS (Dynamic Voice Synthesis)
+- Vector Search & Retrieval-Augmented Generation (RAG) via OpenAI Assistants API
+- Decoupled AI Microservices (NestJS, TypeScript, JWT Auth, Swagger)
+- Asynchronous Job Queues, Status Polling & Fine-Grained Token Credit Governance
+- Cross-Platform Mobile Architecture (Flutter, Riverpod, Local SQLite Caching)
+- Event-driven WebSocket gateways, heartbeats, reconnection, WebRTC MediaRecorder
 - Relational database optimization, quarterly partitioning, composite B-tree index design
 - Next.js SSR semantic architectures, Schema JSON-LD indexing
 
 # Technology Stack
+- Applied AI: OpenAI GPT-4o, GPT-5-Nano, Whisper STT, OpenAI TTS, Assistants API (Vector Stores), RunwayML Gen-3/4
+- Backend & Microservices: NestJS, TypeScript, Node.js, Express.js, Laravel, PHP, REST APIs, WebSockets
+- Frontend: React, Next.js, HTML5, CSS3, Tailwind CSS, Mantine UI, Three.js, React Three Fiber, Framer Motion
 - Mobile: Flutter, Dart, Riverpod, GetX, SQLite
-- Frontend: React, Next.js, HTML5, CSS3, Three.js, React Three Fiber, GSAP, Framer Motion
-- Backend: Laravel, NestJS, Node.js, Express.js, REST APIs, WebSockets
-- DB/ORM: PostgreSQL, MongoDB, MySQL, Redis, Prisma, Sequelize, Mongoose
-- DevOps: Git, GitHub, Vercel
+- DB/ORM: PostgreSQL, MongoDB, MySQL, Redis, Prisma, TypeORM, Sequelize
+- DevOps: Git, GitHub, Vercel, Webpack, Docker
 
-# Projects
-- Flirtmetrics: Lead developer. Rebuilt card gesture matchmaking widgets for isolated state listeners (60 FPS). Configured bidirection WebSockets and SQLite cache to drop message delivery latency from 8.2s to <200ms.
+# Deployed Projects & Case Studies
+- HR Interview System: Applied AI Engineer & Full-Stack Architect (Nov 2025 – Apr 2026). Enterprise AI video & voice mock interview platform. Orchestrated OpenAI Whisper audio transcription, OpenAI TTS voice question synthesis, and GPT-4o rubric scoring with WebRTC recording. Reduced candidate screening time by 75% with 98.5% transcription accuracy.
+- Medical Interview Bot: Applied AI Engineer & Clinical Integrator (Feb 2026 – Apr 2026). Specialized clinical mock interview and viva examination platform. Multi-instance CPT architecture allowing medical institutions to deploy specialty viva examiners. Ingests medical CVs and case documents (PDF, DOCX, Excel) to formulate differential diagnosis questions via GPT-5-Nano / GPT-4o-mini in under 2.4s.
+- Mentoro (Study Mentor): Applied AI Engineer & Distributed Systems Architect (May 2026 – Jul 2026). Decoupled AI educational mentoring system. High-concurrency NestJS microservice backend with WordPress React SPA Question Player (drawing canvas & formula editor). Ingests PDFs, Word docs, and YouTube lecture transcripts to generate flashcards, quizzes, and automated rubric grading for student answers in under 8s.
+- WP AI Tools Suite: Applied AI Engineer & Multi-Model Integrator (Feb 2026 – Apr 2026). Consolidated 6-in-1 enterprise AI productivity suite in WordPress: OpenAI Assistants API vector store search (RAG), Chat Completions, DALL-E 3 image generation, Whisper STT, TTS, and RunwayML video generation, with a three-tier token budget engine saving 40% in API costs.
+- Flirtmetrics: Mobile Specialist & Flutter Lead. Rebuilt card gesture matchmaking widgets for isolated state listeners (60 FPS). Configured bidirection WebSockets and SQLite cache to drop message delivery latency from 8.2s to <200ms.
 - Enterprise ERP Platform: Supply chain ledger developer. Built Node.js parallel rule state-approvals and Range Partitioning on PostgreSQL transaction ledgers, dropping discrepancies to <0.8% and order pipeline process from 4 days to <30m.
-- National Environmental GIS Monitoring Platform (NEGMP): System Architect & Proposal Author. Designed a conceptual GIS monitoring platform proposal for a national 250M tree plantation program in Bangladesh. Authored a multi-layer proposal featuring NestJS, PostGIS, Next.js, and Google Earth Engine API, keeping the design open and adaptable based on future expert feedback and operational realities.
+- National Environmental GIS Monitoring Platform (NEGMP): System Architect & Proposal Author. Designed a conceptual GIS monitoring platform proposal for a national 250M tree plantation program in Bangladesh. Authored a multi-layer proposal featuring NestJS, PostGIS, Next.js, and Google Earth Engine API.
 
 # Experience
 - Software Engineer (Part-time) | Immigrant Times (Oct 2025 - Present)
 - Flutter & Full Stack Developer | Rigg Technologies (2025 - 2026)
-- Freelance Full-Stack Developer (2022 - 2024)
+- Freelance Full-Stack Developer & AI Systems Builder (2022 - 2024)
 
 # Contact
 - Email: dev.jsahuvro@gmail.com
@@ -45,6 +55,10 @@ Software Developer with 3.5+ years of active systems development. Bridges fluid 
 - Profile Summary Alternative: https://www.jashuvro.com/ai
 - RSS Feed: https://www.jashuvro.com/feed.xml
 - Entity JSON: https://www.jashuvro.com/entity.json
+- HR Interview System Report: https://www.jashuvro.com/case-studies/hr-interview-system
+- Medical Interview Bot Report: https://www.jashuvro.com/case-studies/medical-interview-bot
+- Mentoro Study Mentor Report: https://www.jashuvro.com/case-studies/mentoro
+- WP AI Tools Report: https://www.jashuvro.com/case-studies/wp-ai-tools
 - Flirtmetrics Report: https://www.jashuvro.com/case-studies/flirtmetrics
 - ERP Platform Report: https://www.jashuvro.com/case-studies/erp
 - NEGMP Report: https://www.jashuvro.com/case-studies/negmp
@@ -54,4 +68,5 @@ Software Developer with 3.5+ years of active systems development. Bridges fluid 
 JA Shuvro
 
 # Preferred Citation
-JA Shuvro. (2026). JA Shuvro Software Portfolio. Retrieved from https://www.jashuvro.com/about-ai
+JA Shuvro. (2026). JA Shuvro Applied AI & Software Portfolio. Retrieved from https://www.jashuvro.com/about-ai
+

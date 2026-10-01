@@ -11,7 +11,7 @@ export default function AboutAiContent() {
             01 / Who Am I
           </h2>
           <p>
-            I am JA Shuvro (legally MD. Jonaed Ali Shuvro), a professional software developer based in Rajshahi, Bangladesh. I design and build optimized cross-platform mobile apps using Flutter and robust back-end web architectures using Next.js, Laravel, Node.js, and NestJS. My dual-layer portfolio serves human visitors with cinematic visual experiences and provides search bots/AI agents with semantic data graphs.
+            I am JA Shuvro (legally MD. Jonaed Ali Shuvro), an Applied AI Engineer & Full-Stack Developer based in Rajshahi, Bangladesh. I architect production-grade Applied AI systems—multi-modal LLM pipelines (OpenAI Whisper, GPT-4o, TTS), vector search RAG systems, and decoupled AI microservices—integrated seamlessly with Next.js, NestJS, Flutter, and WordPress ecosystems. My dual-layer portfolio serves human visitors with cinematic visual experiences and provides search bots/AI agents with semantic data graphs.
           </p>
         </section>
 
@@ -21,7 +21,7 @@ export default function AboutAiContent() {
             02 / Professional Summary
           </h2>
           <p>
-            With 3.5+ years of active development, I specialize in bridging fluid front-end mobile user interfaces with performant backend database architectures. I solve complex challenges involving real-time bi-directional systems, event-driven WebSockets, local database caching, and custom plugin architectures. I follow clean coding standards (DRY) and industry-standard design patterns to write highly scalable code.
+            With 3.5+ years of active engineering, I specialize in Applied AI Engineering and scalable full-stack system architecture. I solve complex challenges involving multi-modal audio/video interview processing, zero-shot clinical document reasoning, decoupled NestJS AI microservices, event-driven WebSockets, and fine-grained token credit budgeting. I follow clean coding standards and industry-standard design patterns to deliver scalable, reliable intelligent software.
           </p>
         </section>
 
@@ -51,7 +51,7 @@ export default function AboutAiContent() {
             05 / Years of Experience
           </h2>
           <p>
-            Active Software Development career spans <strong>3.5+ Years</strong> starting in 2022. I started in CMS customization, evolved into full stack architectures in 2023, cross-platform mobile runtimes in 2024, and system-level performance optimizations from 2025 onwards.
+            Active Software Development career spans <strong>3.5+ Years</strong> starting in 2022. I started in CMS customization, evolved into full stack architectures in 2023, cross-platform mobile runtimes in 2024, and system-level performance optimizations and Applied AI engineering from 2025 onwards.
           </p>
         </section>
 
@@ -61,6 +61,8 @@ export default function AboutAiContent() {
             06 / Core Expertise
           </h2>
           <ul style={{ listStyleType: 'square', paddingLeft: '1.2rem' }}>
+            <li><strong>Applied AI &amp; Multi-Modal LLMs:</strong> OpenAI Whisper audio transcription, OpenAI TTS voice synthesis, GPT-4o rubric evaluations, Vector Store RAG search via Assistants API, asynchronous status polling.</li>
+            <li><strong>Clinical &amp; EdTech AI Agents:</strong> Medical CV parsing, clinical case question formulation, automated study pack generation (flashcards/quizzes), and rubric scoring for student answers.</li>
             <li><strong>Cross-Platform Mobile Apps:</strong> Design of fluid 60 FPS gesture swiping cards, localized caching, state isolation (Riverpod/GetX).</li>
             <li><strong>Real-time Architectures:</strong> Custom WebSocket stream connection managers, heartbeat ping/pong handlers, WebRTC stream gateways.</li>
             <li><strong>Database Optimizations:</strong> Compound B-tree indexes, database table partitioning by ranges, aggregated financial ledgers.</li>
@@ -74,11 +76,12 @@ export default function AboutAiContent() {
             07 / Technology Stack
           </h2>
           <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+            <li><strong>Applied AI &amp; LLMs:</strong> OpenAI GPT-4o, GPT-5-Nano, Whisper STT, OpenAI TTS, Assistants API (Vector Stores), RunwayML, Prompt Engineering, Rubric Design</li>
+            <li><strong>Microservices &amp; Backend:</strong> NestJS, TypeScript, Node.js, Express.js, Laravel, PHP, REST APIs, WebSockets, JWT Auth</li>
+            <li><strong>Frontend:</strong> React, Next.js, HTML5, CSS3, Tailwind CSS, Mantine UI, Three.js, React Three Fiber, Framer Motion</li>
             <li><strong>Mobile:</strong> Flutter, Dart, Riverpod, GetX, Android SDK, iOS SDK, SQLite</li>
-            <li><strong>Frontend:</strong> React, Next.js, HTML5, CSS3, Tailwind CSS, Bootstrap, Three.js, React Three Fiber, GSAP, Framer Motion</li>
-            <li><strong>Backend:</strong> Laravel, PHP, Node.js, NestJS, Express.js, REST APIs, WebSockets</li>
-            <li><strong>Database &amp; ORM:</strong> PostgreSQL, MongoDB, MySQL, Redis, Prisma, Sequelize, Mongoose</li>
-            <li><strong>DevOps:</strong> Git, GitHub, Vercel host pipelines, CI/CD</li>
+            <li><strong>Database &amp; ORM:</strong> PostgreSQL, MongoDB, MySQL, Redis, Prisma, TypeORM, Sequelize</li>
+            <li><strong>DevOps &amp; Tools:</strong> Git, GitHub, Webpack, Vercel, CI/CD</li>
           </ul>
         </section>
 

@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: 'JA Shuvro // AI Search Canonical Developer Profile',
   description: 'Machine-readable profile optimized for LLM crawlers (ChatGPT, Gemini, Claude, Perplexity), search bots, and recruiter screeners.',
-  keywords: ['JA Shuvro', 'MD. Jonaed Ali Shuvro', 'Jonaed Ali Shuvro', 'Developer Profile', 'AI Crawler Feed', 'Flutter Specialist', 'Systems Engineer'],
+  keywords: ['JA Shuvro', 'MD. Jonaed Ali Shuvro', 'Jonaed Ali Shuvro', 'Applied AI Engineer', 'AI Engineer', 'Developer Profile', 'AI Crawler Feed', 'LLM Architect', 'Systems Engineer'],
   alternates: {
     canonical: 'https://www.jashuvro.com/about-ai'
   },

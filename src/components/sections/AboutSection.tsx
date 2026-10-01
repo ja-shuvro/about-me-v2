@@ -4,18 +4,18 @@ import { motion, useInView } from 'framer-motion'
 
 const DATA_POINTS = [
   { label: 'IDENTITY', value: 'J.A. Shuvro', confidence: 99 },
-  { label: 'ROLE', value: 'Flutter & Full-Stack Developer', confidence: 98 },
-  { label: 'SPECIALIZATION', value: 'Mobile & Web Architect', confidence: 95 },
+  { label: 'ROLE', value: 'Applied AI Engineer & Full-Stack Developer', confidence: 98 },
+  { label: 'SPECIALIZATION', value: 'Multi-Modal AI, LLMs & Scalable Systems', confidence: 96 },
   { label: 'YEARS_ACTIVE', value: '3.5+ years', confidence: 100 },
-  { label: 'APPROACH', value: 'Clean Code & Scalable Architecture', confidence: 97 },
-  { label: 'PHILOSOPHY', value: 'Elegant logic & Fluid UX', confidence: 96 },
+  { label: 'APPROACH', value: 'Agentic Workflows & Clean Architecture', confidence: 97 },
+  { label: 'PHILOSOPHY', value: 'Production LLMs & Resilient Scalability', confidence: 96 },
 ]
 
 const CONNECTIONS = [
-  'FLUTTER_FLUIDITY ←→ BACKEND_ROBUSTNESS',
-  'CLEAN_CODE ←→ EFFICIENT_OPTIMIZATION',
-  'CLIENT_VISION ←→ TECHNICAL_PRECISION',
-  'SELF_LEARNING ←→ REAL_WORLD_PRODUCTION',
+  'APPLIED_AI ←→ PRODUCTION_SYSTEMS',
+  'LLM_ORCHESTRATION ←→ ROBUST_BACKEND',
+  'VECTOR_RAG ←→ ENTERPRISE_SCALE',
+  'SPEECH_AUDIO_AI ←→ FLUID_USER_EXPERIENCE',
 ]
 
 function ScanLine() {
@@ -235,10 +235,10 @@ export default function AboutSection() {
                 lineHeight: 1.8,
                 marginBottom: '1.5rem',
               }}>
-                I am a dedicated software developer with a track record of delivering robust applications. 
-                From crafting pixel-perfect mobile interfaces with <span style={{ color: '#00ff88' }}>Flutter</span> to 
-                architecting scalable backend systems with Laravel and Node.js, I bridge the gap between 
-                complex requirements and elegant solutions.
+                I am an Applied AI Engineer and Full-Stack Developer with a track record of architecting production systems. 
+                From deploying multi-modal LLM pipelines with <span style={{ color: '#00ff88' }}>OpenAI Whisper, GPT-4o, and TTS</span> to 
+                architecting scalable backend systems with NestJS, Laravel, Node.js, and Flutter, I bridge the gap between 
+                advanced artificial intelligence and real-world enterprise applications.
               </p>
               <p style={{
                 fontFamily: 'var(--font-body)',
@@ -247,9 +247,9 @@ export default function AboutSection() {
                 lineHeight: 1.8,
                 marginBottom: '2rem',
               }}>
-                My work prioritizes clean code, responsive design, and performance optimization. 
-                I focus on writing semantic, efficiently organized code to build fast-loading interfaces that function 
-                beautifully on any device.
+                My work prioritizes structured prompt engineering, agentic workflows, vector search (RAG), and cost-efficient token governance. 
+                Whether creating automated HR mock interview engines, clinical medical viva bots, or high-throughput NestJS AI microservices, 
+                I deliver reliable, performant, and explainable intelligent software.
               </p>
 
               {/* Stats */}
@@ -259,10 +259,10 @@ export default function AboutSection() {
                 gap: '1rem'
               }}>
                 {[
-                  { num: '20+', label: 'Projects Built' },
-                  { num: '10+', label: 'Android Apps' },
-                  { num: '10+', label: 'Web Platforms' },
-                  { num: '3+', label: 'CMS Integrations' },
+                  { num: '24+', label: 'Projects Built' },
+                  { num: '4+', label: 'AI Production Systems' },
+                  { num: '10+', label: 'Web & Microservices' },
+                  { num: '10+', label: 'Mobile Apps' },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}

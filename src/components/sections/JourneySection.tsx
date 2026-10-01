@@ -45,12 +45,12 @@ const MILESTONES = [
   },
   {
     year: '2026',
-    era: 'HARMONY',
-    role: 'Software Engineer & Full-Stack Developer',
-    company: 'Immigrant Times (Part-time) & Freelance',
-    color: '#ffd700',
-    unlock: '+Advanced Next.js +Database Scaling +Real-time Services',
-    description: 'Working as a part-time Software Engineer at Immigrant Times, scaling backend database systems and APIs, while simultaneously designing advanced full-stack interactive applications.',
+    era: 'INTELLIGENCE & HARMONY',
+    role: 'Applied AI Engineer & Full-Stack Architect',
+    company: 'Immigrant Times (Part-time) & Freelance AI Systems',
+    color: '#00f5ff',
+    unlock: '+Multi-Model LLMs +Whisper/TTS Speech AI +Vector RAG +Async AI Pipelines',
+    description: 'Pioneering production Applied AI systems: autonomous mock interview evaluation engines, clinical viva bots, decoupled NestJS AI educational microservices, and vector store retrieval suites, while scaling enterprise data layers.',
     level: 'LVL 5',
   },
 ]

@@ -4,6 +4,12 @@ import { motion, useInView } from 'framer-motion'
 
 const SKILL_NODES = [
   {
+    category: 'APPLIED AI & LLMs',
+    color: '#00f5ff',
+    skills: ['OpenAI GPT-4o / Nano', 'Whisper STT', 'OpenAI TTS', 'Assistants API (Vector RAG)', 'Prompt Engineering', 'Multi-Modal Pipelines'],
+    level: 97,
+  },
+  {
     category: 'MOBILE RUNTIME',
     color: '#7c3aed',
     skills: ['Flutter', 'Android SDK', 'Riverpod', 'GetX', 'State Management'],
@@ -18,25 +24,25 @@ const SKILL_NODES = [
   {
     category: 'BACKEND ENGINE',
     color: '#ff6b35',
-    skills: ['Laravel', 'Express.js', 'NestJS', 'REST API', 'PHP'],
+    skills: ['NestJS', 'Laravel', 'Express.js', 'Node.js', 'PHP', 'REST APIs'],
     level: 94,
   },
   {
-    category: 'DATA LAYER',
+    category: 'DATA & STORAGE',
     color: '#00ff88',
-    skills: ['MongoDB', 'MySQL', 'Prisma', 'Sequelize', 'Mongoose'],
-    level: 90,
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Prisma', 'TypeORM'],
+    level: 92,
   },
   {
-    category: 'CMS & INTEGRATION',
+    category: 'AI WORDPRESS ECOSYSTEM',
     color: '#ffd700',
-    skills: ['WordPress', 'Plugin Customization', 'Bespoke Themes', 'APIs'],
-    level: 88,
+    skills: ['Custom AI Plugins', 'WebRTC Integrations', 'Custom Post Types', 'REST Endpoints'],
+    level: 93,
   },
   {
-    category: 'DEV TOOLS',
+    category: 'DEV TOOLS & CLOUD',
     color: '#ff3366',
-    skills: ['Git', 'GitHub', 'CI/CD (basic)', 'Vercel'],
+    skills: ['Git', 'GitHub', 'Docker (basics)', 'Vercel', 'Webpack'],
     level: 91,
   },
 ]

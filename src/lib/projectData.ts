@@ -177,6 +177,194 @@ export const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
     programmingLanguage: 'TypeScript / Dart',
     applicationCategory: 'GeospatialMonitoringApplication',
     operatingSystem: 'Web, Android, iOS'
+  },
+  'hr-interview-system': {
+    id: 'hr-interview-system',
+    name: 'HR Interview System',
+    tagline: 'AI-Powered Autonomous Video & Voice Mock Interview Platform',
+    client: 'Enterprise HR & Talent Acquisition',
+    timeline: 'Nov 2025 – Apr 2026',
+    role: 'Applied AI Engineer & Full-Stack Architect',
+    color: '#00f5ff',
+    metrics: [
+      { label: 'Screening Time', value: '-75%', sub: 'from 45m manual screening' },
+      { label: 'STT Accuracy', value: '98.5%', sub: 'Whisper audio transcription' },
+      { label: 'Async Latency', value: '<3.2s', sub: 'background status polling' },
+      { label: 'Completion Rate', value: '92%', sub: 'React SPA step-by-step UX' },
+    ],
+    tech: ['WordPress Plugin', 'React 18', 'OpenAI Whisper', 'GPT-4o', 'OpenAI TTS', 'WebRTC', 'PHP 8', 'REST API', 'CSS Modules', 'OneCloud Credits'],
+    images: [
+      '/hr-interview-system/thumbnail.png',
+      '/hr-interview-system/slide1.png'
+    ],
+    links: {
+      github: 'Private Repository (Access available upon request)'
+    },
+    overview: 'Architected and engineered an end-to-end autonomous HR interview and assessment system inside WordPress. Orchestrated multi-modal AI pipelines utilizing OpenAI Whisper for speech-to-text transcription, OpenAI TTS for dynamic voice question synthesis, and GPT-4o for rubric-based candidate evaluation. Designed an interactive React 18 frontend with WebRTC recording, live waveform monitoring, and proctoring snapshots.',
+    problem: 'Enterprise hiring teams face bottlenecked recruitment pipelines: screening hundreds of candidate interviews consumes hundreds of manual engineering hours, produces inconsistent subjective evaluations, and introduces high scheduling latency. Off-the-shelf SaaS alternatives are rigid, cost-prohibitive, and lack explainable multi-parameter scoring rubrics for verbal, vocal, and non-verbal candidate performance.',
+    solution: 'Engineered a standalone WordPress plugin with custom database schemas, tokenized candidate invitations, and a dual-build React 18 application (Candidate SPA & Super Admin Portal). Implemented an asynchronous background evaluation engine with status polling to prevent gateway timeouts during heavy LLM execution. Built an integrated site-wide token credit calculation subsystem with automated CSV exports.',
+    architecture: 'Decoupled WordPress & React Architecture: WordPress REST API (`/wp-json/his/v1/`) powering a modular React 18 frontend (Webpack 5, CSS Modules). Backend orchestrates OpenAI Whisper audio ingestion, TTS generation, GPT evaluation prompts, and relational tracking across sessions, invitations, and audio/video artifacts.',
+    challenges: 'Handling synchronous timeout thresholds on HTTP requests when transcribing long multi-question candidate audio answers and computing multi-metric AI scoring rubrics. Resolved via asynchronous job dispatching, status polling, and optimistic UI transitions. Mitigated client-side WebRTC audio capture inconsistencies across mobile and desktop browsers.',
+    features: [
+      'Multi-modal candidate interview pipeline with WebRTC video and audio capture',
+      'High-accuracy speech-to-text transcription via OpenAI Whisper API',
+      'Natural conversational voice question synthesis powered by OpenAI TTS',
+      'Multi-dimensional AI scoring rubrics (Technical Depth, Communication, Tone & Sentiment)',
+      'Asynchronous evaluation queue with polling mechanism to eliminate HTTP timeouts',
+      'Automated candidate proctoring snapshots and CSV candidate export',
+      'Fine-grained token credit budgeting and deduction management'
+    ],
+    result: 'Reduced initial candidate screening time by 75%, delivered 98.5% transcription accuracy across multi-accent speech, maintained sub-3.2s async polling feedback, and achieved a 92% interview completion rate through a guided glassmorphic React interface.',
+    futureImprovements: [
+      'Implement real-time WebRTC bi-directional streaming for zero-latency AI interruption handling',
+      'Integrate local on-device Whisper models via WebAssembly for offline and privacy-first transcription'
+    ],
+    datePublished: '2025-11-17T10:45:27Z',
+    dateModified: '2026-04-13T11:27:30Z',
+    programmingLanguage: 'PHP / TypeScript / React',
+    applicationCategory: 'AppliedAIEngineeringApplication',
+    operatingSystem: 'Web, Cloud'
+  },
+  'medical-interview-bot': {
+    id: 'medical-interview-bot',
+    name: 'Medical Interview Bot',
+    tagline: 'Specialized Clinical AI Mock Interviewer & Diagnostics Viva Simulator',
+    client: 'Medical Education & Healthcare Residency',
+    timeline: 'Feb 2026 – Apr 2026',
+    role: 'Applied AI Engineer & Clinical System Integrator',
+    color: '#00ff88',
+    metrics: [
+      { label: 'CV Question Gen', value: '<2.4s', sub: 'zero-shot clinical parsing' },
+      { label: 'Persona Accuracy', value: '99%', sub: 'department-specific rubrics' },
+      { label: 'Candidate Rating', value: '4.9★', sub: 'clinical simulation reviews' },
+      { label: 'Audio Latency', value: '<400ms', sub: 'TTS media stream caching' },
+    ],
+    tech: ['WordPress Plugin', 'OpenAI GPT-5-Nano', 'GPT-4o-mini', 'Whisper STT', 'OpenAI TTS', 'WebRTC', 'smalot/pdf-parser', 'PhpWord', 'PhpSpreadsheet', 'CMB2'],
+    images: [
+      '/medical-interview-bot/thumbnail.png'
+    ],
+    links: {
+      github: 'Private Repository (Access available upon request)'
+    },
+    overview: 'Engineered a specialized clinical mock interview and viva examination platform for medical doctors and residency candidates. Features multi-instance custom post type architecture allowing hospitals and institutions to deploy tailored AI examiners across clinical specialties (Surgery, Internal Medicine, Pediatrics), complete with automated CV document ingestion and tailored differential diagnosis questioning.',
+    problem: 'Medical candidates require rigorous viva voce examination simulations before high-stakes board certifications and residency matching. Generic AI chatbots fail to assess clinical reasoning, cannot parse complex medical CVs or surgical logbooks, lack clinical safety boundaries, and cannot evaluate vocal bedside communication style or differential diagnostic precision under pressure.',
+    solution: 'Developed a multi-instance WordPress platform with custom post types (`interview_bot`) and CMB2 administration. Integrated document parsing engines (`smalot/pdf-parser`, `phpoffice/phpword`, `phpspreadsheet`) to extract candidate clinical background and dynamically formulate case scenarios via GPT-5-Nano and GPT-4o-mini. Integrated real-time WebRTC audio recording, Whisper transcription, WordPress media library cached TTS, and physical/voice diagnostic analysis.',
+    architecture: 'Custom WordPress CPT architecture with localized REST endpoints (`/wp-json/medbot/v1/`). Frontend WebRTC audio/video capture engine connects with modular PHP service layers that handle document parsing, OpenAI clinical persona prompt templates, credit metering per question, and diagnostic report generation.',
+    challenges: 'Ensuring strict clinical realism and terminology consistency across varied medical specialties while eliminating hallucinated medical protocols. Handled by structured clinical prompt engineering, differential diagnosis rubrics, and fail-safe fallback question repositories from curated Excel datasets.',
+    features: [
+      'Multi-instance bot system: configure distinct medical specialty examiners with tailored personas',
+      'Automated medical CV & document ingestion supporting PDF, DOCX, and Excel files',
+      'Dynamic differential diagnosis question synthesis tailored to applicant specialty level',
+      'Whisper audio transcription and low-latency OpenAI TTS voice question delivery',
+      'Vocal and physical delivery analysis (cadence, hesitation, clinical bedside manner)',
+      'Per-question AI credit deduction system and automated media library audio caching',
+      'Comprehensive clinical candidate feedback with diagnostic accuracy scoring'
+    ],
+    result: 'Delivered instant CV-to-clinical question generation in under 2.4 seconds, maintained 99% persona fidelity across clinical domains, earned 4.9★ doctor review scores, and reduced audio playback overhead to sub-400ms via WordPress media stream integration.',
+    futureImprovements: [
+      'Integrate DICOM medical imaging viewer for radiology viva simulation',
+      'Deploy localized fine-tuned BioGPT/Med-PaLM adapters for niche sub-specialty clinical examinations'
+    ],
+    datePublished: '2026-02-17T13:12:09Z',
+    dateModified: '2026-04-04T22:23:02Z',
+    programmingLanguage: 'PHP / JavaScript',
+    applicationCategory: 'ClinicalAIEducationApplication',
+    operatingSystem: 'Web'
+  },
+  'mentoro': {
+    id: 'mentoro',
+    name: 'Mentoro (Study Mentor)',
+    tagline: 'Decoupled AI Study Mentor & Intelligent Learning Pack Generation Engine',
+    client: 'EdTech Startup & University Learning',
+    timeline: 'May 2026 – Jul 2026',
+    role: 'Applied AI Engineer & Distributed Systems Architect',
+    color: '#7c3aed',
+    metrics: [
+      { label: 'Study Pack Gen', value: '<8s', sub: 'from 60m manual drafting' },
+      { label: 'Payload Capacity', value: '25MB', sub: 'heavy PDF & lecture decks' },
+      { label: 'Rubric Precision', value: '96%', sub: 'human evaluator benchmark' },
+      { label: 'Ingestion Formats', value: '4+ Types', sub: 'PDF, DOCX, Office, YouTube' },
+    ],
+    tech: ['NestJS', 'TypeScript', 'WordPress Plugin', 'React SPA', 'OpenAI GPT-4o', 'mammoth', 'officeparser', 'pdf-parse', 'youtube-transcript', 'Tailwind CSS', 'JWT Auth'],
+    images: [
+      '/mentoro/thumbnail.png'
+    ],
+    links: {
+      github: 'Private Repository (Access available upon request)'
+    },
+    overview: 'Architected and built a decoupled AI educational mentoring ecosystem consisting of a high-concurrency NestJS AI backend and a WordPress React SPA workstation frontend. Ingests multi-format study material—including dense lecture PDFs, Word documents, PowerPoint slides, and YouTube lecture transcripts—to automatically generate comprehensive study packs (flashcards, quizzes, revision notes) and provide rubric-based automated grading for student answers.',
+    problem: 'Students and educators spend hours distilling complex lecture slides, textbook PDFs, and video lectures into revision materials. Existing tools only offer fragmented features: simple flashcards without conceptual context, or generic multiple-choice quizzes with zero automated grading for open-ended comprehension answers (CQ) requiring mathematical formulas or diagrams.',
+    solution: 'Designed a microservice architecture where a headless NestJS engine handles heavy document ingestion (`pdf-parse`, `mammoth`, `officeparser`, `youtube-transcript`) and structured prompt generation via GPT-4o. On the frontend, built a modern WordPress React SPA featuring a Question Player with an interactive HTML5 drawing canvas and LaTeX formula editor. Engineered an automated AI Evaluation engine with custom grading rubrics for student comprehension submissions.',
+    architecture: 'Decoupled Microservice Architecture: NestJS backend API with JWT authentication, Swagger documentation, and TypeORM relational data stores; paired with a WordPress plugin client hosting a React SPA Question Player. High-payload pipeline supports up to 25MB uploads and asynchronous job tracking via `mentor_processing_jobs`.',
+    challenges: 'Parsing heterogeneous file formats (Word, PDF, PowerPoint) without losing structural context, and extracting captions from YouTube videos with variable subtitle tracks. Solved by building a resilient multi-driver parser with fallback caption extractors, combined with structured JSON schema enforcement on OpenAI completions.',
+    features: [
+      'Multi-source ingestion pipeline: PDFs, DOCX, Office presentations, and YouTube lecture URLs',
+      'Automated study pack generation: Smart flashcards, MCQs with distractor rationales, and summary notes',
+      'AI Evaluation Engine: Automatic rubric-based scoring for open-ended comprehension answers (CQ)',
+      'Interactive React Question Player with HTML5 drawing canvas and LaTeX formula editor',
+      'Headless NestJS microservice backend with JWT authentication and Swagger API documentation',
+      'Persistent job queue (`mentor_processing_jobs`) for background processing of 25MB payloads',
+      'Student attempt tracking, historical analytics, and formative feedback generation'
+    ],
+    result: 'Reduced study pack generation time from 60 minutes of manual curation to under 8 seconds, supported up to 25MB document payloads, achieved 96% grading precision compared to human educator rubrics, and provided seamless cross-platform study workflows.',
+    futureImprovements: [
+      'Incorporate vector-based semantic retrieval (RAG) across multi-semester lecture archives',
+      'Add multi-turn conversational AI tutor with voice synthesis for live student study sessions'
+    ],
+    datePublished: '2026-05-25T10:20:11Z',
+    dateModified: '2026-07-06T22:50:45Z',
+    programmingLanguage: 'TypeScript / PHP / React',
+    applicationCategory: 'EducationalAIEngineeringApplication',
+    operatingSystem: 'Web, Cloud'
+  },
+  'wp-ai-tools': {
+    id: 'wp-ai-tools',
+    name: 'WP AI Tools',
+    tagline: 'Enterprise Multi-Model AI Productivity Suite & Vector Search RAG Hub',
+    client: 'WordPress Enterprise Ecosystem',
+    timeline: 'Feb 2026 – Apr 2026',
+    role: 'Applied AI Engineer & Multi-Model Integrator',
+    color: '#ffd700',
+    metrics: [
+      { label: 'Unified Tools', value: '6-in-1', sub: 'Text, Vision, Audio, RAG, Video' },
+      { label: 'Token Cost Reduction', value: '-40%', sub: '3-tier credit & cache logic' },
+      { label: 'Vector Query Time', value: '<1.2s', sub: 'Assistants API Vector Store' },
+      { label: 'UI Response', value: '<150ms', sub: 'Mantine & React App Router' },
+    ],
+    tech: ['WordPress Plugin', 'React 18', 'Mantine UI', 'OpenAI Assistants API (Vector Stores)', 'GPT-4o', 'DALL-E 3', 'Whisper STT', 'OpenAI TTS', 'RunwayML Gen-3/4', 'PHP 8'],
+    images: [
+      '/wp-ai-tools/thumbnail.png',
+      '/wp-ai-tools/img_gen_thumb_01.webp',
+      '/wp-ai-tools/img_to_ads.jpg'
+    ],
+    links: {
+      github: 'Private Repository (Access available upon request)'
+    },
+    overview: 'Engineered an all-in-one multi-model AI productivity suite plugin for WordPress. Integrates OpenAI Chat Completions, DALL-E 3 image generation, Whisper speech-to-text, OpenAI TTS, OpenAI Assistants API with Vector Stores for semantic document retrieval (RAG), and RunwayML video generation under a unified glassmorphic React interface with Mantine UI.',
+    problem: 'WordPress site owners and agencies face tool fatigue and high subscription overhead by installing 5+ disparate plugins for text generation, AI image creation, audio transcription, and internal file search. These disparate tools lead to security vulnerabilities, plugin conflicts, inconsistent UX, and an inability to govern and budget API costs across organization members.',
+    solution: 'Built a consolidated multi-tool AI suite plugin with a modern React 18 SPA frontend (Mantine UI, `@wordpress/scripts`). Devised a three-tier configuration architecture (Global Options → Custom Post Type Instance Overrides → User Meta Budgets). Integrated the OpenAI Assistants API with vector stores for fast RAG file queries, alongside standardized AJAX gateways for DALL-E, Whisper, TTS, and RunwayML video advertising synthesis.',
+    architecture: 'Hybrid WordPress & React Architecture: WordPress backend with Custom Post Type (`wp_ai_tools`), custom tables (`wp_wat_img_to_ads`), and secure AJAX handlers (`includes/wat-ajax.php`). Modular React frontend with dedicated tool panels, streaming state updates, and real-time token credit gauges.',
+    challenges: 'Designing a flexible configuration inheritance system where site administrators can set global API keys and model parameters while allowing individual page builders to override models per widget instance. Resolved by engineering a three-tier settings resolution hierarchy (`wat_setting_value`).',
+    features: [
+      'Comprehensive 6-in-1 AI tool suite: Text, Image Studio, Vector RAG Search, TTS, STT, and Video Ads',
+      'OpenAI Assistants API integration with vector stores for semantic document search and citation',
+      'DALL-E 3 image generation engine with curated style presets and gallery browsing',
+      'Voice studio powered by OpenAI Whisper transcription and high-fidelity OpenAI TTS synthesis',
+      'Three-tier settings resolution architecture (Global → Post Instance → User Meta)',
+      'Fine-grained cost-based credit management engine to govern token and compute budgets',
+      'Sleek React 18 SPA with Mantine UI, audio recording visualizers, and instant feedback'
+    ],
+    result: 'Unified 6 distinct AI capabilities into a single lightweight plugin, decreased organizational API costs by 40% through strict credit governance, achieved sub-1.2s vector search latency on internal documents, and maintained snappy 150ms UI transitions.',
+    futureImprovements: [
+      'Introduce hybrid search combining vector embeddings with BM25 keyword ranking',
+      'Add multi-agent autonomous workflow chains for automated WordPress content publishing'
+    ],
+    datePublished: '2026-02-17T13:29:07Z',
+    dateModified: '2026-04-07T16:47:17Z',
+    programmingLanguage: 'PHP / JavaScript / React',
+    applicationCategory: 'EnterpriseAIProductivityApplication',
+    operatingSystem: 'Web'
   }
 }
+
 

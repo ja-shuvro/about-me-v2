@@ -232,9 +232,10 @@ export default function HeroSection() {
             letterSpacing: '0.01em',
           }}
         >
-          I am a Flutter & Full-Stack Developer specializing in building mobile 
-          and web applications using Flutter, Laravel, React, and Next.js, bridging 
-          the gap between complex requirements and elegant solutions.
+          I am an Applied AI Engineer & Full-Stack Developer specializing in 
+          multi-modal LLM systems, intelligent agentic workflows, voice/speech AI 
+          (Whisper/TTS), and scalable architectures across Next.js, NestJS, Flutter, 
+          and WordPress ecosystems.
         </motion.p>
 
         {/* Scroll prompt */}
