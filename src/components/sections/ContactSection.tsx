@@ -343,7 +343,7 @@ export default function ContactSection() {
                       <a href="https://github.com/ja-shuvro" target="_blank" rel="noopener noreferrer" style={{ color: '#00ff88', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[GITHUB]</a>
                       <a href="https://www.linkedin.com/in/ja--shuvro/" target="_blank" rel="noopener noreferrer" style={{ color: '#7c3aed', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[LINKEDIN]</a>
                       <a href="https://wa.me/01728723881" target="_blank" rel="noopener noreferrer" style={{ color: '#ffd700', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[WHATSAPP]</a>
-                      <a href="https://x.com/shuvro_a" target="_blank" rel="noopener noreferrer" style={{ color: '#ff3366', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[TWITTER]</a>
+                      <a href="https://x.com/jashuvro" target="_blank" rel="noopener noreferrer" style={{ color: '#ff3366', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[TWITTER]</a>
                     </div>
                   </div>
                 </div>

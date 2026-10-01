@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JA Shuvro — Applied AI Engineer & Full-Stack Developer',
     description: 'Applied AI systems, multi-modal LLM pipelines, Flutter apps, and high-performance full-stack architectures.',
-    creator: '@shuvro_a',
+    creator: '@jashuvro',
     images: ['/logo-landscape.png'],
   },
 }

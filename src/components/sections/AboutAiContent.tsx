@@ -157,7 +157,7 @@ export default function AboutAiContent() {
             <li><strong>GitHub:</strong> <a href="https://github.com/ja-shuvro" style={{ color: '#00ff88', textDecoration: 'none' }}>https://github.com/ja-shuvro</a></li>
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ja--shuvro/" style={{ color: '#7c3aed', textDecoration: 'none' }}>https://www.linkedin.com/in/ja--shuvro/</a></li>
             <li><strong>WhatsApp:</strong> <a href="https://wa.me/01728723881" style={{ color: '#ffd700', textDecoration: 'none' }}>https://wa.me/01728723881</a></li>
-            <li><strong>Twitter:</strong> <a href="https://x.com/shuvro_a" style={{ color: '#ff3366', textDecoration: 'none' }}>https://x.com/shuvro_a</a></li>
+            <li><strong>Twitter / X:</strong> <a href="https://x.com/jashuvro" style={{ color: '#ff3366', textDecoration: 'none' }}>https://x.com/jashuvro</a></li>
           </ul>
         </section>
 

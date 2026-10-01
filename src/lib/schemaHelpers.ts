@@ -53,7 +53,7 @@ export function getPersonSchema() {
       'https://www.linkedin.com/in/ja--shuvro/',
       'https://www.jashuvro.com',
       'https://gravatar.com/jashuvro',
-      'https://x.com/shuvro_a',
+      'https://x.com/jashuvro',
       'https://www.twine.net/jashuvro'
     ],
     'knowsAbout': [

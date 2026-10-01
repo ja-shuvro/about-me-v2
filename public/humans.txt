@@ -5,7 +5,7 @@ Contact: dev.jsahuvro@gmail.com
 Location: Rajshahi / Dhaka, Bangladesh
 GitHub: https://github.com/ja-shuvro
 LinkedIn: https://www.linkedin.com/in/ja--shuvro/
-Twitter: https://x.com/shuvro_a
+Twitter: https://x.com/jashuvro
 
 /* SITE */
 Last Update: 2026/06/08
