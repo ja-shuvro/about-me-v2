@@ -238,6 +238,94 @@ export default function HeroSection() {
           and WordPress ecosystems.
         </motion.p>
 
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          style={{
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            marginBottom: isMobile ? '2.5rem' : '3.5rem',
+          }}
+        >
+          <a
+            href="https://drive.google.com/file/d/1Hxoe4sRSulo41q2Ei0Bg1y9_Wbva-JFx/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: isMobile ? '0.7rem' : '0.75rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              padding: isMobile ? '0.7rem 1.4rem' : '0.8rem 1.8rem',
+              background: '#00f5ff',
+              color: '#020408',
+              fontWeight: 700,
+              borderRadius: '4px',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              boxShadow: '0 0 20px rgba(0, 245, 255, 0.35)',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 245, 255, 0.7)'
+              e.currentTarget.style.transform = 'translateY(-2px)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 245, 255, 0.35)'
+              e.currentTarget.style.transform = 'translateY(0)'
+            }}
+          >
+            <span>📥</span> DOWNLOAD CV / RESUME
+          </a>
+
+          <a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault()
+              const mainElement = document.querySelector('main.cinematic-main')
+              const target = mainElement?.children[3] as HTMLElement | undefined
+              if ((window as any).lenis && target) {
+                ;(window as any).lenis.scrollTo(target, { duration: 1.2 })
+              } else if (target) {
+                target.scrollIntoView({ behavior: 'smooth' })
+              }
+            }}
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: isMobile ? '0.7rem' : '0.75rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              padding: isMobile ? '0.7rem 1.4rem' : '0.8rem 1.8rem',
+              background: 'rgba(255, 255, 255, 0.04)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              color: '#ffffff',
+              borderRadius: '4px',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'
+              e.currentTarget.style.borderColor = '#ffffff'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)'
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
+            }}
+          >
+            EXPLORE WORK ↓
+          </a>
+        </motion.div>
+
         {/* Scroll prompt */}
         <motion.div
           initial={{ opacity: 0 }}

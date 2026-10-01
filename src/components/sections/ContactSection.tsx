@@ -345,6 +345,38 @@ export default function ContactSection() {
                       <a href="https://wa.me/01728723881" target="_blank" rel="noopener noreferrer" style={{ color: '#ffd700', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[WHATSAPP]</a>
                       <a href="https://x.com/jashuvro" target="_blank" rel="noopener noreferrer" style={{ color: '#ff3366', textDecoration: 'none', transition: 'opacity 0.2s' }} onMouseEnter={e => e.currentTarget.style.opacity = '0.7'} onMouseLeave={e => e.currentTarget.style.opacity = '1'}>[TWITTER]</a>
                     </div>
+                    <div style={{ marginTop: '0.8rem' }}>
+                      <a
+                        href="https://drive.google.com/file/d/1Hxoe4sRSulo41q2Ei0Bg1y9_Wbva-JFx/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          padding: '0.5rem 1rem',
+                          background: 'rgba(0, 245, 255, 0.1)',
+                          border: '1px solid rgba(0, 245, 255, 0.4)',
+                          borderRadius: '4px',
+                          color: '#00f5ff',
+                          textDecoration: 'none',
+                          fontSize: '0.7rem',
+                          letterSpacing: '0.15em',
+                          textTransform: 'uppercase',
+                          transition: 'all 0.3s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'rgba(0, 245, 255, 0.2)'
+                          e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 245, 255, 0.4)'
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'rgba(0, 245, 255, 0.1)'
+                          e.currentTarget.style.boxShadow = 'none'
+                        }}
+                      >
+                        <span>📄</span> DOWNLOAD FULL CV / RESUME (PDF)
+                      </a>
+                    </div>
                   </div>
                 </div>
               </form>

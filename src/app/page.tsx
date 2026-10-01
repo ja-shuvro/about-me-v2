@@ -236,7 +236,8 @@ export default function Home() {
               <a href="https://github.com/ja-shuvro" style={{ color: '#00ff88', marginLeft: '5px' }}>[GitHub]</a> |
               <a href="https://www.linkedin.com/in/ja--shuvro/" style={{ color: '#7c3aed', marginLeft: '5px' }}>[LinkedIn]</a> |
               <a href="https://wa.me/01728723881" style={{ color: '#ffd700', marginLeft: '5px' }}>[WhatsApp]</a> |
-              <a href="https://x.com/jashuvro" style={{ color: '#ff3366', marginLeft: '5px' }}>[Twitter]</a>
+              <a href="https://x.com/jashuvro" style={{ color: '#ff3366', marginLeft: '5px' }}>[Twitter]</a> |
+              <a href="https://drive.google.com/file/d/1Hxoe4sRSulo41q2Ei0Bg1y9_Wbva-JFx/view?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: '#00f5ff', marginLeft: '5px' }}>[Download CV / Resume]</a>
             </p>
           </section>
         </main>

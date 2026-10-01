@@ -158,6 +158,7 @@ export default function AboutAiContent() {
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ja--shuvro/" style={{ color: '#7c3aed', textDecoration: 'none' }}>https://www.linkedin.com/in/ja--shuvro/</a></li>
             <li><strong>WhatsApp:</strong> <a href="https://wa.me/01728723881" style={{ color: '#ffd700', textDecoration: 'none' }}>https://wa.me/01728723881</a></li>
             <li><strong>Twitter / X:</strong> <a href="https://x.com/jashuvro" style={{ color: '#ff3366', textDecoration: 'none' }}>https://x.com/jashuvro</a></li>
+            <li><strong>Resume / CV (PDF):</strong> <a href="https://drive.google.com/file/d/1Hxoe4sRSulo41q2Ei0Bg1y9_Wbva-JFx/view?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: '#00f5ff', textDecoration: 'none' }}>Download Full Resume / CV (Google Drive)</a></li>
           </ul>
         </section>
 

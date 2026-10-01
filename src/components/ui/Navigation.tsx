@@ -175,13 +175,49 @@ export default function Navigation() {
             />
           </button>
         ) : (
-          <div style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.65rem',
-            color: 'rgba(255,255,255,0.3)',
-            letterSpacing: '0.1em',
-          }}>
-            Available for projects
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.65rem',
+              color: 'rgba(255,255,255,0.3)',
+              letterSpacing: '0.1em',
+            }}>
+              Available for projects
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1Hxoe4sRSulo41q2Ei0Bg1y9_Wbva-JFx/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download JA Shuvro CV / Resume"
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.65rem',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                padding: '0.4rem 0.85rem',
+                background: 'rgba(0, 245, 255, 0.08)',
+                border: '1px solid rgba(0, 245, 255, 0.4)',
+                borderRadius: '4px',
+                color: '#00f5ff',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(0, 245, 255, 0.2)'
+                e.currentTarget.style.borderColor = '#00f5ff'
+                e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 245, 255, 0.4)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(0, 245, 255, 0.08)'
+                e.currentTarget.style.borderColor = 'rgba(0, 245, 255, 0.4)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <span>📄</span> CV / RESUME
+            </a>
           </div>
         )}
       </motion.nav>
@@ -280,8 +316,34 @@ export default function Navigation() {
                 )
               })}
 
+              <a
+                href="https://drive.google.com/file/d/1Hxoe4sRSulo41q2Ei0Bg1y9_Wbva-JFx/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  marginTop: '1rem',
+                  padding: '0.85rem 1rem',
+                  background: 'rgba(0, 245, 255, 0.1)',
+                  border: '1px solid rgba(0, 245, 255, 0.4)',
+                  borderRadius: '4px',
+                  color: '#00f5ff',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.75rem',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                }}
+              >
+                <span>📄</span> DOWNLOAD CV / RESUME
+              </a>
+
               <div style={{
-                marginTop: '2rem',
+                marginTop: '1.5rem',
                 borderTop: '1px solid rgba(255, 255, 255, 0.05)',
                 paddingTop: '1.5rem',
                 display: 'flex',
