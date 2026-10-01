@@ -20,7 +20,7 @@ Applied AI Engineer & Full-Stack Developer with 3.5+ years of active systems dev
 - Asynchronous Job Queues, Status Polling & Fine-Grained Token Credit Governance
 - Cross-Platform Mobile Architecture (Flutter, Riverpod, Local SQLite Caching)
 - Event-driven WebSocket gateways, heartbeats, reconnection, WebRTC MediaRecorder
-- Relational database optimization, quarterly partitioning, composite B-tree index design
+- Relational database optimization, PostgreSQL connection pool tuning (@adapter-pg), Redis caching & async queue micro-batching
 - Next.js SSR semantic architectures, Schema JSON-LD indexing
 
 # Technology Stack
@@ -28,7 +28,7 @@ Applied AI Engineer & Full-Stack Developer with 3.5+ years of active systems dev
 - Backend & Microservices: NestJS, TypeScript, Node.js, Express.js, Laravel, PHP, REST APIs, WebSockets
 - Frontend: React, Next.js, HTML5, CSS3, Tailwind CSS, Mantine UI, Three.js, React Three Fiber, Framer Motion
 - Mobile: Flutter, Dart, Riverpod, GetX, SQLite
-- DB/ORM: PostgreSQL, MongoDB, MySQL, Redis, Prisma, TypeORM, Sequelize
+- DB/ORM & Caching: PostgreSQL, Redis (ioredis), MongoDB, MySQL, Prisma ORM (@prisma/adapter-pg), TypeORM, Sequelize
 - DevOps: Git, GitHub, Vercel, Webpack, Docker
 
 # Deployed Projects & Case Studies
@@ -37,7 +37,7 @@ Applied AI Engineer & Full-Stack Developer with 3.5+ years of active systems dev
 - Mentoro (Study Mentor): Applied AI Engineer & Distributed Systems Architect (May 2026 – Jul 2026). Decoupled AI educational mentoring system. High-concurrency NestJS microservice backend with WordPress React SPA Question Player (drawing canvas & formula editor). Ingests PDFs, Word docs, and YouTube lecture transcripts to generate flashcards, quizzes, and automated rubric grading for student answers in under 8s.
 - WP AI Tools Suite: Applied AI Engineer & Multi-Model Integrator (Feb 2026 – Apr 2026). Consolidated 6-in-1 enterprise AI productivity suite in WordPress: OpenAI Assistants API vector store search (RAG), Chat Completions, DALL-E 3 image generation, Whisper STT, TTS, and RunwayML video generation, with a three-tier token budget engine saving 40% in API costs.
 - Flirtmetrics: Mobile Specialist & Flutter Lead. Rebuilt card gesture matchmaking widgets for isolated state listeners (60 FPS). Configured bidirection WebSockets and SQLite cache to drop message delivery latency from 8.2s to <200ms.
-- Enterprise ERP Platform: Supply chain ledger developer. Built Node.js parallel rule state-approvals and Range Partitioning on PostgreSQL transaction ledgers, dropping discrepancies to <0.8% and order pipeline process from 4 days to <30m.
+- Enterprise ERP Platform: Distributed Systems Architect & Full-Stack Lead. Engineered high-throughput Redis distributed caching (ioredis) with in-memory resilient fallback (<5ms latency), asynchronous Redis micro-batch audit queues, parallel rule state-approvals, and PostgreSQL connection pool tuning, dropping discrepancies to <0.8% and order processing from 4 days to <30m.
 - National Environmental GIS Monitoring Platform (NEGMP): System Architect & Proposal Author. Designed a conceptual GIS monitoring platform proposal for a national 250M tree plantation program in Bangladesh. Authored a multi-layer proposal featuring NestJS, PostGIS, Next.js, and Google Earth Engine API.
 
 # Experience

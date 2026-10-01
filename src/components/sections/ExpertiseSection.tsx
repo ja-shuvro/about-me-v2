@@ -24,14 +24,14 @@ const SKILL_NODES = [
   {
     category: 'BACKEND ENGINE',
     color: '#ff6b35',
-    skills: ['NestJS', 'Laravel', 'Express.js', 'Node.js', 'PHP', 'REST APIs'],
-    level: 94,
+    skills: ['NestJS', 'Microservices', 'Node.js', 'Express.js', 'Laravel', 'WebSockets'],
+    level: 95,
   },
   {
-    category: 'DATA & STORAGE',
+    category: 'DATA & DISTRIBUTED CACHE',
     color: '#00ff88',
-    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Prisma', 'TypeORM'],
-    level: 92,
+    skills: ['PostgreSQL', 'Redis (ioredis)', 'Prisma (@adapter-pg)', 'Async Micro-Batch Queues', 'MongoDB', 'MySQL'],
+    level: 93,
   },
   {
     category: 'AI WORDPRESS ECOSYSTEM',

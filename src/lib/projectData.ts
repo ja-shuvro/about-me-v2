@@ -88,18 +88,18 @@ export const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
   erp: {
     id: 'erp',
     name: 'ERP Platform',
-    tagline: 'Enterprise Supply Chain & Ledger Performance Engineering',
+    tagline: 'Enterprise Supply Chain, Redis Caching & Ledger Performance Engineering',
     client: 'Agro-Industrial Corp',
-    timeline: '5 Months (2025)',
+    timeline: '5 Months (2025 - 2026)',
     role: 'Full-Stack Developer & Database Architect',
     color: '#00ff88',
     metrics: [
       { label: 'Stock Error Rate', value: '<0.8%', sub: 'from 24% discrepancies' },
       { label: 'Order Processing', value: '<30m', sub: 'from 4-day delays' },
-      { label: 'Approval Speed', value: 'Instant', sub: 'automated workflows' },
-      { label: 'Sales Velocity', value: '+18%', sub: 'dealer hub metrics' },
+      { label: 'Audit Log Throughput', value: '50/batch', sub: 'async Redis micro-batching' },
+      { label: 'Cache Latency', value: '<5ms', sub: 'Redis + auto fallback' },
     ],
-    tech: ['Next.js', 'React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Vercel'],
+    tech: ['Next.js', 'React', 'NestJS', 'Node.js', 'Redis (ioredis)', 'Prisma ORM', 'PostgreSQL', 'WebSockets', 'Tailwind CSS'],
     images: [
       '/erp/dashboard.png',
       '/erp/login.png',
@@ -111,25 +111,28 @@ export const CASE_STUDIES_DATA: Record<string, CaseStudy> = {
       demo: 'https://erp-client-six.vercel.app/',
       github: 'Private Repository (Access available upon request)'
     },
-    overview: 'Engineered a highly responsive enterprise resource planning system for stock allocation, accounting audits, and auto-dispatched dealer approvals. Cut down inventory sync errors to near-zero and automated orders workflow.',
-    problem: 'An agro-industrial firm managing 100+ dealers relied on manual Excel ledgers and paper signature systems. This resulted in an average 24% stock discrepancy between warehouses and a 4-day latency to process orders. Financial reports took minutes to generate because raw SQL queries scanned millions of unindexed records under heavy lock contention.',
-    solution: 'Built a rule-based state machine in Node.js that routes approval notifications in parallel based on transaction sizes. Implemented compound B-tree indexing in PostgreSQL and partitioned transaction tables by financial quarters. Developed a fast, glassmorphic Next.js dashboard featuring offline service worker synchronization.',
-    architecture: 'Next.js App Router for frontend UI, Node.js microservices for state-routing engine, and partitioned PostgreSQL database layer. Push alerts are broadcasted via real-time WebSocket connections.',
-    challenges: 'Resolving database lock contentions on transaction ledger tables during peak order dispatch periods. Optimizing Next.js client-side memory footprint for dashboards displaying real-time data feeds.',
+    overview: 'Engineered a high-performance enterprise ERP suite for supply chain management, dealer orders, and multi-warehouse accounting. Implemented an asynchronous Redis micro-batch audit queue, pattern-based Redis cache invalidation for RBAC security, connection-pooled PostgreSQL with Prisma PG adapter, and an automated promotional bonus product lifecycle with COGS tracking.',
+    problem: 'An agro-industrial firm managing 100+ dealers relied on manual Excel ledgers and paper signature systems. This resulted in an average 24% stock discrepancy between warehouses and a 4-day latency to process orders. Financial reports took minutes to generate because raw SQL queries scanned millions of unindexed records under heavy lock contention, and audit log write spikes dragged down checkout throughput.',
+    solution: 'Built an asynchronous Redis audit logging queue with micro-batching (50 records or 2s intervals) and a resilient in-memory fallback with a 5000-item backpressure cap. Designed pattern-based Redis caching (`invalidatePrefix`) with automated invalidation on RBAC role/user/warehouse updates. Added promotional bonus product support with promotional COGS tracking across sales orders, deliveries, and invoices, with balanced Journal Voucher (JV) posting for transaction fees.',
+    architecture: 'Decoupled Enterprise Architecture: Next.js App Router frontend communicating with a modular NestJS backend. PostgreSQL database layer optimized via Prisma PG adapter connection pooling. High-throughput mutations stream to an async Redis audit log queue, while WebSocket gateways broadcast real-time inventory updates and approval notifications.',
+    challenges: 'Preventing audit log writes from blocking critical order submission transactions during peak dealer dispatches, and eliminating security vulnerabilities caused by stale permissions cached in Redis. Resolved by building a non-blocking RxJS queue subscriber with batch flushing and hook-based cache eviction on user/role/warehouse mutations.',
     features: [
-      'Parallel rule-based state approval machine',
-      'Quarterly database partitioning on PostgreSQL transaction logs',
-      'Aggregated ledger views and compound B-tree database indexing',
-      'Real-time dealer push notifications (via WebSockets)',
-      'Service worker-driven offline dashboard sync'
+      'Asynchronous Redis audit queue with micro-batching (50 items / 2s) and graceful shutdown draining',
+      'In-memory fallback cache with 5000-item backpressure cap and drop-oldest eviction policy',
+      'Instant Redis cache invalidation on RBAC role, permission, user, and warehouse mutations',
+      'Prisma PG connection pool tuning (@prisma/adapter-pg) for lock-free high-concurrency ledgers',
+      'Promotional bonus product engine: 0-price lifecycle across SO, Delivery, Invoice, and COGS accounting',
+      'Automated balanced Journal Voucher (JV) posting for collection & supplier payment charges',
+      'Parallel rule-based state approval machine with flat & percent discount toggles',
+      'Real-time dealer push notifications and live dashboard alerts via WebSockets'
     ],
-    result: 'Stock discrepancies reduced from 24% to under 0.8%. Order processing cycle dropped from 4 days to under 30 minutes. Sales velocity increased by 18% through the streamlined dealer portal.',
+    result: 'Stock discrepancies reduced from 24% to under 0.8%. Order processing cycle dropped from 4 days to under 30 minutes. Audit logging overhead dropped to near-zero non-blocking writes, and Redis caching brought dashboard response times under 5ms.',
     futureImprovements: [
-      'Implement Redis caching layer for quick access to aggregated financial reports',
-      'Add machine-learning predictive algorithms to automatically forecast dealer stock replenishment cycles'
+      'Implement predictive machine-learning algorithms to forecast dealer replenishment cycles',
+      'Add distributed tracing with OpenTelemetry across NestJS microservice nodes'
     ],
     datePublished: '2025-01-10T00:00:00Z',
-    dateModified: '2025-05-15T00:00:00Z',
+    dateModified: '2026-09-15T14:00:00Z',
     programmingLanguage: 'TypeScript',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web'
